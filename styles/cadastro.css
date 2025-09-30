@@ -1,0 +1,126 @@
+:root {
+    --background: #ebebeb;
+    --cor-primaria: #ffffff;
+    --cor-secundaria: #5630D8;
+    --background-input: #F5F5F5;
+    --shadow-button: #06004F;
+    --shadow-input: rgb(0, 0, 0, 25%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-container {
+    background-image: url(../assets/plano-de-fundo-cadastro.png);
+    height: 100vh;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.banner-container h1 {
+    font-size: 45px;
+    color: var(--cor-primaria);
+    text-align: center;
+    border-top: solid 5px var(--cor-primaria);
+    border-bottom: solid 5px var(--cor-primaria);
+    padding: 20px 0;
+}
+
+.cadastro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-evenly;
+    background-color: var(--background);
+
+}
+
+.cadastro-container h2 {
+    color: var(--cor-secundaria);
+    font-size: 50px;
+    border-bottom: solid 5px var(--cor-secundaria);
+    padding-bottom: 15px;
+}
+
+.cadastro-container img {
+    width: 176px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dupla-input {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    border-radius: 5px;
+    border: solid 2px var(--cor-primaria);
+    padding: 7px 8px;
+    width: 300px;
+    outline: none;
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+}
+
+input::placeholder {
+    color: var(--shadow-input);
+}
+
+input:focus {
+    border: solid 2px var(--cor-secundaria);
+    box-shadow: 0 0 8px 2px var(--shadow-input);
+}
+
+label {
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    margin-bottom: 1;
+}
+
+button {
+    color: var(--cor-primaria);
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+    border: none;
+    font-size: 25px;
+    width: 200px;
+    padding: 8px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px 0 var(--shadow-button);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-7px);
+    /* box-shadow: none; */
+}
+
+button:active {
+    transform: translateY(0);
+    opacity: 0.6;
+}
