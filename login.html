@@ -17,7 +17,9 @@
         </div>
 
         <div class="login-container">
-            <img src="./assets//Logo-nht.png" alt="Logo da Next History Technology">
+            <a href="./index.html">
+                <img src="./assets//Logo-nht.png" alt="Logo da Next History Technology">
+            </a>
             <h2>Entrar</h2>
 
             <div class="inputs-container">
@@ -25,22 +27,54 @@
                 <label>
                     Email
                     <br>
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="Email" id="input_email">
                 </label>
 
                 <label>
                     Senha
                     <br>
-                    <input type="password" placeholder="Senha">
+                    <input type="password" placeholder="Senha" id="input_senha">
                     <p id="paragrafo_recuperar_senha">Esqueceu a senha? <a href="">Clique aqui!</a></p>
                 </label>
 
             </div>
 
-            <button>Acessar conta</button>
+            <button onclick="entrar()">Acessar conta</button>
         </div>
     </main>
 </body>
 
 </html>
-<script></script>
+<script>
+    function entrar() {
+        var email = input_email.value
+        var senha = input_senha.value
+
+        emailClaudio = 'claudio.frizzarini@sptech.school'
+        senhaClaudio = 'Claudio123'
+
+        emailJulia = 'julia.araripe@sptech.school'
+        senhaJulia = 'Julia123'
+
+        if (email == emailJulia && senha == senhaJulia) {
+            window.location.href = 'dashboard.html'
+        } else if (email != emailJulia && senha == senhaJulia) {
+            alert('Email incorreto!')
+        } else if (email == emailJulia && senha != senhaJulia) {
+            alert('Senha incorreta!')
+        } else {
+            if (email == emailClaudio && senha == senhaClaudio) {
+                window.location.href = 'dashboard.html'
+            } else if (email != emailClaudio && senha == senhaClaudio) {
+                alert('Email incorreto!')
+            } else if (email == emailClaudio && senha != senhaClaudio) {
+                alert('Senha incorreta!')
+            } else {
+                alert('Usuário não econtrado!')
+            }
+        }
+    }
+
+
+
+</script>
