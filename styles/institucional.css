@@ -4,3 +4,101 @@
     box-sizing: border-box;
      font-family: "Poppins", sans-serif;
 }
+
+.header img{
+width: 80px;
+}
+
+.header{
+display: flex;
+align-items: center;
+width: 100%;
+background-color: white;
+justify-content: space-between;
+padding: 10px;
+}
+
+.logo_container {
+display: flex;
+align-items: center;
+}
+
+.logo_container h3{
+color: #5630d8;
+}
+
+.links_container {
+display: flex;
+text-align: center;
+gap: 3rem;
+}
+
+.links_container a{
+text-decoration: none;
+font-size: 20px;
+font-weight: bold;
+color: #5a189a;
+}
+
+.header button{
+border: none;
+background-color: #5630d8;
+color: #FFFFFF;
+border-radius: 50px;
+font-size: 16px;
+padding: 8px 5px;
+width: 100px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.botao_container{
+display: flex;
+gap: 1rem;
+margin-right: 10px;
+}
+
+.main{
+background-image: url(../assets/tela\ inicial.png);
+height: 100vh;
+background-size: cover;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-evenly;
+gap: 2rem;
+}
+
+.main h1{
+margin-left: 70px;
+font-size: 60px;
+color: #FFFFFF;
+}
+
+.main button {
+
+    margin-left: 80px;  
+    background-color: #e2e2eb;
+    border: none;
+    border-radius: 5px;
+    padding: 13px 5px;
+    width: 250px;
+    font-size: 20px;
+    color: #a038f2;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+.secao_solucoes {
+background-color: #e2e2eb;
+height: 100vh;
+display: flex;
+}
+
+.secao_solucoes h2{
+display: flex;
+justify-content: center;
+
+
+}
