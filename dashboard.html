@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="navbar-button">
-            <button class="btn-cadastrar">Sair</button>
+           <a href="./login.html"><button class="btn-cadastrar">Sair</button></a>
         </div>
     </div>
     <!-- Container -->
@@ -46,7 +46,7 @@
             </div>
 
             <div class="card-info">
-                <span>PPM Atual média</span>
+                <span>PPM Atual média sensor 1</span>
                 <h1>31</h1>
             </div>
 
@@ -56,7 +56,7 @@
 
             </div>
             <div class="card-info">
-                <span>Total Vazamentos Ultimo 30 dias</span>
+                <span>Total</span>
                 <h1>1</h1>
             </div>
         </div>
@@ -94,10 +94,14 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
             datasets: [{
-                label: '# of Votes',
+                label: '# Sensor 1',
                 data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }, {
+                label: '# Sensor 2',
+                data: [10, 12, 15, 17, 12, 5],
                 borderWidth: 1
             }]
         },
