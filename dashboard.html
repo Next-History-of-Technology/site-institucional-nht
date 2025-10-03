@@ -6,48 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
     <!-- NavBar -->
     <div class="navbar">
         <div class="navbar-img">
-            <a href="#"><img src="./assets/Logo.png" width="110px"></a>
+            <a href="#"><img src="./assets/Logo-nht.png" width="110px"></a>
         </div>
         <div class="navbar-titulo">
-            <h2>Next History Technology</h2>
+            <h2>Dashboard</h2>
         </div>
         <div class="navbar-links">
+            <a href="#graficos">
+                <p>Gráficos</p>
+            </a>
+            <a href="#alertas">
+                <p>Alertas</p>
+            </a>
             <a href="#">
-                <p>Graficos</p>
+                <p>Sensores</p>
             </a>
             <a href="#">
                 <p>Tabelas</p>
             </a>
-            <a href="#">
-                <p>Metricas</p>
-            </a>
-            <a href="#">
-                <p>Alertas</p>
-            </a>
         </div>
         <div class="navbar-button">
-            <button class="btn-login">Login</button>
-            <button class="btn-cadastrar">Cadastrar</button>
+            <button class="btn-cadastrar">Sair</button>
         </div>
     </div>
     <!-- Container -->
     <div class="container">
-        <div class="titulo">
-            <h2>Grafico De vazamento 1</h2>
+        <div class="container-cards">
+            <div class="card-info">
+                <span>Dias sem vazamentos</span>
+                <h1>21 Dias</h1>
+            </div>
+
+            <div class="card-info">
+                <span>PPM Atual média</span>
+                <h1>31</h1>
+            </div>
+
+            <div class="card-info">
+                <span>Total Vazamentos Ultimo 30 dias</span>
+                <h1>1</h1>
+
+            </div>
+            <div class="card-info">
+                <span>Total Vazamentos Ultimo 30 dias</span>
+                <h1>1</h1>
+            </div>
         </div>
-        <div class="card"></div>
+
+        <div id="alertas" class="container-alerta">
+            <div class="alerta">
+                <div class="card-situacao">
+                    <div class="situacao-conteudo">
+                        <i class="fas fa-shield-alt" style="color: white; font-size: 160px;"></i>
+                        <p>Seu Frigorifico está seguro!</p>
+                    </div>
+                </div>
+                
+                <div id="graficos" class="grafico">
+                    <div>
+                        </div>
+                        <canvas class="grafico-teste" id="myChart"></canvas>
+                </div>
+
+            </div>
+        </div>
     </div>
     <!-- footer -->
     <div class="footer">
-            <a href="#"><img src="./assets/Logo.png" width="110px"></a>
-            ©Todos os direitos reservados a Next History Technology
+        <a href="#"><img src="./assets/Logo.png" width="110px"></a>
+        ©Todos os direitos reservados a Next History Technology
     </div>
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</script>

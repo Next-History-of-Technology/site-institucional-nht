@@ -26,13 +26,16 @@
                     <label>
                         Email
                         <br>
-                        <input type="email" placeholder="Email" id="input_email">
+                        <div>
+                            <input type="email" placeholder="Email" id="input_email" oninput="validarEmail()">
+                            <span id="email_span"></span>
+                        </div>
                     </label>
 
                     <label>
                         Nome
                         <br>
-                        <input type="text" placeholder="Nome" id="input_nome">
+                        <input type="text" placeholder="Nome" id="input_nome" oninput="validarNome()">
                     </label>
                 </div>
 
@@ -41,7 +44,7 @@
                     <label>
                         Telefone
                         <br>
-                        <input type="text" placeholder="Telefone" id="input_telefone">
+                        <input type="text" placeholder="Telefone" id="input_telefone" oninput="validarTelefone()">
                     </label>
 
                     <label>
@@ -75,5 +78,52 @@
 
 </html>
 <script>
-    function cadastrar() { }
+    // function cadastrar() {
+    //     var email = input_email.value
+    //     var nome = input_nome.value
+    //     var telefone = input_telefone.value
+    //     var cpf = input_email.value
+    //     var senha = input_email.value
+    //     var repetirSenha = input_email.value
+
+    //     if () {
+
+    //     }
+    // }
+
+    function validarEmail() {
+        var email = input_email.value
+
+        while (email.includes('@') &&
+            email.endsWith('sptech.school') ||
+            email.endsWith('.com') ||
+            email.endsWith('.com.br')) {
+            input_email.style.border = 'solid 2px #28DF99'
+
+            email_span.innerHTML = ''
+
+            return
+        }
+
+        input_email.style.border = 'solid 2px red'
+        email_span.innerHTML = 'Email inválido'
+
+        email_span.style.color = 'red'
+    }
+
+    function validarNome() {
+        var nome = input_nome.value
+
+        while (nome == '') {
+            input_nome.style.border = 'solid 2px red'
+
+            return
+        }
+
+        input_nome.style.border = 'solid 2px #28DF99'
+    }
+
+    function validarTelefone() {
+        var telefone = input_telefone.value
+    }
 </script>

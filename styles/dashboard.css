@@ -18,6 +18,8 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    background-color: #fff;
 }
 
 .navbar-titulo {
@@ -53,32 +55,99 @@ a {
 }
 
 
-
 /* Container */
 
 .container {
-    margin-top: 50px;
+    padding-top: 120px;
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.titulo {
+
+.container-cards {
+    width: 92.5%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 90%;
-    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-around;
+    height: 250px;
+}
+
+.card-info {
+    width: 22.5%;
+    height: 70%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to right top, #5a189a, #5f16a6, #6313b3, #6810c0, #6c0bcd, #7116d5, #771fdc, #7c27e4, #8437e8, #8b45eb, #9352ef, #9a5ef2);
+    color: #fff;
+}
+
+.card-info span {
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 12.5%;
+}
+
+.grafico {
+    border-radius: 12px;
+    width: 62%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
 }
 
 
-.card {
+.alerta {
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    width: 90%;
+    width: 98%;
     height: 500px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.container-alerta {
+    width: 93%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+
+}
+
+.card-situacao {
+    background-color: #5a189a;
+    height: max-content;
+    width: 30%;
+    height: 500px;
+    display: flex;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.situacao-conteudo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 250px;
+}
+
+.situacao-conteudo p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
 
 /* Footer */
 .footer {
