@@ -78,18 +78,23 @@
 
 </html>
 <script>
-    // function cadastrar() {
-    //     var email = input_email.value
-    //     var nome = input_nome.value
-    //     var telefone = input_telefone.value
-    //     var cpf = input_email.value
-    //     var senha = input_email.value
-    //     var repetirSenha = input_email.value
+    function cadastrar() {
+        var email = input_email.value
+        var nome = input_nome.value
+        var telefone = input_telefone.value
+        var cpf = input_cpf.value
+        var senha = input_senha.value
+        var repetirSenha = input_confirmar_senha.value
 
-    //     if () {
-
-    //     }
-    // }
+        if (!email || !nome || !telefone || !cpf || !senha || !repetirSenha) {
+            alert('Preencha os dados corretamente!')
+        } else if (senha !== repetirSenha) {
+            alert('As senhas precisam ser iguais!')
+        } 
+        else {
+            alert('Usuário cadastrado com sucesso!')
+        }
+    }
 
     function validarEmail() {
         var email = input_email.value
