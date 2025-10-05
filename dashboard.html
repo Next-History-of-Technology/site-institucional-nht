@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 
 <body>
@@ -34,50 +32,96 @@
             </a>
         </div>
         <div class="navbar-button">
-           <a href="./login.html"><button class="btn-cadastrar">Sair</button></a>
+            <a href="./login.html"><button class="btn-cadastrar">Sair</button></a>
         </div>
     </div>
     <!-- Container -->
     <div class="container">
+
         <div class="container-cards">
             <div class="card-info">
-                <span>Dias sem vazamentos</span>
+                <span class="metrica-descricao">Dias sem vazamentos</span>
                 <h1>21 Dias</h1>
             </div>
 
             <div class="card-info">
-                <span>PPM Atual média sensor 1</span>
+                <span class="metrica-descricao">PPM Atual média sensor 1</span>
                 <h1>31</h1>
             </div>
 
             <div class="card-info">
-                <span>Total Vazamentos Ultimo 30 dias</span>
+                <span class="metrica-descricao">Total Vazamentos Ultimo 30 dias</span>
                 <h1>1</h1>
 
             </div>
             <div class="card-info">
-                <span>Total</span>
+                <span class="metrica-descricao">Total de vezes PPM maior que 25 (24hrs)</span>
                 <h1>1</h1>
             </div>
         </div>
 
-        <div id="alertas" class="container-alerta">
-            <div class="alerta">
-                <div class="card-situacao">
-                    <div class="situacao-conteudo">
-                        <i class="fas fa-shield-alt" style="color: white; font-size: 160px;"></i>
-                        <p>Seu Frigorifico está seguro!</p>
+
+        <div class="container-ppm">
+            <div id="alertas" class="container-grafico">
+                <div class="alerta">
+                    <div class="card-situacao">
+                        <div class="situacao-conteudo">
+                            <img src="./assets/seguro.png" width="150px">
+                            <p>Seu Frigorifico está seguro!</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div id="graficos" class="grafico">
-                    <div>
+
+                    <div id="graficos" class="grafico">
+                        <div class="titulo">
+                            <p>Leitura dos sensores</p>
                         </div>
                         <canvas class="grafico-teste" id="myChart"></canvas>
+                    </div>
+
                 </div>
 
             </div>
+            <div class="container-metricas">
+
+                <div class="card-metricas card-risco">
+                    <img src="./assets/metrica-risco.png" width="60" alt="Ícone de Risco">
+                    <div class="conteudo-metrica">
+                        <p class="metrica-descricao">Risco de explosão</p>
+                        <p class="metrica-valor">PPM: 300+</p>
+                    </div>
+                </div>
+
+                <div class="card-metricas card-alerta">
+                    <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
+                    <div class="conteudo-metrica">
+                        <p class="metrica-descricao">Irritações graves</p>
+                        <p class="metrica-valor">PPM: 20 - 300</p>
+                    </div>
+                </div>
+
+
+                <div class="card-metricas card-alerta">
+                    <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
+                    <div class="conteudo-metrica">
+                        <p class="metrica-descricao">Irritações Leve</p>
+                        <p class="metrica-valor">PPM: 20 - 100</p>
+                    </div>
+                </div>
+
+                <div class="card-metricas card-seguro">
+                    <img src="./assets/seguro.png" width="60" alt="Ícone de Segurança">
+                    <div class="conteudo-metrica">
+                        <p class="metrica-descricao">Seguro</p>
+                        <p class="metrica-valor">PPM: 0 - 20</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+
+
+
     </div>
     <!-- footer -->
     <div class="footer">

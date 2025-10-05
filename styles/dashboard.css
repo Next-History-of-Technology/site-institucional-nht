@@ -20,6 +20,7 @@ a {
     justify-content: space-between;
     position: fixed;
     background-color: #fff;
+    z-index: 1;
 }
 
 .navbar-titulo {
@@ -47,7 +48,7 @@ a {
 .navbar-button button {
     padding: 12px 24px;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     background: #5a189a;
@@ -58,7 +59,7 @@ a {
 /* Container */
 
 .container {
-    padding-top: 120px;
+    padding-top: 90px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -67,67 +68,98 @@ a {
 
 
 .container-cards {
-    width: 92.5%;
+    width: 97%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 250px;
+    height: 100px;
 }
 
 .card-info {
     width: 22.5%;
     height: 70%;
-    border-radius: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: linear-gradient(to right top, #5a189a, #5f16a6, #6313b3, #6810c0, #6c0bcd, #7116d5, #771fdc, #7c27e4, #8437e8, #8b45eb, #9352ef, #9a5ef2);
     color: #fff;
+    background-color: #5a189a;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave*/
+    cursor: pointer; /*tranforma o ponteiro do mouse para clique*/
 }
 
-.card-info span {
-    padding: 10px;
-    font-weight: bold;
-    margin-bottom: 12.5%;
+
+.card-info:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais forte ao passar o mouse */
 }
+
+
+.card-info span {
+    display: flex;
+    padding: 5px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-info h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container-ppm {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    justify-content: space-evenly;
+
+}
+
+.container-grafico {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+
+}
+
 
 .grafico {
     border-radius: 12px;
-    width: 62%;
-    height: 400px;
+    padding-left: 50px;
+    width: 70%;
+    height: 350px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 3%;
+    flex-direction: column;
 }
 
+.grafico .titulo {
+    display: flex;
+    font-weight: bolder;
+    font-size: 20px;
+}
 
 .alerta {
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    width: 98%;
-    height: 500px;
-    margin-top: 50px;
+    border-radius: 5px;
+    width: 100%;
+    height: 460px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.container-alerta {
-    width: 93%;
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-
-}
-
 .card-situacao {
     background-color: #5a189a;
     height: max-content;
-    width: 30%;
-    height: 500px;
+    width: 25%;
+    height: 460px;
     display: flex;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     color: white;
     flex-direction: column;
     justify-content: center;
@@ -144,10 +176,68 @@ a {
 .situacao-conteudo p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
+}
+
+.container-metricas {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+.card-metricas {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px; 
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    cursor: pointer;
+}
+
+.card-metricas:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais forte ao passar o mouse */
+}
+
+.card-metricas img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.conteudo-metrica {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.metrica-descricao {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9; /* Deixa a descrição um pouco mais*/
+}
+
+.metrica-valor {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 
+
+.card-risco {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
+}
+
+.card-alerta {
+    background: linear-gradient(45deg, #f57c00, #ff9800);
+}
+
+.card-seguro {
+    background: linear-gradient(45deg, #4e29a7, #5a189a);
+}
 
 /* Footer */
 .footer {
