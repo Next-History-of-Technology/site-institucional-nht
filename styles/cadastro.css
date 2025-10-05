@@ -26,8 +26,9 @@
     height: 100vh;
     padding: 1.2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-evenly; */
     width: 50%;
 }
 
@@ -38,6 +39,27 @@
     border-top: solid 5px var(--cor-primaria);
     border-bottom: solid 5px var(--cor-primaria);
     padding: 20px 0;
+    margin: auto 0;
+}
+
+.banner-container a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+    font-size: 20px;
+    margin: 20px 400px 0 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all ease-in-out 0.3s;
+}
+
+.banner-container a:hover {
+    color: var(--shadow-button);
+}
+
+.banner-container a:active {
+    opacity: 0.6;
 }
 
 .cadastro-container {
@@ -64,6 +86,22 @@
     position: fixed;
     top: 0;
     right: 0;
+}
+
+.cadastro-container p {
+    font-size: 18px;
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
+
+.cadastro-container a {
+    color: rgb(86, 48, 216, 0.6);
+    transition: all ease-in-out 0.3s;
+}
+
+.cadastro-container a:hover {
+    text-decoration: none;
+    color: rgb(6, 0, 79, 0.8);
 }
 
 .inputs-container {
@@ -121,10 +159,9 @@ button {
 }
 
 button:hover {
-    transform: translateY(-7px);
+    background-color: rgb(6, 0, 79, 0.8);
 }
 
 button:active {
-    transform: translateY(0);
-    opacity: 0.6;
+    opacity: 0.8;
 }
