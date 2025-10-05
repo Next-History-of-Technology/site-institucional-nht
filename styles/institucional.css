@@ -165,3 +165,37 @@ font-size: 40px;
 font-size: 20px;
 }
 
+.pra_que_serve{
+background-color: #5a189a;
+height: 100vh;
+display: flex;
+}
+
+.pra_que_serve img{
+height: 550px;
+width: 650px;
+display: flex;
+margin-top: 90px;
+margin-left: 60px;
+border-radius: 10px;
+}
+
+.informacoes_praQueServe{
+background-color: #FFFFFF;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 550px;
+width: 650px;
+margin-top: 90px;
+border-radius: 10px;
+margin-left: 100px;
+}
+
+.informacoes_praQueServe h2{
+color: #a038f2;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
