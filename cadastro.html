@@ -32,6 +32,7 @@
                     <label>
                         Email
                         <br>
+
                         <div>
                             <input type="email" placeholder="Email" id="input_email" oninput="validarEmail()">
                             <span id="email_span"></span>
@@ -41,7 +42,11 @@
                     <label>
                         Nome
                         <br>
-                        <input type="text" placeholder="Nome" id="input_nome" oninput="validarNome()">
+
+                        <div>
+                            <input type="text" placeholder="Nome" id="input_nome" oninput="validarNome()">
+                            <span id="nome_span"></span>
+                        </div>
                     </label>
                 </div>
 
@@ -50,13 +55,22 @@
                     <label>
                         Telefone
                         <br>
-                        <input type="text" placeholder="Telefone" id="input_telefone" oninput="validarTelefone()">
+
+                        <div>
+                            <input type="text" placeholder="Telefone" id="input_telefone" oninput="validarTelefone()"
+                                maxlength="15">
+                            <span id="telefone_span"></span>
+                        </div>
                     </label>
 
                     <label>
                         CPF
                         <br>
-                        <input type="text" placeholder="CPF" id="input_cpf">
+
+                        <div>
+                            <input type="text" placeholder="CPF" id="input_cpf" maxlength="14" oninput="validarCpf()">
+                            <span id="cpf_span"></span>
+                        </div>
                     </label>
                 </div>
 
@@ -65,13 +79,22 @@
                     <label>
                         Senha
                         <br>
-                        <input type="password" placeholder="Senha" id="input_senha">
+
+                        <div>
+                            <input type="password" placeholder="Senha" id="input_senha" oninput="validarSenha()">
+                            <span id="senha_span"></span>
+                        </div>
                     </label>
 
                     <label>
                         Confirmar senha
                         <br>
-                        <input type="password" placeholder="Confirme a senha" id="input_confirmar_senha">
+
+                        <div>
+                            <input type="password" placeholder="Confirme a senha" id="input_confirmar_senha"
+                                oninput="validarSenhaRepetida()">
+                            <span id="confirmar_senha_span"></span>
+                        </div>
                     </label>
                 </div>
 
@@ -121,7 +144,6 @@
         input_email.style.border = 'solid 2px red'
         email_span.innerHTML = 'Formato de email inválido'
 
-        email_span.style.color = 'red'
     }
 
     function validarNome() {
@@ -129,14 +151,83 @@
 
         while (nome == '') {
             input_nome.style.border = 'solid 2px red'
+            nome_span.innerHTML = 'Insira um nome válido'
 
             return
         }
 
         input_nome.style.border = 'solid 2px #28DF99'
+        nome_span.innerHTML = ''
+        nome.replaceAll('a', '@')
     }
 
     function validarTelefone() {
         var telefone = input_telefone.value
+
+        if (telefone.length == 2) {
+            input_telefone.value = '(' + telefone + ') '
+        } else if (telefone.length == 10) {
+            input_telefone.value += '-'
+        }
+
+        while (telefone.length < 15) {
+            telefone_span.innerHTML = 'Formato de telefone inválido'
+            input_telefone.style.border = 'solid 2px red'
+
+            return
+        }
+
+        telefone_span.innerHTML = ''
+        input_telefone.style.border = 'solid 2px #28DF99'
+
+    }
+
+    function validarCpf() {
+        var cpf = input_cpf.value
+
+        if (cpf.length == 3 || cpf.length == 7) {
+            input_cpf.value += '.'
+        } else if (cpf.length == 11) {
+            input_cpf.value += '-'
+        }
+
+        while (cpf.length < 14) {
+            cpf_span.innerHTML = 'Formato de CPF inválido'
+            input_cpf.style.border = 'solid 2px red'
+
+            return
+        }
+
+        cpf_span.innerHTML = ''
+        input_cpf.style.border = 'solid 2px #28DF99'
+    }
+
+    function validarSenha() {
+        var senha = input_senha.value
+
+        while (senha.length < 8) {
+            senha_span.innerHTML = 'Senha fora do padrão Microsoft'
+            input_senha.style.border = 'solid 2px red'
+
+            return
+        }
+
+        senha_span.innerHTML = ''
+        input_senha.style.border = 'solid 2px #28DF99'
+    }
+
+    function validarSenhaRepetida() {
+        var senha = input_senha.value
+        var senhaRepetida = input_confirmar_senha.value
+
+        while (senhaRepetida != senha) {
+            confirmar_senha_span.innerHTML = 'As senhas precisam ser iguais'
+            input_confirmar_senha.style.border = 'solid 2px red'
+
+            return
+        }
+
+        confirmar_senha_span.innerHTML = ''
+        input_confirmar_senha.style.border = 'solid 2px #28DF99'
     }
 </script>
