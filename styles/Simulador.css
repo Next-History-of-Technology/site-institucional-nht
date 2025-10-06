@@ -1,0 +1,68 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+
+.conteudo{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 12px; /*Arredonda a borda*/ 
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.subtitulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.inp_fat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rebeccapurple;
+    
+
+}
+.inp_escolha{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+    width: 100%;
+}
+
+.campos_paralisacao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+.inp_fat input{
+width: 80%;
+}
+
