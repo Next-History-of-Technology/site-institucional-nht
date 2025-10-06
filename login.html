@@ -6,20 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de login NHT</title>
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <main class="container">
         <div class="banner-container">
-            <h1>Bem-vindo de volta!</h1>
+            <a href="./index.html" class="link_voltar">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Voltar
+            </a>
 
-            <h3>É sempre bom te ver novamente</h3>
+            <div class="titulo_container">
+                <h1>Bem-vindo de volta!</h1>
+
+                <h3>É sempre bom te ver novamente</h3>
+            </div>
         </div>
 
         <div class="login-container">
-            <a href="./index.html">
-                <img src="./assets//Logo-nht.png" alt="Logo da Next History Technology">
-            </a>
+            <img src="./assets//Logo-nht.png" alt="Logo da Next History Technology">
+
             <h2>Entrar</h2>
 
             <div class="inputs-container">
@@ -34,12 +41,16 @@
                     Senha
                     <br>
                     <input type="password" placeholder="Senha" id="input_senha">
-                    <p id="paragrafo_recuperar_senha">Esqueceu a senha? <a href="">Clique aqui!</a></p>
+                    <p id="paragrafo_recuperar_senha">Esqueceu a senha?
+                        <a href="" id="link_recuperar_senha">Clique aqui!</a>
+                    </p>
                 </label>
 
             </div>
 
             <button onclick="entrar()">Acessar conta</button>
+
+            <p>Ainda não tem conta? <a href="./cadastro.html">Criar conta</a></p>
         </div>
     </main>
 </body>
@@ -75,7 +86,7 @@
         }
     }
 
-  
+
 
 
 

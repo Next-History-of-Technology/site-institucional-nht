@@ -28,7 +28,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1.7rem;
     width: 50%;
 }
@@ -36,7 +35,6 @@
 .banner-container h1 {
     font-size: 45px;
     color: var(--cor-primaria);
-    text-align: center;
     border-bottom: solid 5px var(--cor-primaria);
     padding: 10px 0;
 }
@@ -44,6 +42,34 @@
 .banner-container h3 {
     color: var(--cor-primaria);
     font-size: 22px;
+}
+
+.banner-container a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+    font-size: 20px;
+    margin: 20px 550px 0 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all ease-in-out 0.3s;
+}
+
+.banner-container a:hover {
+    color: var(--shadow-button);
+}
+
+.banner-container a:active {
+    opacity: 0.6;
+}
+
+.titulo_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    text-align: center;
+    margin: auto 0;
 }
 
 .login-container {
@@ -69,6 +95,22 @@
     position: fixed;
     top: 0;
     right: 0;
+}
+
+.login-container p {
+    font-size: 18px;
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
+
+.login-container a {
+    color: rgb(86, 48, 216, 0.6);
+    transition: all ease-in-out 0.3s;
+}
+
+.login-container a:hover {
+    text-decoration: none;
+    color: rgb(6, 0, 79, 0.8);
 }
 
 .inputs-container {
@@ -103,16 +145,15 @@ label {
 }
 
 #paragrafo_recuperar_senha {
-    /* margin-top: 5px; */
     font-size: 13px;
 }
 
-a {
+#link_recuperar_senha {
     color: #696FC7;
     transition: all 0.3s ease-in-out;
 }
 
-a:hover {
+#link_recuperar_senha:hover {
     opacity: 0.8;
 }
 
@@ -130,10 +171,9 @@ button {
 }
 
 button:hover {
-    transform: translateY(-7px);
+    background-color: rgb(6, 0, 79, 0.8);
 }
 
 button:active {
-    transform: translateY(0);
-    opacity: 0.6;
+    opacity: 0.8;
 }
