@@ -5,61 +5,11 @@
     font-family: "Poppins", sans-serif;
 }
 
-.header img {
-    width: 80px;
-}
 
-.header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: white;
-    justify-content: space-between;
-    padding: 5px 10px;
-    position: fixed;
-    top: 0;
-}
 
-.logo_container {
-    display: flex;
-    align-items: center;
-}
 
-.logo_container h3 {
-    color: #5630d8;
-}
 
-.links_container {
-    display: flex;
-    text-align: center;
-    gap: 3rem;
-}
 
-.links_container a {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: #5a189a;
-}
-
-.header button {
-    border: none;
-    background-color: #5630d8;
-    color: #FFFFFF;
-    border-radius: 50px;
-    font-size: 16px;
-    padding: 10px 5px;
-    width: 100px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 110px;
-}
-
-.botao_container {
-    display: flex;
-    gap: 1rem;
-    margin-right: 10px;
-}
 
 #main {
     background-image: url(../assets/tela\ inicial.png);

@@ -8,54 +8,6 @@ a {
     color: black;
 }
 
-
-/* Navbar */
-
-.navbar {
-    display: flex;
-    width: 100%;
-    height: 80px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    background-color: #fff;
-    z-index: 1;
-}
-
-.navbar-titulo {
-    width: 50%;
-}
-
-.navbar-titulo h2 {
-    color: #5a189a;
-}
-
-.navbar-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 20%;
-}
-
-.navbar-button {
-    width: 15%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-right: 2%;
-}
-
-.navbar-button button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    background: #5a189a;
-    color: #fff;
-}
-
-
 /* Container */
 
 .container {
@@ -65,7 +17,6 @@ a {
     align-items: center;
     flex-direction: column;
 }
-
 
 /* KPI */
 
