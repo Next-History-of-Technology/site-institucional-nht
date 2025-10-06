@@ -24,7 +24,7 @@
             <a href="#alertas">
                 <p>Alertas</p>
             </a>
-            <a href="#">
+            <a href="#sensores">
                 <p>Sensores</p>
             </a>
             <a href="#">
@@ -38,6 +38,7 @@
     <!-- Container -->
     <div class="container">
 
+        <!-- KPI -->
         <div class="container-cards">
             <div class="card-info">
                 <span class="metrica-descricao">Dias sem vazamentos</span>
@@ -60,8 +61,8 @@
             </div>
         </div>
 
-
-        <div class="container-ppm">
+        <!-- Graficos e metricas -->
+        <div id="graficos" class="container-ppm">
             <div id="alertas" class="container-grafico">
                 <div class="alerta">
                     <div class="card-situacao">
@@ -71,7 +72,7 @@
                         </div>
                     </div>
 
-                    <div id="graficos" class="grafico">
+                    <div class="grafico">
                         <div class="titulo">
                             <p>Leitura dos sensores</p>
                         </div>
@@ -95,7 +96,7 @@
                     <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Irritações graves</p>
-                        <p class="metrica-valor">PPM: 20 - 300</p>
+                        <p class="metrica-valor">PPM: 100 - 300</p>
                     </div>
                 </div>
 
@@ -118,6 +119,84 @@
 
             </div>
 
+        </div>
+
+        <!-- Adicionar Sensores -->
+
+        <div id="sensores" class="container-sensores">
+            <div class="container-sensores-atv">
+                <div class="titulo-sensor">
+                    <img src="./assets/sensor.png" width="70">
+                    <p>Sensores Instalados</p>
+                </div>
+                <div class="sensor-tabela">
+                    <div class="sensor-coluna">
+                        <p class="sensor-dado">id</p>
+                        <p class="sensor-dado">Codigo série</p>
+                        <p class="sensor-dado">Local</p>
+                        <p class="sensor-dado">Data Instalação</p>
+                        <p class="sensor-dado">Status</p>
+                    </div>
+
+                    <div class="sensor-linha">
+                        <div class="sensor-dado"><p>1</p></div>
+                        <div class="sensor-dado"><p>A1A2-A3A4</p></div>
+                        <div class="sensor-dado"><p>Sala de maquina</p></div>
+                        <div class="sensor-dado"><p>28/08/2025</p></div>
+                        <div class="sensor-dado"><p>Ativo</p></div>
+                    </div>
+
+                    <div class="sensor-linha">
+                        <div class="sensor-dado"><p>2</p></div>
+                        <div class="sensor-dado"><p>B1B2-B3B4</p></div>
+                        <div class="sensor-dado"><p>Camara Fria 1</p></div>
+                        <div class="sensor-dado"><p>30/08/2025</p></div>
+                        <div class="sensor-dado"><p>Ativo</p></div>
+                    </div>
+
+                    <div class="sensor-linha">
+                        <div class="sensor-dado"><p>3</p></div>
+                        <div class="sensor-dado"><p>C1C2-C3C4</p></div>
+                        <div class="sensor-dado"><p>Tubulação sul</p></div>
+                        <div class="sensor-dado"><p>30/09/2025</p></div>
+                        <div class="sensor-dado"><p>Inativo</p></div>
+                    </div>
+
+                    <div class="sensor-linha sensor-ultimo">
+                        <div class="sensor-dado"><p>4</p></div>
+                        <div class="sensor-dado"><p>D1D2-D3D4</p></div>
+                        <div class="sensor-dado"><p>Tubulação norte</p></div>
+                        <div class="sensor-dado"><p>01/10/2025</p></div>
+                        <div class="sensor-dado"><p>Inativo</p></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-add-sensores">
+                <div class="titulo-sensor">
+                    <img src="./assets/adicionarSensor.png" width="70">
+                    <p>Adicionar Sensor</p>
+                </div>
+                <div class="card-add-sensor">
+
+                    <div class="input-card">
+                        <label for="input_cod_serie">Código série do sensor</label>
+                        <input id="input_cod_serie" type="text" placeholder="Ex: A1A2-A3A4">
+                    </div>
+
+                    <div class="input-card">
+                        <label for="input_local">Local do sensor</label>
+                        <input id="input_local" type="text" placeholder="Ex: Sala de maquina">
+                    </div>
+
+                    <div class="input-card">
+                        <label for="input_date">Data de instalação</label>
+                        <input id="input_date" type="date">
+                    </div>
+
+                </div>
+            </div>
         </div>
 
 
