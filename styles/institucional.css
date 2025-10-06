@@ -15,7 +15,9 @@
     width: 100%;
     background-color: white;
     justify-content: space-between;
-    padding: 10px;
+    padding: 5px 10px;
+    position: fixed;
+    top: 0;
 }
 
 .logo_container {
@@ -59,7 +61,7 @@
     margin-right: 10px;
 }
 
-.main {
+#main {
     background-image: url(../assets/tela\ inicial.png);
     height: 100vh;
     background-size: cover;
@@ -68,15 +70,16 @@
     align-items: flex-start;
     justify-content: space-evenly;
     gap: 2rem;
+    padding-top: 150px;
 }
 
-.main h1 {
+#main h1 {
     margin-left: 70px;
     font-size: 60px;
     color: #FFFFFF;
 }
 
-.main button {
+#main button {
     margin-left: 80px;
     background-color: #e2e2eb;
     border: none;
@@ -128,7 +131,7 @@
     margin-bottom: 10px;
 }
 
-.quem_somos {
+#quem_somos {
     display: flex;
     background-color: #FFFFFF;
     height: 100vh;
@@ -137,7 +140,7 @@
     gap: 1rem;
 }
 
-.quem_somos img {
+#quem_somos img {
     width: 600px;
     height: 600px;
 }
@@ -174,8 +177,8 @@
 }
 
 .pra_que_serve img {
-    height: 550px;
-    width: 650px;
+    height: 500px;
+    width: 600px;
     border-radius: 10px;
 }
 
@@ -185,8 +188,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 550px;
-    width: 650px;
+    height: 500px;
+    width: 600px;
     border-radius: 10px;
 }
 
