@@ -158,3 +158,22 @@
     gap: 1rem;
     font-size: 20px;
 }
+
+/* inicio das nossas missoes */
+.nossas_missoes h2 {
+    display: flex;
+    color: #a038f2; 
+    margin: 30px;
+    font-size: 35px;
+    }
+
+.txt_missoes {
+margin-left: 45px;
+   
+}
+
+.frases_missoes {
+    display: flex;
+    flex-direction: column;
+}
+  
