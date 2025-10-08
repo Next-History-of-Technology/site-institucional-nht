@@ -40,76 +40,44 @@
         </p>
       </div>
       <div class="card-input">
-        <div class="inp_fat">
-            <label for="fat">
-                <span><b>Informe o faturamento diário:</b></span
-                    ><br />
-                        <input
-                        type="text"
-                        id="input_faturamento"
-                        placeholder="ex: 15000"
-                /><br /><br />
-            </label>
-        </div>
+          <div class="container-inputs">
 
-        <div class="inp_escolha">
-          <label for="escolha">
+            <label>
+              <span><b>Informe o faturamento diário:</b></span> <br>
+              <input type="text" id="input_faturamento" placeholder="ex: 15000"> <br> <br>
+            </label>
+          <label>
             <b> Houve paralisação?</b><br />
             <select id="select_paralisacao" onchange="mostrarCampos()">
-              <option value="#">Escolha uma opção</option>
-              <option>Não</option>
-              <option>Sim</option></select
-            ><br /><br />
+              <option value="default">Escolha uma opção</option>
+              <option value="Não">Não</option>
+              <option value="Sim">Sim</option>
+            </select> <br/><br/>
+          </label>
+  
+        <div id="campos_paralisacao" style="display: none;">
+          <label>
+            <span><b> Quantos dias durou a paralisação?</b></span> <br/>
+            <input type="text" id="input_periodo" placeholder="ex: 2"> <br><br>
           </label>
         </div>
-
-        <div id="campos_paralisacao" style="display: none">
-          <label for="paralisação">
-            <span><b> Quantos dias durou a paralisação?</b></span
-            ><br />
+  
+          <label>
+            <span><b>Quantidade de funcionários:</b></span> <br />
+            <input type="text" id="input_funcionarios" placeholder="ex: 50"><br><br>
+          </label>
+  
+          <label>
+            <span><b>Informe o valor da indenização estimada:</b></span> <br>
+            <input type="text" id="input_indenizacao" placeholder="ex: 500000"> <br><br>
+          </label>
+  
+          <label>
+            <span><b>Porcentagem de melhoria do sistema (%):</b></span> <br>
             <input
-              type="text"
-              id="input_periodo"
-              placeholder="ex: 2"
-            /><br /><br />
+              type="text" id="input_melhoria" placeholder="ex: 20"> <br><br>
           </label>
-        </div>
-
-        <div>
-          <label for="func">
-            <span><b>Quantidade de funcionários:</b></span
-            ><br />
-            <input
-              type="text"
-              id="input_funcionarios"
-              placeholder="ex: 50"
-            /><br /><br />
-          </label>
-        </div>
-
-        <div>
-          <label for="indeni">
-            <span><b>Informe o valor da indenização estimada:</b></span
-            ><br />
-            <input
-              type="text"
-              id="input_indenizacao"
-              placeholder="ex: 500000"
-            /><br /><br />
-          </label>
-        </div>
-
-        <div>
-          <label for="porcem">
-            <span><b>Porcentagem de melhoria do sistema (%):</b></span
-            ><br />
-            <input
-              type="text"
-              id="input_melhoria"
-              placeholder="ex: 20"
-            /><br /><br />
-          </label>
-        </div>
+          </div>        
       </div>
 
       <button onclick="calcular()">CALCULAR</button>
@@ -121,10 +89,20 @@
       // função para o sim e e não
       function mostrarCampos() {
         if (select_paralisacao.value == "Sim") {
-          campos_paralisacao.style.display = "block";
-        } else {
+          campos_paralisacao.style.display = 'block';
+        }
+        else if (select_paralisacao.value == "default"){
           campos_paralisacao.style.display = "none";
         }
+        else if(select_paralisacao.value == "Não") {
+          campos_paralisacao.style.display = "none";
+        }
+      }
+
+      function hideCampos(){
+         if (select_paralisacao.value == "NotSelected"){
+          campos_paralisacao.innerHTML = "";
+         }
       }
 
       function calcular() {
@@ -184,7 +162,7 @@
         }
 
         msgHTML +=
-          "<p><b>Multa mínima:</b> R$ " +
+          "<p style='color: red;'><b>Multa mínima:</b> R$ " +
           multaMin.toLocaleString("pt-BR") +
           "<br><b>Multa máxima:</b> R$ " +
           multaMax.toLocaleString("pt-BR") +
