@@ -160,20 +160,23 @@
 }
 
 /* inicio das nossas missoes */
-.nossas_missoes h2 {
-    display: flex;
-    color: #a038f2; 
-    margin: 30px;
-    font-size: 35px;
-    }
 
-.txt_missoes {
-margin-left: 45px;
-   
+.container-missao{
+    display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 500px;
+   justify-content: center;
 }
 
-.frases_missoes {
-    display: flex;
-    flex-direction: column;
+
+.card-missao{
+display: flex;
+width: 47%;
+margin-top: 50px;
 }
-  
+
+.card-missao img{
+    border-radius: 12px;
+
+}
