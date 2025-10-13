@@ -74,4 +74,23 @@ body{
 .inp_fat input{
 width: 80%;
 }
+input{
+    border-radius: 8px;
+    border-color: blueviolet;
+}
+select{
+    border-radius: 8px;
+    border-color: blueviolet;
+
+}
+button{
+    background-color: #5630D8;
+    color: white;
+    border: 1px solid #5630D8;
+    border-radius: 8px;
+}
+button:hover {
+  background-color: white;
+  color: black;
+}
 

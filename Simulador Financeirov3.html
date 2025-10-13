@@ -6,6 +6,7 @@
     <title>Simulador Financeiro - Vazamento de Amônia</title>
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/Simulador.css" />
+    <link rel="stylesheet" href="./cadastro.html">
   </head>
   <body>
     <div class="header">
@@ -80,9 +81,11 @@
           </div>        
       </div>
 
-      <button onclick="calcular()">CALCULAR</button>
-      <hr />
-
+      
+        <button onclick="calcular()">CALCULAR</button>
+      
+      
+      <hr>
       <div id="msg"></div>
     </div>
     <script>
@@ -98,7 +101,7 @@
           campos_paralisacao.style.display = "none";
         }
       }
-
+      
       function hideCampos(){
          if (select_paralisacao.value == "NotSelected"){
           campos_paralisacao.innerHTML = "";
@@ -113,6 +116,7 @@
         var indenizacao = Number(input_indenizacao.value);
         var melhoria = Number(input_melhoria.value);
 
+        // validação dos campos
         if (faturamento <= 0 || isNaN(faturamento)) {
           alert("Informe um faturamento válido");
         } else if (houveParalisacao == "#") {
