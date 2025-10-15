@@ -68,15 +68,12 @@
             <input type="text" id="input_funcionarios" placeholder="ex: 50" /><br /><br />
           </label>
 
-          <label>
-            <span><b>Quantos bois há na câmara fria?</b></span><br />
-            <input type="text" id="input_bois" placeholder="ex: 200" /><br /><br />
-          </label>
         </div>
       </div>
       
-
-      <button onclick="calcular()">CALCULAR</button>
+  
+        <button onclick="calcular()">CALCULAR</button>
+      
 
       <hr />
       <div class="exibicao" id="msg"></div>
@@ -96,7 +93,7 @@
         var dias = Number(input_periodo.value);
         var funcionarios = Number(input_funcionarios.value);
         var houveParalisacao = select_paralisacao.value;
-        var QtdBoi = Number(input_bois.value);
+        
 
         // validação
         if (faturamento <= 0 || isNaN(faturamento)) {
@@ -111,22 +108,16 @@
         } else if (funcionarios <= 0 || isNaN(funcionarios)) {
           alert("Informe uma quantidade válida de funcionários");
           return;
-        } else if (QtdBoi <= 0 || isNaN(QtdBoi)) {
-          alert("Informe uma quantidade de Bois válido");
-          return;
-        }
+        } 
 
         // valores fixos
-        var precoArroba = 300;
-        var pesoBoi = 500;
-        var quantidadeArroba = pesoBoi / 15;
-        var precoProduto = quantidadeArroba * precoArroba;
         var multaMin = 5659.47;
         var multaMax = 49612.34;
         var multaMinimaBase = 443.97;
         var multaReincidencia = 44396.84;
         var multaFuncionario = 104.31;
         var faturamentoMensal = faturamento * 30;
+
         var perda = 0;
         if (houveParalisacao == "Sim") {
           perda = faturamento * dias;
@@ -134,10 +125,9 @@
         
         var perdaFunc = funcionarios * multaFuncionario;
         var impactoReincidencia = ((multaReincidencia / faturamentoMensal) * 100).toFixed(1);
-        var totalMultas = multaFuncionario + multaMinimaBase + multaReincidencia;
-        var perdaOperacional = perdaFunc + precoProduto; 
-        var perdaTotal = perda + precoProduto + totalMultas + perdaFunc;
-        var poupando = multaReincidencia + perdaOperacional;
+        var totalMultas = multaFuncionario + multaMinimaBase + multaReincidencia; 
+        var perdaTotal = perda + totalMultas + perdaFunc;
+        var poupando = multaReincidencia 
 
         // mensagem organizada em nas DIVs
           var msgHTML = `
@@ -161,10 +151,7 @@
                           currency: "BRL"
                           })}</p>`
                       : ""}
-                  <p><b>Mercadoria perdida:</b> ${precoProduto.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL"
-                  })}</p>
+                  
   
                   <p><b>Total Funcionários:</b> ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
                   <p><b>Total de Multas:</b> ${totalMultas.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
@@ -179,7 +166,7 @@
                   <h4>Simulação de Redução de Prejuízo</h4>
                   <p>Com nossa equipe temos uma melhoria de ${impactoReincidencia}% referente a multa Reincidencia .</p>
                   <p>Eliminando ela em: ${multaReincidencia.toLocaleString("pt-BR", {style: "currency",currency: "BRL"})}</p>
-                  <p>Perda operacional reduzida em ${perdaOperacional.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} pois com nosso serviço a tomada de decisão com base nos dados é aprimorada</p> 
+                  <p>Com nosso serviço a tomada de decisão é aprimorada com base nos dados </p> 
                   <h3>Poupando</h3> 
                   <h2 style="color: darkgreen;" >${poupando.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
                   

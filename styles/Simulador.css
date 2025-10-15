@@ -18,7 +18,7 @@ body{
      background-color: whitesmoke;
      border-radius: 12px;
      gap: auto;
-     
+     padding: 12px;
 }
 
 .titulo{
@@ -79,11 +79,12 @@ width: 80%;
 input{
      border-radius: 8px;
      border-color: blueviolet;
+     height: 25px;
 }
 select{
      border-radius: 8px;
      border-color: blueviolet;
-
+     height: 25px;
 }
 button{
      background-color: #5630D8;
@@ -160,7 +161,7 @@ button:hover {
    flex-direction: column;
    box-shadow: 5px 5px 15px #505050;
    width: 100%; /* Ocupa a largura total do 'lado' */
-   max-width: 250px;
+   max-width: 200px;
    border-radius: 12px;
    background-color: white;
    margin: 0;
@@ -175,6 +176,11 @@ button:hover {
 }
 
 .bloco-informativo p {
-    margin: 2px 0;
+    margin: 4px 0;
     font-size: 0.9em;
+}
+
+.conteudo button{
+     height: 35px;
+     width: 135px;
 }
