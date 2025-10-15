@@ -48,18 +48,18 @@
             </div>
 
             <div class="card-info">
-                <span class="metrica-descricao">PPM Atual média sensor 1</span>
-                <h1>31</h1>
+                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 20 (24hrs)</span>
+                <h1>0</h1>
             </div>
 
             <div class="card-info">
-                <span class="metrica-descricao">Total Vazamentos Ultimo 30 dias</span>
+                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 20 (30 dias)</span>
                 <h1>1</h1>
 
             </div>
             <div class="card-info">
-                <span class="metrica-descricao">Total de vezes PPM maior que 25 (24hrs)</span>
-                <h1>1</h1>
+                <span class="metrica-descricao">Total de vezes PPM maior que 200 (24hrs)</span>
+                <h1>0</h1>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
                         <div class="titulo">
                             <p>Leitura dos sensores</p>
                         </div>
-                        <canvas class="grafico-teste" id="myChart"></canvas>
+                        <canvas class="grafico-ppm" id="myChartLine"></canvas>
                     </div>
 
                 </div>
@@ -90,15 +90,15 @@
                     <img src="./assets/metrica-risco.png" width="60" alt="Ícone de Risco">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Risco de explosão</p>
-                        <p class="metrica-valor">PPM: 300+</p>
+                        <p class="metrica-valor">PPM: 100.000+</p>
                     </div>
                 </div>
 
-                <div class="card-metricas card-alerta">
+                <div class="card-metricas card-perigo">
                     <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
                     <div class="conteudo-metrica">
-                        <p class="metrica-descricao">Irritações graves</p>
-                        <p class="metrica-valor">PPM: 100 - 300</p>
+                        <p class="metrica-descricao">Risco a vida</p>
+                        <p class="metrica-valor">PPM: 200 - 300</p>
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@
                     <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Irritações Leve</p>
-                        <p class="metrica-valor">PPM: 20 - 100</p>
+                        <p class="metrica-valor">PPM: 21 - 100</p>
                     </div>
                 </div>
 
@@ -122,6 +122,50 @@
             </div>
 
         </div>
+
+        <!-- grafico de barras -->
+
+
+        <div id="alertas" class="container-grafico-barra">
+
+            <div class="grafico-card-pai">
+                <div class="grafico-card">
+                    <div class="container-kpi-grafico">
+                        <div class="kpi-grafico vazamento">
+                            <div class="kpi-img">
+                                <img src="./assets/sensor.png" width="40">
+                            </div>
+                            <span>TOTAL DE VEZES QUE O PPM ULTRAPASSOU 20 NO MÊS:</span>
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <canvas class="grafico-barra" id="myChartBarra"></canvas>
+                </div>
+            </div>
+            <div class="grafico-card-pai">
+                <div class="grafico-card">
+
+                    <div class="container-kpi-grafico">
+                        <div class="kpi-grafico sensor">
+                            <div class="kpi-img">
+                                <img src="./assets/sensor.png" width="40">
+                            </div>
+                            <span>TOTAL DE SENSORES:</span>
+                            <p>4</p>
+                        </div>
+                    </div>
+                    <canvas class="grafico-pie" id="myChartPie"></canvas>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="container-metricas">
+
+
+
+        </div>
+
 
         <!-- Adicionar Sensores -->
 
@@ -254,18 +298,18 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    const ctx = document.getElementById('myChart');
+    const ctxLine = document.getElementById('myChartLine');
 
-    new Chart(ctx, {
+    new Chart(ctxLine, {
         type: 'line',
         data: {
             labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
             datasets: [{
-                label: '# Sensor 1',
+                label: '# Sala de maquina 1',
                 data: [12, 19, 3, 5, 2, 3],
                 borderWidth: 1
             }, {
-                label: '# Sensor 2',
+                label: '# Camara Fria 1',
                 data: [10, 12, 15, 17, 12, 5],
                 borderWidth: 1
             }]
@@ -279,15 +323,21 @@
         }
     });
 
-    const ctx2 = document.getElementById('myChart2');
 
-    new Chart(ctx2, {
-        type: 'pie',
+    const ctxBarra = document.getElementById('myChartBarra');
+
+    new Chart(ctxBarra, {
+        type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['01/10/2025', '02/10/2025', '03/10/2025', '04/10/2025', '05/10/2025', '06/10/2025', '07/10/2025', '08/10/2025', '09/10/2025', '10/10/2025', '11/10/2025',
+                '12/10/2025', '13/10/2025', '1/10/2025'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: '# Total Sala de maquina 1',
+                data: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                borderWidth: 1
+            }, {
+                label: '# Total Camara Fria 1',
+                data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 borderWidth: 1
             }]
         },
@@ -299,5 +349,22 @@
             }
         }
     });
+
+    const ctxPie = document.getElementById('myChartPie');
+
+    new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['Sala de maquina', 'tubulação sul', 'camara fria'],
+            datasets: [{
+                label: '# Total de sensor no local',
+                data: [2, 1, 1],
+                borderWidth: 1
+            },]
+        },
+
+    });
+
+
 </script>
 </script>

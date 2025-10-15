@@ -80,9 +80,9 @@ a {
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     /* Sombra sutil */
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -103,14 +103,16 @@ a {
     font-size: 20px;
 }
 
+
 .alerta {
-    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    /* box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);  ESTILO DE SOMBRA ANTIGO*/
+    border-radius: 12px;
     width: 100%;
     height: 460px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .card-situacao {
@@ -119,8 +121,8 @@ a {
     width: 25%;
     height: 460px;
     display: flex;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
     color: white;
     flex-direction: column;
     justify-content: center;
@@ -179,9 +181,9 @@ a {
     text-align: left;
 }
 
-.metrica-descricao {
+.card-info span{
     margin: 0;
-    font-size: 16px;
+    font-size: 12px;
     opacity: 0.9;
     /* Deixa a descrição um pouco mais*/
 }
@@ -196,13 +198,101 @@ a {
     background: linear-gradient(45deg, #d32f2f, #f44336);
 }
 
-.card-alerta {
+.card-perigo {
     background: linear-gradient(45deg, #f57c00, #ff9800);
+}
+
+.card-alerta {
+    background: linear-gradient(45deg, #f5b400, #fbff00);
 }
 
 .card-seguro {
     background: linear-gradient(45deg, #4e29a7, #5a189a);
 }
+
+
+
+.container-grafico-barra {
+    width: 98%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 450px;
+}
+
+.grafico-card-pai{
+    border-radius: 12px;
+    padding: 30px;
+    width: 45%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.grafico-card {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grafico-card .titulo {
+    width: 100%;
+}
+
+.container-kpi-grafico{
+    width: 100%;
+}
+.kpi-grafico {
+    height: 70px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    margin-left: -25px;
+    margin-top: -20px;
+
+}
+
+ .vazamento{
+    width: 100%;
+
+}
+.sensor{
+    width: 50%;
+}
+
+.kpi-grafico .kpi-img{
+    background: linear-gradient(45deg, #4e29a7, #5a189a);
+    border-radius: 50px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.kpi-grafico span{
+    margin: 0;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.kpi-grafico p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
 
 /*Container sensores*/
 .container-sensores {
@@ -211,7 +301,7 @@ a {
     flex-direction: row;
     width: 96%;
     height: 410px;
-    margin-top: 20px;
+    margin-top: 100px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     /* Sombra*/
 }
@@ -298,7 +388,7 @@ a {
     font-size: 17px;
     font-weight: bold;
     border: 2px solid white;
-    
+
 }
 
 .sensor-linha {
