@@ -132,46 +132,39 @@
         var email = input_email.value
         var contador = 0
 
-        while (contador < email.length) {
-            if (email[contador] == '@' && (email.endsWith('sptech.school') ||
-                email.endsWith('.com') ||
-                email.endsWith('.com.br'))) {
-                input_email.style.border = 'solid 2px #28DF99'
-                email_span.innerHTML = ''
+        if (email.endsWith('sptech.school') ||
+            email.endsWith('.com') ||
+            email.endsWith('.com.br')) {
 
-                break
-            } else {
-                input_email.style.border = 'solid 2px red'
-                email_span.innerHTML = 'Formato de email inválido'
+            while (contador < email.length) {
+                contador++
+
+                if (email[contador] == '@') {
+                    input_email.style.border = 'solid 2px #28DF99'
+                    email_span.innerHTML = ''
+                }
+
             }
-
-            contador++
+        } else {
+            input_email.style.border = 'solid 2px red'
+            email_span.innerHTML = 'Formato de email inválido'
         }
 
         // while (contador < email.length) {
-        //     if (email.includes('@') && email.endsWith('sptech.school') ||
+        //     if (email[contador] == '@' && (email.endsWith('sptech.school') ||
         //         email.endsWith('.com') ||
-        //         email.endsWith('.com.br')) {
+        //         email.endsWith('.com.br'))) {
         //         input_email.style.border = 'solid 2px #28DF99'
-
         //         email_span.innerHTML = ''
+
+        //         break
         //     } else {
         //         input_email.style.border = 'solid 2px red'
         //         email_span.innerHTML = 'Formato de email inválido'
         //     }
 
-        // while (email.includes('@') &&
-        //     email.endsWith('sptech.school') ||
-        //     email.endsWith('.com') ||
-        //     email.endsWith('.com.br')) {
-        //     input_email.style.border = 'solid 2px #28DF99'
-
-        //     email_span.innerHTML = ''
-
-        //     return
+        //     contador++
         // }
-
-
     }
 
     function validarNome() {
