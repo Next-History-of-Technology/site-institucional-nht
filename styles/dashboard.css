@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins;
 }
 
 a {
@@ -35,7 +37,7 @@ a {
     align-items: center;
     flex-direction: column;
     color: #fff;
-    background-color: #5a189a;
+    background: linear-gradient(150deg, #28155e, #5a47b8);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     /* Sombra */
@@ -80,7 +82,7 @@ a {
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     /* Sombra sutil */
 
 }
@@ -95,6 +97,7 @@ a {
     align-items: flex-start;
     margin-top: 3%;
     flex-direction: column;
+
 }
 
 .grafico .titulo {
@@ -103,24 +106,31 @@ a {
     font-size: 20px;
 }
 
+.leitura {
+    margin-top: -30px;
+    width: 100%;
+}
+
 .alerta {
-    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    /* box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);  ESTILO DE SOMBRA ANTIGO*/
+    border-radius: 12px;
     width: 100%;
     height: 460px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
 }
 
 .card-situacao {
-    background-color: #5a189a;
+    background: linear-gradient(50deg, #28155e, #5a47b8);
     height: max-content;
     width: 25%;
     height: 460px;
     display: flex;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
     color: white;
     flex-direction: column;
     justify-content: center;
@@ -143,8 +153,9 @@ a {
 .container-metricas {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     /* Espaçamento entre os cards */
+
 }
 
 .card-metricas {
@@ -179,11 +190,11 @@ a {
     text-align: left;
 }
 
-.metrica-descricao {
+.card-info span {
     margin: 0;
-    font-size: 16px;
+    font-size: 12px;
     opacity: 0.9;
-    /* Deixa a descrição um pouco mais*/
+    /* Deixa a descrição um pouco mais translucida*/
 }
 
 .metrica-valor {
@@ -196,13 +207,152 @@ a {
     background: linear-gradient(45deg, #d32f2f, #f44336);
 }
 
-.card-alerta {
+.card-perigo {
     background: linear-gradient(45deg, #f57c00, #ff9800);
 }
 
-.card-seguro {
-    background: linear-gradient(45deg, #4e29a7, #5a189a);
+.card-alerta {
+    background: linear-gradient(45deg, #f5b400, #fbff00);
 }
+
+.card-seguro {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+
+}
+
+
+/* grafico barra e sensor */
+
+.container-grafico-barra {
+    width: 98%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.grafico-card-pai {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    width: 45%;
+    min-width: 360px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.grafico-card-pai:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.grafico-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-kpi-grafico {
+    width: 100%;
+    color: rgba(108, 99, 255, 0.1);
+
+}
+
+.kpi-grafico {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+}
+
+.kpi-img {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(91, 47, 212, 0.3);
+}
+
+.kpi-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+
+}
+
+.kpi-info span {
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    /*Espaço entre as letras*/
+}
+
+.kpi-info p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3b1ca3;
+    margin: 0;
+}
+
+.grafico-barra,
+.grafico-pie {
+    width: 100%;
+    max-height: 250px;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #555;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    width: 23%;
+}
+
+/* Estilo geral para inputs e selects */
+.filtro input,
+.filtro select {
+    background-color: #fff;
+    border: 2px solid #3b1ca3;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #3b1ca3;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+.filtro select:hover,
+.filtro input:hover {
+    transform: scale(1.03);
+}
+
+.filtro label {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 3px;
+    text-align: right;
+    width: 100%;
+}
+
 
 /*Container sensores*/
 .container-sensores {
@@ -210,24 +360,24 @@ a {
     justify-content: center;
     flex-direction: row;
     width: 96%;
-    height: 410px;
-    margin-top: 20px;
+    height: 430px;
+    margin-top: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     /* Sombra*/
 }
 
 .container-sensores-atv {
     width: 50%;
-    height: 410px;
-    background-color: #3c096c;
+    height: 430px;
+    background: linear-gradient(60deg, #28155e, #5a47b8);
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
 .container-add-sensores {
     width: 50%;
-    height: 410px;
-    background-color: #5a189a;
+    height: 430px;
+    background: linear-gradient(300deg, #5a47b8, #28155e);
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
 }
@@ -298,7 +448,7 @@ a {
     font-size: 17px;
     font-weight: bold;
     border: 2px solid white;
-    
+
 }
 
 .sensor-linha {
@@ -333,3 +483,4 @@ a {
     align-items: center;
     justify-content: center;
 }
+

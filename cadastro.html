@@ -130,61 +130,98 @@
 
     function validarEmail() {
         var email = input_email.value
+        var contador = 0
 
-        while (email.includes('@') &&
-            email.endsWith('sptech.school') ||
+        if (email.endsWith('sptech.school') ||
             email.endsWith('.com') ||
             email.endsWith('.com.br')) {
-            input_email.style.border = 'solid 2px #28DF99'
 
-            email_span.innerHTML = ''
+            while (contador < email.length) {
+                contador++
 
-            return
+                if (email[contador] == '@') {
+                    input_email.style.border = 'solid 2px #28DF99'
+                    email_span.innerHTML = ''
+                }
+
+            }
+        } else {
+            input_email.style.border = 'solid 2px red'
+            email_span.innerHTML = 'Formato de email inválido'
         }
 
-        input_email.style.border = 'solid 2px red'
-        email_span.innerHTML = 'Formato de email inválido'
+        // while (contador < email.length) {
+        //     if (email[contador] == '@' && (email.endsWith('sptech.school') ||
+        //         email.endsWith('.com') ||
+        //         email.endsWith('.com.br'))) {
+        //         input_email.style.border = 'solid 2px #28DF99'
+        //         email_span.innerHTML = ''
 
+        //         break
+        //     } else {
+        //         input_email.style.border = 'solid 2px red'
+        //         email_span.innerHTML = 'Formato de email inválido'
+        //     }
+
+        //     contador++
+        // }
     }
 
     function validarNome() {
         var nome = input_nome.value
+        var contador = 0
 
-        while (nome == '') {
-            input_nome.style.border = 'solid 2px red'
-            nome_span.innerHTML = 'Insira um nome válido'
+        while (contador < nome.length) {
+            if (nome.length <= 1) {
+                input_nome.style.border = 'solid 2px red'
+                nome_span.innerHTML = 'Insira um nome válido'
+            } else {
+                input_nome.style.border = 'solid 2px #28DF99'
+                nome_span.innerHTML = ''
+            }
 
-            return
+            contador++
         }
-
-        input_nome.style.border = 'solid 2px #28DF99'
-        nome_span.innerHTML = ''
-        nome.replaceAll('a', '@')
     }
 
     function validarTelefone() {
         var telefone = input_telefone.value
+        var contador = 0
+
+        while (contador < 15) {
+            contador++
+            if (telefone.length == 15) {
+                telefone_span.innerHTML = ''
+                input_telefone.style.border = 'solid 2px #28DF99'
+            } else {
+                telefone_span.innerHTML = 'Formato de telefone inválido'
+                input_telefone.style.border = 'solid 2px red'
+            }
+        }
 
         if (telefone.length == 2) {
             input_telefone.value = '(' + telefone + ') '
         } else if (telefone.length == 10) {
             input_telefone.value += '-'
         }
-
-        while (telefone.length < 15) {
-            telefone_span.innerHTML = 'Formato de telefone inválido'
-            input_telefone.style.border = 'solid 2px red'
-
-            return
-        }
-
-        telefone_span.innerHTML = ''
-        input_telefone.style.border = 'solid 2px #28DF99'
-
     }
 
     function validarCpf() {
         var cpf = input_cpf.value
+        var contador = 0
+
+        while (contador < 14) {
+            contador++
+
+            if (cpf.length == 14) {
+                cpf_span.innerHTML = ''
+                input_cpf.style.border = 'solid 2px #28DF99'
+            } else {
+                cpf_span.innerHTML = 'Formato de CPF inválido'
+                input_cpf.style.border = 'solid 2px red'
+            }
+
+        }
 
         if (cpf.length == 3 || cpf.length == 7) {
             input_cpf.value += '.'
@@ -192,43 +229,36 @@
             input_cpf.value += '-'
         }
 
-        while (cpf.length < 14) {
-            cpf_span.innerHTML = 'Formato de CPF inválido'
-            input_cpf.style.border = 'solid 2px red'
-
-            return
-        }
-
-        cpf_span.innerHTML = ''
-        input_cpf.style.border = 'solid 2px #28DF99'
+        console.log(contador)
     }
 
     function validarSenha() {
         var senha = input_senha.value
+        var contador = 0
 
-        while (senha.length < 8) {
-            senha_span.innerHTML = 'Senha fora do padrão Microsoft'
-            input_senha.style.border = 'solid 2px red'
+        while (contador < senha.length) {
+            contador++
 
-            return
+            if (senha.length < 8) {
+                senha_span.innerHTML = 'Senha necessita de, no mínimo, 8 caracteres'
+                input_senha.style.border = 'solid 2px red'
+            } else {
+                senha_span.innerHTML = ''
+                input_senha.style.border = 'solid 2px #28DF99'
+            }
         }
-
-        senha_span.innerHTML = ''
-        input_senha.style.border = 'solid 2px #28DF99'
     }
 
     function validarSenhaRepetida() {
         var senha = input_senha.value
         var senhaRepetida = input_confirmar_senha.value
 
-        while (senhaRepetida != senha) {
+        if (senhaRepetida !== senha || senhaRepetida.length < 8) {
             confirmar_senha_span.innerHTML = 'As senhas precisam ser iguais'
             input_confirmar_senha.style.border = 'solid 2px red'
-
-            return
+        } else {
+            confirmar_senha_span.innerHTML = ''
+            input_confirmar_senha.style.border = 'solid 2px #28DF99'
         }
-
-        confirmar_senha_span.innerHTML = ''
-        input_confirmar_senha.style.border = 'solid 2px #28DF99'
     }
 </script>
