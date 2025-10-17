@@ -305,3 +305,22 @@ margin-left: 40%;
     margin-right: 55%;
     margin-top: 90px;
 }
+
+
+/*Início Footer*/
+
+.footer {
+    background-color: #5a189a;
+}
+
+.footer_logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer_logo_container img {
+    width: 180px;
+}
+
+/*Fim Footer*/
