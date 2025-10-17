@@ -48,18 +48,18 @@
             </div>
 
             <div class="card-info">
-                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 20 (24hrs)</span>
+                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 5 (24hrs)</span>
                 <h1>0</h1>
             </div>
 
             <div class="card-info">
-                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 20 (30 dias)</span>
+                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 5 (30 dias)</span>
                 <h1>1</h1>
 
             </div>
             <div class="card-info">
-                <span class="metrica-descricao">Total de vezes PPM maior que 200 (24hrs)</span>
-                <h1>0</h1>
+                <span class="metrica-descricao">Sensor com maior indice de vazamentos</span>
+                <h1>Sensor Evaporador</h1>
             </div>
         </div>
 
@@ -75,8 +75,13 @@
                     </div>
 
                     <div class="grafico">
-                        <div class="titulo">
-                            <p>Leitura dos sensores</p>
+                        <div class="kpi-grafico leitura">
+                            <div class="kpi-img">
+                                <img src="./assets/leitura.png" width="35">
+                            </div>
+                            <div class="kpi-info">
+                                <span>Leitura dos sensores</span>
+                            </div>
                         </div>
                         <canvas class="grafico-ppm" id="myChartLine"></canvas>
                     </div>
@@ -98,7 +103,7 @@
                     <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Risco a vida</p>
-                        <p class="metrica-valor">PPM: 200 - 300</p>
+                        <p class="metrica-valor">PPM: 21 - 50</p>
                     </div>
                 </div>
 
@@ -107,7 +112,7 @@
                     <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Irritações Leve</p>
-                        <p class="metrica-valor">PPM: 21 - 100</p>
+                        <p class="metrica-valor">PPM: 6 - 20</p>
                     </div>
                 </div>
 
@@ -115,7 +120,7 @@
                     <img src="./assets/seguro.png" width="60" alt="Ícone de Segurança">
                     <div class="conteudo-metrica">
                         <p class="metrica-descricao">Seguro</p>
-                        <p class="metrica-valor">PPM: 0 - 20</p>
+                        <p class="metrica-valor">PPM: 0 - 5</p>
                     </div>
                 </div>
 
@@ -133,37 +138,51 @@
                     <div class="container-kpi-grafico">
                         <div class="kpi-grafico vazamento">
                             <div class="kpi-img">
-                                <img src="./assets/sensor.png" width="40">
+                                <img src="./assets/alerta.png" width="35">
                             </div>
-                            <span>TOTAL DE VEZES QUE O PPM ULTRAPASSOU 20 NO MÊS:</span>
-                            <p>3</p>
+                            <div class="kpi-info">
+                                <span>Vezes acima de 5 PPM (mês)</span>
+                                <p>16</p>
+                            </div>
+                            <div class="filtro">
+                                <label for="intervalo">Selecione um intervalo</label>
+                                <input id="intervalo" type="date">
+                            </div>
                         </div>
                     </div>
                     <canvas class="grafico-barra" id="myChartBarra"></canvas>
                 </div>
             </div>
+
             <div class="grafico-card-pai">
                 <div class="grafico-card">
-
                     <div class="container-kpi-grafico">
                         <div class="kpi-grafico sensor">
                             <div class="kpi-img">
-                                <img src="./assets/sensor.png" width="40">
+                                <img src="./assets/sensor.png" width="35">
                             </div>
-                            <span>TOTAL DE SENSORES:</span>
-                            <p>4</p>
+                            <div class="kpi-info">
+                                <span>Total de Sensores</span>
+                                <p>4</p>
+                            </div>
+                            <div class="filtro">
+                                <select id="">
+                                    <option id="sensores" selected value="sensoresTodos">Todos os sensores</option>
+                                    <option value="sensoresAtivo">Sensores ativos</option>
+                                    <option value="sensoresInativo">Sensores inativos</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <canvas class="grafico-pie" id="myChartPie"></canvas>
                 </div>
             </div>
 
-
         </div>
+
+
+
         <div class="container-metricas">
-
-
-
         </div>
 
 
@@ -192,7 +211,7 @@
                             <p>A1A2-A3A4</p>
                         </div>
                         <div class="sensor-dado">
-                            <p>Sala de maquina</p>
+                            <p>Sensor Evaporador</p>
                         </div>
                         <div class="sensor-dado">
                             <p>28/08/2025</p>
@@ -210,7 +229,7 @@
                             <p>B1B2-B3B4</p>
                         </div>
                         <div class="sensor-dado">
-                            <p>Camara Fria 1</p>
+                            <p>Sensor Condensador</p>
                         </div>
                         <div class="sensor-dado">
                             <p>30/08/2025</p>
@@ -228,7 +247,7 @@
                             <p>C1C2-C3C4</p>
                         </div>
                         <div class="sensor-dado">
-                            <p>Tubulação sul</p>
+                            <p>Sensor Câmara Fria</p>
                         </div>
                         <div class="sensor-dado">
                             <p>30/09/2025</p>
@@ -246,7 +265,7 @@
                             <p>D1D2-D3D4</p>
                         </div>
                         <div class="sensor-dado">
-                            <p>Tubulação norte</p>
+                            <p>Sensor Compressor</p>
                         </div>
                         <div class="sensor-dado">
                             <p>01/10/2025</p>
@@ -298,72 +317,225 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // === Gráfico de Linha ===
     const ctxLine = document.getElementById('myChartLine');
 
     new Chart(ctxLine, {
         type: 'line',
         data: {
             labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
-            datasets: [{
-                label: '# Sala de maquina 1',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }, {
-                label: '# Camara Fria 1',
-                data: [10, 12, 15, 17, 12, 5],
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: 'Sensor Câmara Fria',
+                    data: [0, 0, 1, 5, 6, 3],
+                    borderColor: '#6C63FF',
+                    backgroundColor: 'rgba(108, 99, 255, 0.1)',
+                    tension: 0.4,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#6C63FF',
+                    borderWidth: 2
+                },
+                {
+                    label: 'Sensor Evaporador',
+                    data: [0, 2, 5, 7, 2, 5],
+                    borderColor: '#5DA3FA', // cor da linha 
+                    tension: 0.4, // suaviza as linhas entre os pontos deixando a linha com um leve curva, (lembra um pouco o border radius) 
+                    pointBackgroundColor: '#5DA3FA', // cor da bolinha do grafico
+                    pointBorderColor: '#fff', // borda da bolinha 
+                    pointHoverBackgroundColor: '#fff', // cor ao passar o mouse na bolinha
+                    pointHoverBorderColor: '#5DA3FA', // cor ao passar o mouse na bolinha
+                    borderWidth: 2 // tamanho da linha
+                },
+                {
+                    label: 'Sensor Condensador',
+                    data: [1, 6, 3, 1, 0, 0],
+                    borderColor: '#0cc2f0',
+                    tension: 0.4,
+                    pointBackgroundColor: '#0cc2f0',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0cc2f0',
+                    borderWidth: 2
+                },
+                {
+                    label: 'Sensor Compressor',
+                    data: [1, 1, 3, 2, 3, 4],
+                    borderColor: '#12be8b',
+                    tension: 0.4,
+                    pointBackgroundColor: '#12be8b',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#12be8b',
+                    borderWidth: 2
+                }
+            ]
         },
         options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom', // deixar as legendas em baixo do gráfico
+                    labels: {
+                        color: '#333',
+                        font: {
+                            size: 13,
+                            family: "'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif",
+                            weight: '600'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#6C63FF',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderWidth: 0,
+                    padding: 10
+                }
+            },
             scales: {
+                x: {
+                    ticks: { color: '#555' },
+                    grid: { color: 'rgba(0, 0, 0, 0.10)' } // linhas do graficos
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true, // para o grafico começar do 0
+                    ticks: { color: '#555' },
+                    grid: { color: 'rgba(0, 0, 0, 0.10)' }
                 }
             }
         }
     });
 
-
+    // Gráfico de Barras 
     const ctxBarra = document.getElementById('myChartBarra');
 
     new Chart(ctxBarra, {
         type: 'bar',
         data: {
-            labels: ['01/10/2025', '02/10/2025', '03/10/2025', '04/10/2025', '05/10/2025', '06/10/2025', '07/10/2025', '08/10/2025', '09/10/2025', '10/10/2025', '11/10/2025',
-                '12/10/2025', '13/10/2025', '1/10/2025'],
-            datasets: [{
-                label: '# Total Sala de maquina 1',
-                data: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                borderWidth: 1
-            }, {
-                label: '# Total Camara Fria 1',
-                data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                borderWidth: 1
-            }]
+            labels: [
+                '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
+                '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
+            ],
+            datasets: [
+                {
+                    label: 'Sensor Compressor',
+                    data: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#6C63FF', 
+                    borderColor: '#6C63FF',
+                    borderWidth: 1,
+                    borderRadius: 6
+                },
+                {
+                    label: 'Sensor Evaporador',
+                    data: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#5DA3FA',
+                    borderColor: '#5DA3FA',
+                    borderWidth: 1,
+                    borderRadius: 6
+                },
+                {
+                    label: 'Sensor Câmara Fria',
+                    data: [5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#0cc2f0',
+                    borderColor: '#0cc2f0',
+                    borderWidth: 1,
+                    borderRadius: 6
+                },
+                {
+                    label: 'Sensor Compressor',
+                    data: [3, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: '#12be8b',
+                    borderColor: '#12be8b',
+                    borderWidth: 1,
+                    borderRadius: 6
+                }
+            ]
         },
         options: {
+            responsive: true,
+
+            /*Estilização das legendas do gráfico*/
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#333',
+                        font: {
+                            size: 13,
+                            weight: 'bold'
+                        }
+                    }
+                },
+
+                /*Estilização da legenda da barra, aquela mensagem que abre ao colocar o mouse em cima da barra*/
+                tooltip: {
+                    backgroundColor: '#6C63FF',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderWidth: 2,
+                    padding: 15
+                }
+            },
+            /*Estilização do eixo x e y*/
             scales: {
+                x: {
+                    ticks: { color: '#555' },
+                    grid: { color: 'rgba(0, 0, 0, 0.03)' }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: { color: '#555' },
+                    grid: { color: 'rgba(0, 0, 0, 0.05)' }
                 }
             }
         }
     });
 
+    //  Grafico de Pizza 
     const ctxPie = document.getElementById('myChartPie');
 
     new Chart(ctxPie, {
         type: 'pie',
         data: {
-            labels: ['Sala de maquina', 'tubulação sul', 'camara fria'],
-            datasets: [{
-                label: '# Total de sensor no local',
-                data: [2, 1, 1],
-                borderWidth: 1
-            },]
+            labels: ['Sala de Máquina', 'Tubulação Sul', 'Câmara Fria'],
+            datasets: [
+                {
+                    label: 'Total de Sensores',
+                    data: [2, 1, 1],
+                    backgroundColor: [
+                        'rgba(108, 99, 255 )',
+                        'rgba(93, 163, 250)',
+                        'rgba(170, 154, 255)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 3
+                }
+            ]
         },
-
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#333',
+                        font: {
+                            size: 13,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#6C63FF',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    padding: 10
+                }
+            }
+        }
     });
+
 
 
 </script>
