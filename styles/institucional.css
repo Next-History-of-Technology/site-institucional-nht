@@ -361,6 +361,7 @@
 .footer_logo_container img {
     width: 180px;
     margin-top: 20px;
+    filter: invert(50%);
 }
 
 
@@ -433,13 +434,27 @@
     gap: 30px;
 }
 
+.rede_social_container {
+    display: flex;
+    align-items: center;
+}
+
 .rede_social_container img {
-    width: 40px;
-    height: 40px;
     margin-left: 10px;
     filter: invert(100%);
 }
 
 
+.logo_facebook {
+    width: 30px;
+}
+
+.logo_instagram {
+    width: 50px;
+}
+
+.logo_linkedin {
+    width: 35px;
+}
 
 /*Fim Footer*/
