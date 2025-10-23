@@ -36,7 +36,6 @@
     cursor: pointer;
 }
 
-
 .secao_solucoes {
     background-color: #e2e2eb;
     height: 100vh;
@@ -316,13 +315,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .footer_logo_container h3 {
     font-size: 30px;
     margin-left: 70px;
-
 }
 
 .footer_container h4 {
@@ -332,9 +329,7 @@
 }
 
 .footer_logo_container img {
-    width: 180px;
-    margin-top: 20px;
-    filter: invert(50%);
+    width: 220px;
 }
 
 
