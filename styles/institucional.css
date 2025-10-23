@@ -5,12 +5,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-
-
-
-
-
-
 #main {
     background-image: url(../assets/tela\ inicial.png);
     height: 100vh;
@@ -164,7 +158,6 @@
 .container-missao {
     display: flex;
     flex-direction: column;
-
 }
 
 .card-missao-um {
@@ -186,7 +179,6 @@
     font-size: 22px;
     margin-bottom: 40px;
     margin: 40px;
-
 }
 
 .txt-missao-container {
@@ -194,7 +186,6 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 10px;
-
 }
 
 .card-missao-um img {
@@ -204,8 +195,6 @@
     width: 550px;
     height: 360px;
     margin-right: 60px;
-
-
 }
 
 /* SEGUNDO CARD  */
@@ -247,76 +236,60 @@
 
 /* FIM DAS NOSSAS MISSÕES  */
 
-
 /* COMEÇO DOS NOSSOS PLANOS  */
 
 .outras_opcoes {
     padding: 50px 0px;
-    background-color: #e2e2eb
-}
-
-.cards_container {
+    background-color: #e2e2eb;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    height: 700px;
-
 }
 
 .fundo-container {
     display: flex;
-
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 390px;
-    height: 560px;
-    padding: 20px;
+    width: 350px;
+    height: 500px;
+    padding: 10px;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 20px;
     border: 5px solid #fff;
-
 }
 
 .fundo-container img {
-    display: flex;
     border-radius: 15px;
-    margin-bottom: 100px;
-
-
+    width: 100%;
+    height: 180px;
 }
 
-.fundo-container p {
-    display: flex;
-    margin-left: 20px;
+.fundo-container h4 {
+    font-size: 25px;
 }
 
-.card-anual {
+.fundo-container div {
     display: flex;
-    font-size: 24px;
-    margin-right: 40%;
-    border-bottom: 100px;
-    justify-content: space-between;
     flex-direction: column;
-
+    gap: 10px;
 }
 
-.card-semestral {
-    display: flex;
-    font-size: 24px;
-    margin-right: 30%;
-    border-top: 100px;
-
-
+.fundo-container a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #a038f2;
 }
 
-.card-metricas {
+.card_metricas {
     display: flex;
-    font-size: 24px;
-    margin-right: 55%;
-    border-top: 100px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card_semestral_textos,
+.card_anual_textos {
+   margin-top: 50px;
 }
 
 /* FIM DOS NOSSOS PLANOS  */
