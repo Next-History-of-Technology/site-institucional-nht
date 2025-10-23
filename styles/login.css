@@ -1,3 +1,4 @@
+/*Criando uma variável de cores que armazenará as cores que serão utlizadas na página de login*/
 :root {
     --background: #ebebeb;
     --cor-primaria: #ffffff;
@@ -7,6 +8,7 @@
     --shadow-input: rgb(0, 0, 0, 25%);
 }
 
+/*O "*" seleciona tudo da página*/
 * {
     margin: 0;
     padding: 0;
@@ -23,8 +25,8 @@
 
 .banner-container {
     background-image: url(../assets/plano-de-fundo-cadastro.png);
-    height: 100vh;
-    padding: 1.2rem;
+    height: 100vh; /*100vh -> Como se dividisse a tela em 100 pedacinhos*/
+    padding: 1.2rem; /*1 rem equivale a 16px. O rem é muito utilizado para facilitar na responsividade*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +36,7 @@
 
 .banner-container h1 {
     font-size: 45px;
-    color: var(--cor-primaria);
+    color: var(--cor-primaria); /*Chamando uma das cores armazenadas na variável de cores*/
     border-bottom: solid 5px var(--cor-primaria);
     padding: 10px 0;
 }
@@ -52,15 +54,19 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 5px;
-    transition: all ease-in-out 0.3s;
+    gap: 5px; /*Espaçamento entre os itens*/
+    transition: all ease-in-out 0.3s; /*Aplicando uma trasição no efeito do link
+    all -> Em todos os efeitos do link
+    ease-in-out -> Atinge sua velocidade máxima no meio e desacelera no final
+    0.3s -> Velocidade que o efeito será executado
+    */
 }
 
-.banner-container a:hover {
+.banner-container a:hover { /*Efeito ao passar o mouse em cima do link*/
     color: var(--shadow-button);
 }
 
-.banner-container a:active {
+.banner-container a:active { /*Efeito quando o link estiver sendo pressionado*/
     opacity: 0.6;
 }
 
@@ -92,15 +98,15 @@
 
 .login-container img {
     width: 176px;
-    position: fixed;
-    top: 0;
-    right: 0;
+    position: fixed; /*A posição da imagem sempre será fixa*/
+    top: 0; /*A imagem ficará no topo*/
+    right: 0; /*A imgem ficará do lado direito da tela*/
 }
 
 .login-container p {
     font-size: 18px;
     color: var(--cor-secundaria);
-    font-weight: bold;
+    font-weight: bold; /*Peso da fonte do texto*/
 }
 
 .login-container a {
@@ -129,13 +135,13 @@ input {
     font-size: 18px;
 }
 
-input::placeholder {
+input::placeholder { /*Alterando a cor do placeholder do input*/
     color: var(--shadow-input);
 }
 
-input:focus {
+input:focus { /*Efeito que será acionando quando o input estiver focado*/
     border: solid 2px var(--cor-secundaria);
-    box-shadow: 0 0 8px 2px var(--shadow-input);
+    box-shadow: 0 0 8px 2px var(--shadow-input); /*Aplica um sombreamento no input*/
 }
 
 label {
@@ -165,7 +171,7 @@ button {
     font-size: 25px;
     width: 200px;
     padding: 8px 10px;
-    cursor: pointer;
+    cursor: pointer; /*Cursor da mãozinha ao passar o mouse no botão*/
     box-shadow: 2px 2px 1px 0 var(--shadow-button);
     transition: all 0.3s ease-in-out;
 }
