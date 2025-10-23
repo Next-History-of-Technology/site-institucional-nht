@@ -57,7 +57,7 @@
 
 </html>
 <script>
-    function entrar() {
+    function entrar() { //Função para entrar na conta dos usuário cadastrados
         var email = input_email.value
         var senha = input_senha.value
 
@@ -67,27 +67,17 @@
         emailJulia = 'julia.araripe@sptech.school'
         senhaJulia = 'Julia123'
 
-        if (email == emailJulia && senha == senhaJulia) {
+        if ((email == emailJulia && senha == senhaJulia) ||
+            (email == emailClaudio && senha == senhaClaudio)) {
             window.location.href = 'dashboard.html'
-        } else if (email != emailJulia && senha == senhaJulia) {
+        } else if ((email != emailJulia && senha == senhaJulia) ||
+            (email != emailClaudio && senha == senhaClaudio)) {
             alert('Email incorreto!')
-        } else if (email == emailJulia && senha != senhaJulia) {
+        } else if ((email == emailJulia && senha != senhaJulia) ||
+            (email == emailClaudio && senha != senhaClaudio)) {
             alert('Senha incorreta!')
         } else {
-            if (email == emailClaudio && senha == senhaClaudio) {
-                window.location.href = 'dashboard.html'
-            } else if (email != emailClaudio && senha == senhaClaudio) {
-                alert('Email incorreto!')
-            } else if (email == emailClaudio && senha != senhaClaudio) {
-                alert('Senha incorreta!')
-            } else {
-                alert('Usuário não econtrado!')
-            }
+            alert('Usuário não econtrado!')
         }
     }
-
-
-
-
-
 </script>
