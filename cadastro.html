@@ -24,13 +24,13 @@
         </div>
 
         <div class="cadastro-container">
-            <img src="./assets//Logo-nht.png" alt="Logo Next History Technology">
+            <img src="./assets/logo-nh3.png" alt="Logo Next History Technology">
             <h2>Cadastre-se</h2>
 
             <div class="inputs-container">
                 <div class="dupla-input">
                     <label>
-                        Email
+                        Email:
                         <br>
 
                         <div>
@@ -40,7 +40,7 @@
                     </label>
 
                     <label>
-                        Nome
+                        Nome:
                         <br>
 
                         <div>
@@ -53,7 +53,7 @@
 
                 <div class="dupla-input">
                     <label>
-                        Telefone
+                        Telefone:
                         <br>
 
                         <div>
@@ -64,7 +64,7 @@
                     </label>
 
                     <label>
-                        CPF
+                        CPF:
                         <br>
 
                         <div>
@@ -77,7 +77,7 @@
 
                 <div class="dupla-input">
                     <label>
-                        Senha
+                        Senha:
                         <br>
 
                         <div>
@@ -87,7 +87,7 @@
                     </label>
 
                     <label>
-                        Confirmar senha
+                        Confirmar senha:
                         <br>
 
                         <div>
@@ -98,6 +98,15 @@
                     </label>
                 </div>
 
+                <label>
+                    Código de ativação:
+                    <br>
+                    <div style="display: flex; flex-direction: column;">
+                        <input type="text" placeholder="Insira o código aqui" id="input_codigo_ativacao"
+                            oninput="validarCodigoAtivacao()">
+                        <span id="codigo_ativacao_span" style="font-size: 13.5px; color: red;"></span>
+                    </div>
+                </label>
             </div>
 
             <button onclick="cadastrar()">Cadastrar</button>
@@ -116,8 +125,9 @@
         var cpf = input_cpf.value
         var senha = input_senha.value
         var repetirSenha = input_confirmar_senha.value
+        var codigoAtivacao = input_codigo_ativacao.value
 
-        if (!email || !nome || !telefone || !cpf || !senha || !repetirSenha) {
+        if (!email || !nome || !telefone || !cpf || !senha || !repetirSenha || !codigoAtivacao) {
             alert('Preencha os dados corretamente!')
         } else if (senha !== repetirSenha) {
             alert('As senhas precisam ser iguais!')
@@ -143,7 +153,6 @@
                     input_email.style.border = 'solid 2px #28DF99'
                     email_span.innerHTML = ''
                 }
-
             }
         } else {
             input_email.style.border = 'solid 2px red'
@@ -258,6 +267,18 @@
         } else {
             confirmar_senha_span.innerHTML = ''
             input_confirmar_senha.style.border = 'solid 2px #28DF99'
+        }
+    }
+
+    function validarCodigoAtivacao() {
+        var codigoAtivacao = input_codigo_ativacao.value
+
+        if (codigoAtivacao.length <= 1) {
+            codigo_ativacao_span.innerHTML = 'Insira um código válido'
+            input_codigo_ativacao.style.border = 'solid 2px red'
+        } else {
+            codigo_ativacao_span.innerHTML = ''
+            input_codigo_ativacao.style.border = 'solid 2px #28DF99'
         }
     }
 </script>
