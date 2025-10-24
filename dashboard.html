@@ -1,542 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
-    <link rel="stylesheet" href="styles/header.css">
 </head>
 
 <body>
-    <!-- NavBar -->
-    <div class="header">
-        <div class="logo_container">
-            <img src="./assets/Logo-nht.png" width="110px">
-
-            <h3>Dashboard</h3>
+    <!-- NavBar Lateral -->
+    <div class="navbar">
+        <div class="nav-logo">
+            <img src="./assets/logo-footer.png" width="110px">
+            <h3>Minerva Foods</h3>
         </div>
 
-        <div class="links_container">
-            <a href="#graficos">
-                <p>Gráficos</p>
-            </a>
-            <a href="#alertas">
-                <p>Alertas</p>
-            </a>
-            <a href="#sensores">
-                <p>Sensores</p>
-            </a>
-            <a href="#">
-                <p>Tabelas</p>
-            </a>
+        <div class="nav-links">
+            <a href="">Câmara Fria 1</a>
+            <a href="">Câmara Fria 2</a>
+            <a href="">Câmara Fria 3</a>
         </div>
 
-        <div>
-            <a href="./login.html"><button class="btn-cadastrar">Sair</button></a>
+        <div class="nav-footer">
+            <a href="./login.html">
+                <button class="btn-sair">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </a>
         </div>
     </div>
-    <!-- Container -->
+
+    <!-- Container Principal -->
     <div class="container">
-
-        <!-- KPI -->
-        <div class="container-cards">
-            <div class="card-info">
-                <span class="metrica-descricao">Dias sem vazamentos</span>
-                <h1>21 Dias</h1>
-            </div>
-
-            <div class="card-info">
-                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 5 (24hrs)</span>
-                <h1>0</h1>
-            </div>
-
-            <div class="card-info">
-                <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 5 (30 dias)</span>
-                <h1>1</h1>
-
-            </div>
-            <div class="card-info">
-                <span class="metrica-descricao">Sensor com maior indice de vazamentos</span>
-                <h1>Sensor Evaporador</h1>
-            </div>
-        </div>
-
         <!-- Graficos e metricas -->
-        <div id="graficos" class="container-ppm">
-            <div id="alertas" class="container-grafico">
-                <div class="alerta">
-                    <div class="card-situacao">
-                        <div class="situacao-conteudo">
-                            <img src="./assets/seguro.png" width="150px">
-                            <p>Seu Frigorifico está seguro!</p>
+            <div class="container-conteudo">
+                <div class="container-esquerdo">
+                    <div class="container-grafico-kpi">
+                        <!-- KPI -->
+                        <div class="container-cards">
+                            <div class="card-info-roxo">
+                                <div class="card-info">
+                                    <span class="metrica-descricao">Dias sem vazamentos</span>
+                                    <h1>21 Dias</h1>
+                                </div>
+                            </div>
+                            <div class="card-info-roxo">
+                                <div class="card-info">
+                                    <span class="metrica-descricao">Total de vezes que o PPM ultrapassou 5
+                                        (24hrs)</span>
+                                    <h1>0</h1>
+                                </div>
+                            </div>
+                            <div class="card-info-roxo">
+                                <div class="card-info">
+                                    <span class="metrica-descricao">Sensor com maior indice de vazamentos</span>
+                                    <h1>Sensor Evaporador</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-grafico">
+                            <div class="alerta">
+                                <div class="card-situacao">
+                                    <div class="situacao-conteudo">
+                                        <img src="./assets/seguro.png" width="110px">
+                                        <p>Seu Frigorifico está seguro!</p>
+                                    </div>
+                                </div>
+                                <div class="grafico">
+                                    <div class="kpi-grafico leitura">
+                                        <div class="kpi-img">
+                                            <img src="./assets/leitura.png">
+                                        </div>
+                                        <div class="kpi-info">
+                                            <span>Leitura dos sensores</span>
+                                        </div>
+                                    </div>
+                                    <canvas class="grafico-ppm" id="myChartLine"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="grafico">
-                        <div class="kpi-grafico leitura">
-                            <div class="kpi-img">
-                                <img src="./assets/leitura.png" width="35">
-                            </div>
-                            <div class="kpi-info">
-                                <span>Leitura dos sensores</span>
+                    <!-- metricas -->
+                    <div class="container-metricas">
+                        <div class="card-metricas card-seguro">
+                            <img src="./assets/seguro.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Seguro</p>
+                                <p class="metrica-valor">PPM: 0 - 5</p>
                             </div>
                         </div>
-                        <canvas class="grafico-ppm" id="myChartLine"></canvas>
-                    </div>
 
-                </div>
-
-            </div>
-            <div class="container-metricas">
-
-                <div class="card-metricas card-risco">
-                    <img src="./assets/metrica-risco.png" width="60" alt="Ícone de Risco">
-                    <div class="conteudo-metrica">
-                        <p class="metrica-descricao">Risco de explosão</p>
-                        <p class="metrica-valor">PPM: 100.000+</p>
-                    </div>
-                </div>
-
-                <div class="card-metricas card-perigo">
-                    <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
-                    <div class="conteudo-metrica">
-                        <p class="metrica-descricao">Risco a vida</p>
-                        <p class="metrica-valor">PPM: 21 - 50</p>
+                        <div class="card-metricas card-alerta">
+                            <img src="./assets/metrica-alerta.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Irritações Leve</p>
+                                <p class="metrica-valor">PPM: 6 - 20</p>
+                            </div>
+                        </div>
+                        <div class="card-metricas card-perigo">
+                            <img src="./assets/metrica-risco.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Risco a vida</p>
+                                <p class="metrica-valor">PPM: 21 - 50</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- graficos barra e pizza-->
+                <div class="container-graficos-direita">
+                    <div class="container-grafico-barra">
+                        <div class="grafico-card-pai">
+                            <div class="grafico-card">
+                                <div class="container-kpi-grafico">
+                                    <div class="kpi-grafico vazamento">
+                                        <div class="kpi-img">
+                                            <img src="./assets/alerta.png" width="25">
+                                        </div>
+                                        <div class="kpi-info">
+                                            <span>Vezes acima de 5 PPM (mês)</span>
+                                            <p>16</p>
+                                        </div>
+                                        <div class="filtro">
+                                            <label for="intervalo">Selecione um intervalo</label>
+                                            <input id="intervalo" type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-grafico-menor">
+                                    <canvas class="grafico-barra" id="myChartBarra"></canvas>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="card-metricas card-alerta">
-                    <img src="./assets/metrica-alerta.png" width="60" alt="Ícone de Alerta">
-                    <div class="conteudo-metrica">
-                        <p class="metrica-descricao">Irritações Leve</p>
-                        <p class="metrica-valor">PPM: 6 - 20</p>
+                        <div class="grafico-card-pai">
+                            <div class="grafico-card">
+                                <div class="container-kpi-grafico">
+                                    <div class="kpi-grafico sensor">
+                                        <div class="kpi-img">
+                                            <img src="./assets/sensor.png" width="25">
+                                        </div>
+                                        <div class="kpi-info">
+                                            <span>Total de Sensores</span>
+                                            <p>4</p>
+                                        </div>
+                                        <div class="filtro">
+                                            <select id="">
+                                                <option id="sensores" selected value="sensoresTodos">Todos os sensores
+                                                </option>
+                                                <option value="sensoresAtivo">Sensores ativos</option>
+                                                <option value="sensoresInativo">Sensores inativos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-grafico-menor">
+                                    <canvas class="grafico-pie" id="myChartPie"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card-metricas card-seguro">
-                    <img src="./assets/seguro.png" width="60" alt="Ícone de Segurança">
-                    <div class="conteudo-metrica">
-                        <p class="metrica-descricao">Seguro</p>
-                        <p class="metrica-valor">PPM: 0 - 5</p>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
-
-        <!-- grafico de barras -->
-
-
-        <div id="alertas" class="container-grafico-barra">
-
-            <div class="grafico-card-pai">
-                <div class="grafico-card">
-                    <div class="container-kpi-grafico">
-                        <div class="kpi-grafico vazamento">
-                            <div class="kpi-img">
-                                <img src="./assets/alerta.png" width="35">
-                            </div>
-                            <div class="kpi-info">
-                                <span>Vezes acima de 5 PPM (mês)</span>
-                                <p>16</p>
-                            </div>
-                            <div class="filtro">
-                                <label for="intervalo">Selecione um intervalo</label>
-                                <input id="intervalo" type="date">
-                            </div>
-                        </div>
-                    </div>
-                    <canvas class="grafico-barra" id="myChartBarra"></canvas>
-                </div>
-            </div>
-
-            <div class="grafico-card-pai">
-                <div class="grafico-card">
-                    <div class="container-kpi-grafico">
-                        <div class="kpi-grafico sensor">
-                            <div class="kpi-img">
-                                <img src="./assets/sensor.png" width="35">
-                            </div>
-                            <div class="kpi-info">
-                                <span>Total de Sensores</span>
-                                <p>4</p>
-                            </div>
-                            <div class="filtro">
-                                <select id="">
-                                    <option id="sensores" selected value="sensoresTodos">Todos os sensores</option>
-                                    <option value="sensoresAtivo">Sensores ativos</option>
-                                    <option value="sensoresInativo">Sensores inativos</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <canvas class="grafico-pie" id="myChartPie"></canvas>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div class="container-metricas">
-        </div>
-
-
-        <!-- Adicionar Sensores -->
-
-        <div id="sensores" class="container-sensores">
-            <div class="container-sensores-atv">
-                <div class="titulo-sensor">
-                    <img src="./assets/sensor.png" width="70">
-                    <p>Sensores Instalados</p>
-                </div>
-                <div class="sensor-tabela">
-                    <div class="sensor-coluna">
-                        <p class="sensor-dado">id</p>
-                        <p class="sensor-dado">Codigo série</p>
-                        <p class="sensor-dado">Local</p>
-                        <p class="sensor-dado">Data Instalação</p>
-                        <p class="sensor-dado">Status</p>
-                    </div>
-
-                    <div class="sensor-linha">
-                        <div class="sensor-dado">
-                            <p>1</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>A1A2-A3A4</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Sensor Evaporador</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>28/08/2025</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Ativo</p>
-                        </div>
-                    </div>
-
-                    <div class="sensor-linha">
-                        <div class="sensor-dado">
-                            <p>2</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>B1B2-B3B4</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Sensor Condensador</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>30/08/2025</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Ativo</p>
-                        </div>
-                    </div>
-
-                    <div class="sensor-linha">
-                        <div class="sensor-dado">
-                            <p>3</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>C1C2-C3C4</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Sensor Câmara Fria</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>30/09/2025</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Inativo</p>
-                        </div>
-                    </div>
-
-                    <div class="sensor-linha sensor-ultimo">
-                        <div class="sensor-dado">
-                            <p>4</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>D1D2-D3D4</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Sensor Compressor</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>01/10/2025</p>
-                        </div>
-                        <div class="sensor-dado">
-                            <p>Inativo</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="container-add-sensores">
-                <div class="titulo-sensor">
-                    <img src="./assets/adicionarSensor.png" width="70">
-                    <p>Adicionar Sensor</p>
-                </div>
-                <div class="card-add-sensor">
-
-                    <div class="input-card">
-                        <label for="input_cod_serie">Código série do sensor</label>
-                        <input id="input_cod_serie" type="text" placeholder="Ex: A1A2-A3A4">
-                    </div>
-
-                    <div class="input-card">
-                        <label for="input_local">Local do sensor</label>
-                        <input id="input_local" type="text" placeholder="Ex: Sala de maquina">
-                    </div>
-
-                    <div class="input-card">
-                        <label for="input_date">Data de instalação</label>
-                        <input id="input_date" type="date">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
     </div>
-    <!-- footer -->
-    <div class="footer">
-        <a href="#"><img src="./assets/Logo-nht.png" width="110px"></a>
-        ©Todos os direitos reservados a Next History Technology
-    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        //Gráfico de Linha
+        const ctxLine = document.getElementById('myChartLine');
+
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
+                datasets: [
+                    {
+                        label: 'Sensor Câmara Fria',
+                        data: [0, 0, 1, 5, 6, 3],
+                        borderColor: '#6C63FF',
+                        backgroundColor: 'rgba(108, 99, 255, 0.1)',
+                        tension: 0.4,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#6C63FF',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Sensor Evaporador',
+                        data: [0, 2, 5, 7, 2, 5],
+                        borderColor: '#C649FC',
+                        tension: 0.4,
+                        pointBackgroundColor: '#C649FC',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#C649FC',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Sensor Condensador',
+                        data: [1, 6, 3, 1, 0, 0],
+                        borderColor: '#0cc2f0',
+                        tension: 0.4,
+                        pointBackgroundColor: '#0cc2f0',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#0cc2f0',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Sensor Compressor',
+                        data: [1, 1, 3, 2, 3, 4],
+                        borderColor: '#12be8b',
+                        tension: 0.4,
+                        pointBackgroundColor: '#12be8b',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#12be8b',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#333',
+                            font: {
+                                size: 13,
+                                family: "'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif",
+                                weight: '600'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#6C63FF',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        padding: 10
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#555' },
+                        grid: { color: 'rgba(0, 0, 0, 0.10)' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#555' },
+                        grid: { color: 'rgba(0, 0, 0, 0.10)' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Barras 
+        const ctxBarra = document.getElementById('myChartBarra');
+
+        new Chart(ctxBarra, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
+                    '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
+                ],
+                datasets: [
+                    {
+                        label: 'Sensor Compressor',
+                        data: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#6C63FF',
+                        borderColor: '#6C63FF',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Sensor Evaporador',
+                        data: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#5DA3FA',
+                        borderColor: '#5DA3FA',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Sensor Câmara Fria',
+                        data: [5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#0cc2f0',
+                        borderColor: '#0cc2f0',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Sensor Câmara Fria',
+                        data: [3, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#12be8b',
+                        borderColor: '#12be8b',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#333',
+                            font: {
+                                size: 13,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#6C63FF',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 2,
+                        padding: 15
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#555' },
+                        grid: { color: 'rgba(0, 0, 0, 0.03)' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#555' },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Pizza 
+        const ctxPie = document.getElementById('myChartPie');
+
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Sala de Máquina', 'Tubulação Sul', 'Câmara Fria'],
+                datasets: [
+                    {
+                        label: 'Total de Sensores',
+                        data: [2, 1, 1],
+                        backgroundColor: [
+                            'rgba(108, 99, 255, 0.8)',
+                            'rgba(93, 163, 250, 0.8)',
+                            'rgba(170, 154, 255, 0.8)'
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: '#333',
+                            font: {
+                                size: 13,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#6C63FF',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 10
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // === Gráfico de Linha ===
-    const ctxLine = document.getElementById('myChartLine');
-
-    new Chart(ctxLine, {
-        type: 'line',
-        data: {
-            labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
-            datasets: [
-                {
-                    label: 'Sensor Câmara Fria',
-                    data: [0, 0, 1, 5, 6, 3],
-                    borderColor: '#6C63FF',
-                    backgroundColor: 'rgba(108, 99, 255, 0.1)',
-                    tension: 0.4,
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#6C63FF',
-                    borderWidth: 2
-                },
-                {
-                    label: 'Sensor Evaporador',
-                    data: [0, 2, 5, 7, 2, 5],
-                    borderColor: '#5DA3FA', // cor da linha 
-                    tension: 0.4, // suaviza as linhas entre os pontos deixando a linha com um leve curva, (lembra um pouco o border radius) 
-                    pointBackgroundColor: '#5DA3FA', // cor da bolinha do grafico
-                    pointBorderColor: '#fff', // borda da bolinha 
-                    pointHoverBackgroundColor: '#fff', // cor ao passar o mouse na bolinha
-                    pointHoverBorderColor: '#5DA3FA', // cor ao passar o mouse na bolinha
-                    borderWidth: 2 // tamanho da linha
-                },
-                {
-                    label: 'Sensor Condensador',
-                    data: [1, 6, 3, 1, 0, 0],
-                    borderColor: '#0cc2f0',
-                    tension: 0.4,
-                    pointBackgroundColor: '#0cc2f0',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#0cc2f0',
-                    borderWidth: 2
-                },
-                {
-                    label: 'Sensor Compressor',
-                    data: [1, 1, 3, 2, 3, 4],
-                    borderColor: '#12be8b',
-                    tension: 0.4,
-                    pointBackgroundColor: '#12be8b',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#12be8b',
-                    borderWidth: 2
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom', // deixar as legendas em baixo do gráfico
-                    labels: {
-                        color: '#333',
-                        font: {
-                            size: 13,
-                            family: "'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif",
-                            weight: '600'
-                        }
-                    }
-                },
-                tooltip: {
-                    backgroundColor: '#6C63FF',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
-                    borderWidth: 0,
-                    padding: 10
-                }
-            },
-            scales: {
-                x: {
-                    ticks: { color: '#555' },
-                    grid: { color: 'rgba(0, 0, 0, 0.10)' } // linhas do graficos
-                },
-                y: {
-                    beginAtZero: true, // para o grafico começar do 0
-                    ticks: { color: '#555' },
-                    grid: { color: 'rgba(0, 0, 0, 0.10)' }
-                }
-            }
-        }
-    });
-
-    // Gráfico de Barras 
-    const ctxBarra = document.getElementById('myChartBarra');
-
-    new Chart(ctxBarra, {
-        type: 'bar',
-        data: {
-            labels: [
-                '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
-                '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
-            ],
-            datasets: [
-                {
-                    label: 'Sensor Compressor',
-                    data: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: '#6C63FF', 
-                    borderColor: '#6C63FF',
-                    borderWidth: 1,
-                    borderRadius: 6
-                },
-                {
-                    label: 'Sensor Evaporador',
-                    data: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: '#5DA3FA',
-                    borderColor: '#5DA3FA',
-                    borderWidth: 1,
-                    borderRadius: 6
-                },
-                {
-                    label: 'Sensor Câmara Fria',
-                    data: [5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: '#0cc2f0',
-                    borderColor: '#0cc2f0',
-                    borderWidth: 1,
-                    borderRadius: 6
-                },
-                {
-                    label: 'Sensor Compressor',
-                    data: [3, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: '#12be8b',
-                    borderColor: '#12be8b',
-                    borderWidth: 1,
-                    borderRadius: 6
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-
-            /*Estilização das legendas do gráfico*/
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#333',
-                        font: {
-                            size: 13,
-                            weight: 'bold'
-                        }
-                    }
-                },
-
-                /*Estilização da legenda da barra, aquela mensagem que abre ao colocar o mouse em cima da barra*/
-                tooltip: {
-                    backgroundColor: '#6C63FF',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
-                    borderWidth: 2,
-                    padding: 15
-                }
-            },
-            /*Estilização do eixo x e y*/
-            scales: {
-                x: {
-                    ticks: { color: '#555' },
-                    grid: { color: 'rgba(0, 0, 0, 0.03)' }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: { color: '#555' },
-                    grid: { color: 'rgba(0, 0, 0, 0.05)' }
-                }
-            }
-        }
-    });
-
-    //  Grafico de Pizza 
-    const ctxPie = document.getElementById('myChartPie');
-
-    new Chart(ctxPie, {
-        type: 'pie',
-        data: {
-            labels: ['Sala de Máquina', 'Tubulação Sul', 'Câmara Fria'],
-            datasets: [
-                {
-                    label: 'Total de Sensores',
-                    data: [2, 1, 1],
-                    backgroundColor: [
-                        'rgba(108, 99, 255 )',
-                        'rgba(93, 163, 250)',
-                        'rgba(170, 154, 255)'
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 3
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#333',
-                        font: {
-                            size: 13,
-                            weight: 'bold'
-                        }
-                    }
-                },
-                tooltip: {
-                    backgroundColor: '#6C63FF',
-                    titleColor: '#fff',
-                    bodyColor: '#fff',
-                    padding: 10
-                }
-            }
-        }
-    });
-
-
-
-</script>
-</script>

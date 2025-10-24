@@ -1,486 +1,479 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*Import da font Poppins*/
 
 * {
     margin: 0;
+    /*Tira a margem padrão*/
     font-family: Poppins;
+    /*Consigura todos os texto como poppins*/
+    box-sizing: border-box;
+    /*Tira a aumento automatico da div quando se usa o padding*/
 }
 
 a {
     text-decoration: none;
-    color: black;
+    /*Tira a linha que fica embaixo dos links*/
 }
 
-/* Container */
+::-webkit-scrollbar {
+    display: none;
+    /*Desativa as barra de rolagem*/
+}
 
+/* Navbar */
+.navbar {
+    width: 250px;
+    height: 100vh;
+    /*deixa a navbar com o tamamnho total da tela*/
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    color: white;
+    position: fixed;
+    /*deixa a navbar em uma posição fixa na tela*/
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    /*cria uma sombra nas borda da div*/
+    z-index: 1000;
+    /*deixa a navBar na camada mais alta*/
+}
+
+.nav-logo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /*cria uma borda apenas na parte de baixo da div*/
+}
+
+.nav-logo img {
+    width: 140px;
+    margin-bottom: 15px;
+}
+
+.nav-logo h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    /*deixa a font em formato negrito*/
+}
+
+.nav-links {
+    flex: 1;
+    /*faz com que o item ocupe o espaço disponível dentro do contêiner.*/
+    padding: 20px 0;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    /*aplica uma traqnsição suave "all" é para todas as propriedades "0.3" é o tempo dessa animação
+    "Ease" a animação começa lenta no meio fica rápida e e termina lenta*/
+}
+
+.nav-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /*borda apenas na parte de cima da div*/
+}
+
+.btn-sair {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    /*Tira a borda padrão do botão*/
+    border-radius: 8px;
+    /*Arredonda a borda do botão*/
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    /*O ponteiro do mouse muda ao passar sobre o botão*/
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*o que acontece apos passar o mouse*/
+.btn-sair:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*estilização da font awesome*/
+.btn-sair i {
+    margin-right: 8px;
+}
+
+/* Container Principal */
 .container {
-    padding-top: 90px;
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/*Conteudo da dashboard*/
+
+.container-conteudo {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.container-esquerdo {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-around;
+    height: 90vh;
+    margin-top: 30px;
+}
+
+
+/* KPI Cards */
+.container-cards {
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
-/* KPI */
-
-.container-cards {
-    width: 98%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 100px;
+.card-info-roxo {
+    width: 32%;
+    height: 125px;
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 12px;
 }
 
 .card-info {
-    width: 22.5%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: #fff;
-    background: linear-gradient(150deg, #28155e, #5a47b8);
+    justify-content: space-around;
+    color: #000000;
+    background: linear-gradient(150deg, #ffffff, #ffffff);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Transição suave*/
     cursor: pointer;
-    /*tranforma o ponteiro do mouse para clique*/
+    padding: 8px 5px;
+    text-align: center;
+    margin-left: 2%;
 }
-
 
 .card-info:hover {
-    transform: translateY(-5px);
-    /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    /* Sombra mais forte ao passar o mouse */
+    transform: translateY(-3px);
+    /*Ao passar o mouse a div sobe 3 px*/
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-
 .card-info span {
-    display: flex;
-    padding: 5px;
-    font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    /*Altura entre as linha do texto*/
+    color: #555;
+    text-align: center;
+}
+
+.card-info p {
+    color: #000000;
+    font-weight: bold;
 }
 
 .card-info h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* Graficos */
-
-.container-ppm {
+/* Container Gráfico KPI */
+.container-grafico-kpi {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    width: 98%;
-    justify-content: space-evenly;
-
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: -10px;
 }
 
 .container-grafico {
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    border-radius: 12px;
-    /* Sombra sutil */
-
-}
-
-
-.grafico {
-    border-radius: 12px;
-    padding-left: 50px;
-    width: 70%;
-    height: 350px;
-    display: flex;
-    align-items: flex-start;
-    margin-top: 3%;
-    flex-direction: column;
-
-}
-
-.grafico .titulo {
-    display: flex;
-    font-weight: bolder;
-    font-size: 20px;
-}
-
-.leitura {
-    margin-top: -30px;
     width: 100%;
+    height: 400px;
 }
 
 .alerta {
-    /* box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1);  ESTILO DE SOMBRA ANTIGO*/
     border-radius: 12px;
     width: 100%;
-    height: 460px;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
+    background: white;
 }
 
 .card-situacao {
     background: linear-gradient(50deg, #28155e, #5a47b8);
-    height: max-content;
-    width: 25%;
-    height: 460px;
+    width: 28%;
+    height: 100%;
     display: flex;
     border-top-left-radius: 12px;
+    /*apenas a borda esquerda do top vai ficar arredondada*/
     border-bottom-left-radius: 12px;
+    /*apenas a borda esqueda de baixo vai ficar arredondada*/
     color: white;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .situacao-conteudo {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 250px;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.situacao-conteudo img {
+    width: 120px;
 }
 
 .situacao-conteudo p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.grafico {
+    width: 72%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.kpi-grafico.leitura {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    height: 40px;
+}
+
+.kpi-img {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-img img {
+    width: 24px;
+    height: 24px;
+}
+
+.kpi-info span {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+.grafico-ppm {
+    width: 100%;
+    flex: 1;
 }
 
 .container-metricas {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
-    /* Espaçamento entre os cards */
-
+    height: 110px;
 }
 
 .card-metricas {
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 15px;
+    border-radius: 10px;
     color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra*/
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Transição suave */
     cursor: pointer;
+    height: 100%;
+    width: 33.33%;
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
 }
 
 .card-metricas:hover {
-    transform: translateY(-5px);
-    /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    /* Sombra mais forte ao passar o mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .card-metricas img {
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
 }
 
 .conteudo-metrica {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.metrica-descricao {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 6px;
     text-align: left;
 }
 
-.card-info span {
-    margin: 0;
-    font-size: 12px;
-    opacity: 0.9;
-    /* Deixa a descrição um pouco mais translucida*/
-}
-
 .metrica-valor {
-    margin: 0;
-    font-size: 28px;
+    font-size: 23px;
     font-weight: bold;
 }
 
-.card-risco {
-    background: linear-gradient(45deg, #d32f2f, #f44336);
-}
-
-.card-perigo {
-    background: linear-gradient(45deg, #f57c00, #ff9800);
-}
-
-.card-alerta {
-    background: linear-gradient(45deg, #f5b400, #fbff00);
-}
-
-.card-seguro {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-
-}
-
-
-/* grafico barra e sensor */
-
-.container-grafico-barra {
-    width: 98%;
+.container-graficos-direita {
+    width: 35%;
     display: flex;
-    justify-content: space-evenly;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-top: 50px;
+    flex-direction: column;
+    gap: 20px;
+    height: 520px;
+}
+
+/* Gráficos Barra e Pizza */
+.container-grafico-barra {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    margin-top: 22px;
 }
 
 .grafico-card-pai {
     background: #ffffff;
-    border-radius: 18px;
-    padding: 25px;
-    width: 45%;
-    min-width: 360px;
-    height: 380px;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    height: 325px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.grafico-card-pai:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    flex: 1;
 }
 
 .grafico-card {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .container-kpi-grafico {
     width: 100%;
-    color: rgba(108, 99, 255, 0.1);
-
+    display: flex;
 }
 
 .kpi-grafico {
     display: flex;
     align-items: center;
-    gap: 15px;
-    border-radius: 10px;
-    padding: 12px 20px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 50px;
 }
 
-.kpi-img {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 8px rgba(91, 47, 212, 0.3);
+.kpi-grafico .kpi-info {
+    width: 48%;
 }
 
-.kpi-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 60%;
-
-}
-
-.kpi-info span {
-    font-size: 16px;
+.kpi-grafico .kpi-info span {
+    font-size: 13px;
     color: #555;
     font-weight: bold;
-    letter-spacing: 0.3px;
-    /*Espaço entre as letras*/
+    display: block;
 }
 
-.kpi-info p {
-    font-size: 28px;
+.kpi-grafico .kpi-info p {
+    font-size: 18px;
     font-weight: bold;
     color: #3b1ca3;
-    margin: 0;
+    margin: 4px 0 0 0;
 }
 
-.grafico-barra,
-.grafico-pie {
-    width: 100%;
-    max-height: 250px;
+.kpi-grafico .kpi-img {
+    width: 45px;
+    height: 45px;
+}
+
+.kpi-grafico .kpi-img img {
+    width: 22px;
+    height: 22px;
 }
 
 .filtro {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    color: #555;
-    font-weight: bold;
-    letter-spacing: 0.3px;
-    width: 23%;
+    width: 45%;
 }
 
-/* Estilo geral para inputs e selects */
+.filtro label {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: right;
+    /*Alinha o texto ao meio*/
+    width: 100%;
+}
+
 .filtro input,
 .filtro select {
     background-color: #fff;
     border: 2px solid #3b1ca3;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 14px;
+    border-radius: 6px;
+    padding: 7px 8px;
+    font-size: 11px;
     color: #3b1ca3;
     font-weight: bold;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-
-.filtro select:hover,
-.filtro input:hover {
-    transform: scale(1.03);
-}
-
-.filtro label {
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 3px;
-    text-align: right;
     width: 100%;
 }
 
-
-/*Container sensores*/
-.container-sensores {
+.card-grafico-menor {
+    width: 100%;
+    height: 220px;
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    width: 96%;
-    height: 430px;
-    margin-top: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra*/
-}
-
-.container-sensores-atv {
-    width: 50%;
-    height: 430px;
-    background: linear-gradient(60deg, #28155e, #5a47b8);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-.container-add-sensores {
-    width: 50%;
-    height: 430px;
-    background: linear-gradient(300deg, #5a47b8, #28155e);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-
-.titulo-sensor {
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 20px;
-    width: 38%;
-    color: #fff;
 }
 
-.titulo-sensor p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+/* Cores das métricas */
+.card-perigo {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
 }
 
-.input-card {
-    display: flex;
-    flex-direction: column;
-    width: 86%;
-    padding-left: 5%;
+.card-alerta {
+    background: linear-gradient(45deg, #f57c00, #ff9800);
 }
 
-.card-add-sensor label {
-    font-size: 17px;
-    margin-bottom: 12px;
-    color: #fff;
+.card-seguro {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
 }
-
-.card-add-sensor input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    font-size: 18px;
-    color: #333;
-    background-color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.card-add-sensor input::placeholder {
-    color: #999;
-}
-
-.card-add-sensor input:focus {
-    box-shadow: 0 0 0 2px rgb(255, 255, 255);
-}
-
-.sensor-tabela {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.sensor-coluna {
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #fff;
-    height: 50px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    font-size: 17px;
-    font-weight: bold;
-    border: 2px solid white;
-
-}
-
-.sensor-linha {
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
-    font-size: 15px;
-    color: #fff;
-    border: 2px solid white;
-    text-align: center;
-}
-
-.sensor-dado {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-}
-
-.sensor-ultimo {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-
-/* Footer */
-.footer {
-    margin-top: 100px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
