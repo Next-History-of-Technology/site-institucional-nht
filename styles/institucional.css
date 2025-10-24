@@ -237,8 +237,8 @@
 
 /* COMEÇO DOS NOSSOS PLANOS  */
 
-.outras_opcoes {
-    padding: 50px 0px;
+#outras_opcoes {
+    padding: 110px 0px;
     background-color: #e2e2eb;
     display: flex;
     align-items: center;
