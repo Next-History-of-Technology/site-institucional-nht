@@ -1,0 +1,170 @@
+:root {
+    --cor-principal: #ffffff;
+    --cor-secundária: #5630d8;
+    --subtitulo-card: #52616B;
+    --hover-botao: #4523b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 25px;
+    background-image: url(../assets/plano-de-fundo-planos.png);
+    background-size: cover;
+}
+
+.cabecalho-container {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: var(--cor-principal);
+    font-size: 35px;
+    text-align: center;
+}
+
+a {
+    position: relative;
+    left: 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--cor-principal);
+    font-size: 16px;
+    font-weight: bold;
+    max-width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+}
+
+a:hover {
+    background-color: #ffffff;
+    color: var(--cor-secundária);
+}
+
+.planos-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.card {
+    background-color: var(--cor-principal);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 24%;
+    height: 400px;
+}
+
+.card h2 {
+    color: var(--cor-secundária);
+    font-size: 28px;
+}
+
+.card h4 {
+    text-align: center;
+    color: var(--subtitulo-card);
+}
+
+.paragrafo-preco {
+    font-size: 32px;
+    color: var(--cor-secundária);
+    font-weight: bold;
+}
+
+.paragrafo-descricao {
+    color: var(--subtitulo-card);
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+li {
+    color: var(--cor-secundária);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    background-color: var(--cor-principal);
+    border-radius: 20px;
+    width: 50%;
+    padding: 20px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+form h2 {
+    color: var(--cor-secundária);
+    font-size: 28px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 7px;
+    border-radius: 10px;
+    border: solid 1px var(--subtitulo-card);
+    font-size: 20px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--cor-secundária);
+    opacity: 0.7;
+}
+
+input:focus,
+textarea:focus {
+    outline-color: var(--cor-secundária);
+}
+
+button {
+    width: 100%;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    background-color: var(--cor-secundária);
+    color: var(--cor-principal);
+    transition: all ease-in-out 0.3s;
+}
+
+button:hover {
+    background-color: var(--hover-botao);
+}
+
+button:active {
+    opacity: 0.6;
+}
