@@ -76,5 +76,9 @@
 
 .btn_login:hover,
 .btn_cadastrar:hover {
+<<<<<<< HEAD
     box-shadow: 0px 0px 8px 2px #5630d8
+=======
+    box-shadow: 0 4px 8px #5730d860
+>>>>>>> 61cdc382711eaf70fc736ebc0839e139e5f62126
 }

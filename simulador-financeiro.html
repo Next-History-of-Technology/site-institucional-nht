@@ -1,163 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulador Financeiro - Vazamento de Amônia</title>
-    <link rel="stylesheet" href="./styles/header.css" />
-    <link rel="stylesheet" href="./styles/Simulador.css" />
-  </head>
-  <body>
-    <div class="header">
-      <div class="logo_container">
-        <img src="./assets/Logo-nht.png" alt="" />
-        <h3>Next History Technology</h3>
-      </div>
-      
 
-      <div class="links_container">
-        <a href="#main">Home</a>
-        <a href="#quem_somos">Sobre</a>
-        <a href="">Simulador Financeiro</a>
-        <a href="">Contrate-nos</a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Financeiro - Vazamento de Amônia</title>
+  <link rel="stylesheet" href="./styles/header.css" />
+  <link rel="stylesheet" href="./styles/Simulador.css" />
+</head>
 
-      <div class="botao_container">
-        <button onclick="logar()">Login</button>
-        <button onclick="registrar()">Registrar</button>
-      </div>
+<body>
+  <div class="header">
+
+    <div class="logo_container">
+
+      <img src="./assets/logo-nh3.png">
+
+      <h3>Next History Technology</h3>
     </div>
 
-    <!-- conteudo -->
-    <div class="conteudo">
-      <div class="titulo">
-        <h1 >Simulador Financeiro</h1>
-      </div>
-      <div class="subtitulo">
-        <p>
-          Calcule o prejuízo potencial e a recuperação com redução de riscos.
-        </p>
-      </div>
-      <div class="card-input">
-        <div class="container-inputs">
-          <label>
-            <span><b>Informe o faturamento diário:</b></span> <br />
-            <input type="text" id="input_faturamento" placeholder="ex: 15000" />
-            <br /><br />
-          </label >
-          <label>
-            <b> Houve paralisação?</b><br />
-            <select id="select_paralisacao" onchange="mostrarCampos()">
-              <option value="default">Escolha uma opção</option>
-              <option value="Não">Não</option>
-              <option value="Sim">Sim</option>
-            </select>
-            <br /><br />
-          </label>
+    <div class="links_container">
+      <a href="index.html">Home</a>
+      <a href="index.html#quem_somos">Sobre</a>
+      <a href="./simulador-financeiro.html">Simulador Financeiro</a>
+      <a href="index.html#outras_opcoes">Contrate-nos</a>
+    </div>
 
-          <div id="campos_paralisacao" style="display: none;">
-            <label>
-              <span><b> Quantos dias durou a paralisação?</b></span> <br />
-              <input type="text" id="input_periodo" placeholder="ex: 2" />
-              <br /><br />
-            </label>
-          </div>
+    <div class="botao_container">
+      <button onclick="logar()" class="btn_login">Login</button>
+      <button onclick="cadastrar()" class="btn_cadastrar">Cadastrar</button>
+    </div>
 
-          <label>
-            <span><b>Quantidade de funcionários:</b></span> <br />
-            <input type="text" id="input_funcionarios" placeholder="ex: 50" /><br /><br />
-          </label>
+  </div>
 
-        </div>
-      </div>
-      
+
+  <!-- conteudo -->
+  <div class="conteudo">
+    <div class="titulo">
+      <h1>Simulador Financeiro</h1>
+    </div>
+    <div class="subtitulo">
+      <p>
+        Calcule o prejuízo potencial e a recuperação com redução de riscos.
+      </p>
+    </div>
+    <div class="card-input">
+      <div class="container-inputs">
+        <label class="container-input">
+          <span class="titulo-input"><b>Informe o faturamento diário:</b></span> <br />
+          <input type="text" id="input_faturamento" placeholder="ex: 15000" value="15000"/>
+          <br /><br />
+        </label>
+        <label class="container-input">
+           <b class="titulo-input"> Houve paralisação?</b><br />
+          <select id="select_paralisacao" onchange="mostrarCampos()">
+            <option selected disabled value="default">Escolha uma opção</option>
+            <option value="Não">Não</option>
+            <option value="Sim">Sim</option>
+          </select>
+          <br /><br />
+        </label>
+
+        <div id="campos_paralisacao" style="display: none;">
+          <label class="container-input">
   
-        <button onclick="calcular()">CALCULAR</button>
-      
+            <span class="titulo-input"><b> Quantos dias durou a paralisação?</b></span> <br />
+            <input type="text" id="input_periodo" placeholder="ex: 2" value="2"/>
+            <br /><br />
+          </label>        
+        </div>
 
-      <hr />
-      <div class="exibicao" id="msg"></div>
+        <label class="container-input qtd_funcionario">
+          <span class="titulo-input"><b>Quantidade de funcionários:</b></span> <br />
+          <input type="text" id="input_funcionarios" placeholder="ex: 50" value="50"/><br /><br />
+        </label>
+
+      </div>
     </div>
 
-    <script>
-      function mostrarCampos() {
-        if (select_paralisacao.value == "Sim") {
-          campos_paralisacao.style.display = "block";
-        } else {
-          campos_paralisacao.style.display = "none";
-        }
+    <button class="button-calcular" onclick="calcular()">CALCULAR</button>
+    <br/>
+    <div class="exibicao" id="msg"></div>
+  </div>
+
+  <script>
+    function mostrarCampos() {
+      if (select_paralisacao.value == "Sim") {
+        campos_paralisacao.style.display = "block";
+      } else {
+        campos_paralisacao.style.display = "none";
+      }
+    }
+
+    function calcular() {
+      var faturamento = Number(input_faturamento.value);
+      var dias = Number(input_periodo.value);
+      var funcionarios = Number(input_funcionarios.value);
+      var houveParalisacao = select_paralisacao.value;
+
+
+      // validação
+      if (faturamento <= 0 || isNaN(faturamento)) {
+        alert("Informe um faturamento válido");
+        return;
+      } else if (houveParalisacao == "default") {
+        alert("Por favor, selecione se houve paralisação.");
+        return;
+      } else if (houveParalisacao == "Sim" && (dias <= 0 || isNaN(dias))) {
+        alert("Informe um período (dias) válido");
+        return;
+      } else if (funcionarios <= 0 || isNaN(funcionarios)) {
+        alert("Informe uma quantidade válida de funcionários");
+        return;
       }
 
-      function calcular() {
-        var faturamento = Number(input_faturamento.value);
-        var dias = Number(input_periodo.value);
-        var funcionarios = Number(input_funcionarios.value);
-        var houveParalisacao = select_paralisacao.value;
-        
+      // valores fixos
+      var multaMin = 5659.47;
+      var multaMax = 49612.34;
+      var multaMinimaBase = 443.97;
+      var multaReincidencia = 44396.84;
+      var multaFuncionario = 104.31;
+      var faturamentoMensal = faturamento * 30;
 
-        // validação
-        if (faturamento <= 0 || isNaN(faturamento)) {
-          alert("Informe um faturamento válido");
-          return;
-        } else if (houveParalisacao == "default") {
-          alert("Por favor, selecione se houve paralisação.");
-          return;
-        } else if (houveParalisacao == "Sim" && (dias <= 0 || isNaN(dias))) {
-          alert("Informe um período (dias) válido");
-          return;
-        } else if (funcionarios <= 0 || isNaN(funcionarios)) {
-          alert("Informe uma quantidade válida de funcionários");
-          return;
-        } 
+      var perda = 0;
+      if (houveParalisacao == "Sim") {
+        perda = faturamento * dias;
+      }
 
-        // valores fixos
-        var multaMin = 5659.47;
-        var multaMax = 49612.34;
-        var multaMinimaBase = 443.97;
-        var multaReincidencia = 44396.84;
-        var multaFuncionario = 104.31;
-        var faturamentoMensal = faturamento * 30;
+      var perdaFunc = funcionarios * multaFuncionario;
+      var impactoReincidencia = ((multaReincidencia / faturamentoMensal) * 100).toFixed(1);
+      var totalMultas = multaFuncionario + multaMinimaBase + multaReincidencia;
+      var perdaTotal = perda + totalMultas + perdaFunc;
+      var poupando = multaReincidencia
 
-        var perda = 0;
-        if (houveParalisacao == "Sim") {
-          perda = faturamento * dias;
-        }
-        
-        var perdaFunc = funcionarios * multaFuncionario;
-        var impactoReincidencia = ((multaReincidencia / faturamentoMensal) * 100).toFixed(1);
-        var totalMultas = multaFuncionario + multaMinimaBase + multaReincidencia; 
-        var perdaTotal = perda + totalMultas + perdaFunc;
-        var poupando = multaReincidencia 
-
-        // mensagem organizada em nas DIVs
-          var msgHTML = `
+      // mensagem organizada em nas DIVs
+      var msgHTML = `
       <div class="resultado-container"> 
           <div class="coluna-texto">
             
             <div class="bloco-faturamento"> 
                   <h4>Faturamento Mensal</h4>
                   <p>Faturamento mensal estimado: ${faturamentoMensal.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL"
-                  })}</p>
+        style: "currency",
+        currency: "BRL"
+      })}</p>
                   <p>Impacto da multa reincidência: ${impactoReincidencia}%</p>
                   <hr>    
               </div>
               
               <div class="bloco-inicial">
                   <h3>Prejuízo Estimado</h3>
-                  ${houveParalisacao == "Sim"? `<p><b>Perda direta de faturamento:</b> ${perda.toLocaleString("pt-BR", {
-                          style: "currency",
-                          currency: "BRL"
-                          })}</p>`
-                      : ""}
+                  ${houveParalisacao == "Sim" ? `<p><b>Perda direta de faturamento:</b> ${perda.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      })}</p>`
+          : ""}
                   
   
                   <p><b>Total Funcionários:</b> ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
                   <p><b>Total de Multas:</b> ${totalMultas.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
 
                   <h3> Perda Total Estimada:</h3>
-                  <h2 style="color: darkred;">${perdaTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
+                  <h2 style="color: red;">${perdaTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
                   <hr>  
                 </div>
   
@@ -165,10 +169,10 @@
               <div class="bloco-reducao">
                   <h4>Simulação de Redução de Prejuízo</h4>
                   <p>Com nossa equipe temos uma melhoria de ${impactoReincidencia}% referente a multa Reincidencia .</p>
-                  <p>Eliminando ela em: ${multaReincidencia.toLocaleString("pt-BR", {style: "currency",currency: "BRL"})}</p>
+                  <p>Eliminando ela em: ${multaReincidencia.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
                   <p>Com nosso serviço a tomada de decisão é aprimorada com base nos dados </p> 
                   <h3>Poupando</h3> 
-                  <h2 style="color: darkgreen;" >${poupando.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
+                  <h2 style="color: green;" >${poupando.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
                   
               </div>
           </div>
@@ -186,10 +190,9 @@
       </div>
   `;
 
-        msg.innerHTML = msgHTML;
-      }
-    </script>
-  </body>
+      msg.innerHTML = msgHTML;
+    }
+  </script>
+</body>
+
 </html>
-
-
