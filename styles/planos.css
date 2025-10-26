@@ -1,0 +1,167 @@
+:root {
+    --cor-principal: #ffffff;
+    --cor-secundária: #5630d8;
+    --subtitulo-card: #52616B;
+    --hover-botao: #4523b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    padding: 10px 25px;
+}
+
+.cabecalho-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--cor-secundária);
+    font-size: 35px;
+    text-align: center;
+}
+
+a {
+    position: relative;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--cor-secundária);
+    font-size: 18px;
+    font-weight: bold;
+    max-width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+}
+
+a:hover {
+    background-color: var(--cor-secundária);
+    color: var(--cor-principal);
+}
+
+main {
+    background-image: url(../assets/plano-de-fundo-planos.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: var(--cor-principal);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 400px;
+    height: 500px;
+}
+
+.card h2 {
+    color: var(--cor-secundária);
+    font-size: 28px;
+}
+
+.card h4 {
+    text-align: center;
+    color: var(--subtitulo-card);
+}
+
+.paragrafo-preco {
+    font-size: 40px;
+    color: var(--cor-secundária);
+    font-weight: bold;
+    border-bottom: solid 5px var(--cor-secundária);
+    border-radius: 5px;
+    padding-bottom: 8px;
+}
+
+.paragrafo-descricao {
+    color: var(--subtitulo-card);
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+li {
+    color: var(--cor-secundária);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    background-color: var(--cor-principal);
+    border-radius: 20px;
+    width: 400px;
+    padding: 20px;
+    align-items: center;
+}
+
+form h2 {
+    color: var(--cor-secundária);
+    font-size: 28px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 7px;
+    border-radius: 10px;
+    border: solid 1px var(--subtitulo-card);
+    font-size: 20px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--cor-secundária);
+    opacity: 0.7;
+}
+
+input:focus,
+textarea:focus {
+    outline-color: var(--cor-secundária);
+}
+
+button {
+    width: 100%;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    background-color: var(--cor-secundária);
+    color: var(--cor-principal);
+    transition: all ease-in-out 0.3s;
+}
+
+button:hover {
+    background-color: var(--hover-botao);
+}
+
+button:active {
+    opacity: 0.6;
+}

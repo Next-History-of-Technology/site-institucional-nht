@@ -7,15 +7,15 @@ body{
 
 
 .conteudo{
-     margin-top: 100px;
+     margin-top: 125px;
      display: flex;
      align-items: center;
      flex-direction: column;
      justify-content:center;
      width: 60%;
      height: auto;
-     box-shadow: 12px 8px 8px #505050;
-     background-color: whitesmoke;
+     box-shadow: 0 2px 4px #505050;
+     background-color: rgb(255, 255, 255);
      border-radius: 12px;
      gap: auto;
      padding: 12px;
@@ -67,35 +67,50 @@ body{
      width: 100%;
 }
 
-.campos_paralisacao{
+#campos_paralisacao{
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
+     margin-bottom: -18.5px;
 }
 .inp_fat input{
 width: 80%;
 }
 input{
-     border-radius: 8px;
-     border-color: blueviolet;
-     height: 25px;
+    border-radius: 5px;
+    border: solid 2px #5630D8;
+    padding: 7px 8px;
+    width: 300px;
+    outline: none;
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+    color: #363636;
 }
 select{
-     border-radius: 8px;
-     border-color: blueviolet;
-     height: 25px;
+    border-radius: 5px;
+    border: solid 2px #5630D8;
+    padding: 7px 8px;
+    width: 320px;
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+    background-color:#5630D8 ;
+    color: #ffffff;
 }
-button{
-     background-color: #5630D8;
-     color: white;
-     border: 1px solid #5630D8;
-     border-radius: 8px;
+
+.button-calcular{
+    color: #fff;
+    background-color: #5630D8;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    width: 200px;
+    padding: 8px 10px;
+    cursor: pointer; /*Cursor da mãozinha ao passar o mouse no botão*/
+    box-shadow: 0  4px 8px #505050;
+    margin-top: 30px;
 }
-button:hover {
-   background-color: white;
-   color: black;
-}
+
 
 /* Estilos para a seção de resultados */
 
@@ -159,7 +174,7 @@ button:hover {
    justify-content: center;
    align-items: flex-start; /* Alinha o texto do card à esquerda */
    flex-direction: column;
-   box-shadow: 5px 5px 15px #505050;
+   box-shadow: 0 4px 8px #505050;
    width: 100%; /* Ocupa a largura total do 'lado' */
    max-width: 200px;
    border-radius: 12px;
@@ -183,4 +198,14 @@ button:hover {
 .conteudo button{
      height: 35px;
      width: 135px;
+}
+
+.container-input{
+     height: 80px;
+}
+
+.titulo-input{
+     display: flex;
+     align-items: flex-start;
+     margin-bottom: -25px;
 }
