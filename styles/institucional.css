@@ -162,31 +162,28 @@
     color: #a038f2;
     padding: 110px 50px;
     text-align: center;
-    
+
 }
 
-
-.coluna-missao{
+.coluna-missao {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 20px;
     font-size: 20px;
     margin-top: 10px;
-    font-weight: 500; 
+    font-weight: 500;
 }
 
 .coluna-missao h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 10px 0 15px;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0 15px;
 }
-
 
 .card-missao,
 .card-valores,
-.card-visao 
-{
+.card-visao {
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -195,28 +192,21 @@
 
 }
 
-
-
 .card-valores {
-  border-right: none;
+    border-right: none;
 }
-
-
 
 .img-missao img,
 .img-visao img,
-.img-valores img{
-  background-color: #a038f2;       
-  border-radius: 100%;           
-  padding: 25px;                
-  width: 150px;                
-  height: 150px;              
-  margin-bottom: 20px; 
+.img-valores img {
+    background-color: #a038f2;
+    border-radius: 100%;
+    padding: 25px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 
 }
-
-
-
 
 /* FIM DAS NOSSAS MISSÕES  */
 
@@ -229,18 +219,18 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-}   
+}
 
 .fundo-container {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 450px;
     height: 500px;
     padding: 10px;
     background-color: white;
     border-radius: 20px;
     border: 5px solid #fff;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .fundo-container img {
