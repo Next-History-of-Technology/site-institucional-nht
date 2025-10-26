@@ -13,22 +13,16 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 25px;
-    background-image: url(../assets/plano-de-fundo-planos.png);
-    background-size: cover;
+    padding: 10px 25px;
 }
 
 .cabecalho-container {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 h1 {
-    color: var(--cor-principal);
+    color: var(--cor-secundária);
     font-size: 35px;
     text-align: center;
 }
@@ -36,13 +30,12 @@ h1 {
 a {
     position: relative;
     left: 0;
-    margin-left: 10px;
     display: flex;
     align-items: center;
     gap: 5px;
     text-decoration: none;
-    color: var(--cor-principal);
-    font-size: 16px;
+    color: var(--cor-secundária);
+    font-size: 18px;
     font-weight: bold;
     max-width: fit-content;
     padding: 10px;
@@ -51,16 +44,18 @@ a {
 }
 
 a:hover {
-    background-color: #ffffff;
-    color: var(--cor-secundária);
+    background-color: var(--cor-secundária);
+    color: var(--cor-principal);
 }
 
-.planos-container {
+main {
+    background-image: url(../assets/plano-de-fundo-planos.png);
+    background-size: cover;
     display: flex;
-    flex: 1;
     align-items: center;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-evenly;
+    padding: 20px 10px;
+    border-radius: 10px;
 }
 
 .card {
@@ -72,8 +67,8 @@ a:hover {
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
-    width: 24%;
-    height: 400px;
+    width: 400px;
+    height: 500px;
 }
 
 .card h2 {
@@ -87,9 +82,12 @@ a:hover {
 }
 
 .paragrafo-preco {
-    font-size: 32px;
+    font-size: 40px;
     color: var(--cor-secundária);
     font-weight: bold;
+    border-bottom: solid 5px var(--cor-secundária);
+    border-radius: 5px;
+    padding-bottom: 8px;
 }
 
 .paragrafo-descricao {
@@ -117,9 +115,8 @@ form {
     gap: 17px;
     background-color: var(--cor-principal);
     border-radius: 20px;
-    width: 50%;
+    width: 400px;
     padding: 20px;
-    margin-top: 30px;
     align-items: center;
 }
 
