@@ -40,8 +40,10 @@
       <h1>Simulador Financeiro</h1>
     </div>
     <div class="subtitulo">
+
+      <p>Um frigorífico deve ter sistemas de monitoramento de gás de acordo com a lei NR-15 e NR-36, e em caso de descumprimento, estará suscetível a multas e indenizações.</p>
       <p>
-        Calcule o prejuízo potencial e a recuperação com redução de riscos.
+        Calcule o prejuízo potencial em caso de vazamento de gás amônia no seu frigorífico e a recuperação com redução de riscos.
       </p>
     </div>
     <div class="card-input">
@@ -115,8 +117,7 @@
       }
 
       // valores fixos
-      var multaMin = 5659.47;
-      var multaMax = 49612.34;
+      
       var multaMinimaBase = 443.97;
       var multaReincidencia = 44396.84;
       var multaFuncionario = 104.31;
@@ -128,12 +129,14 @@
       }
 
       var perdaFunc = funcionarios * multaFuncionario;
-      var impactoReincidencia = ((multaReincidencia / faturamentoMensal) * 100).toFixed(1);
-      var totalMultas = multaFuncionario + multaMinimaBase + multaReincidencia;
-      var perdaTotal = perda + totalMultas + perdaFunc;
-      var poupando = multaReincidencia
+      var totalMultas = perdaFunc + multaMinimaBase + multaReincidencia;
+      var impactoMultas = ((totalMultas / faturamentoMensal) * 100).toFixed(1);
+      var perdaTotal = perda + totalMultas;
+      var poupando = totalMultas
+      var multaMin = multaMinimaBase + perdaFunc;
+      var multaMax = multaReincidencia + perdaFunc;
 
-      // mensagem organizada em nas DIVs
+      // mensagem organizada nas DIVs
       var msgHTML = `
       <div class="resultado-container"> 
           <div class="coluna-texto">
@@ -144,7 +147,7 @@
         style: "currency",
         currency: "BRL"
       })}</p>
-                  <p>Impacto da multa reincidência: ${impactoReincidencia}%</p>
+                  <p>Impacto das multas no faturamento mensal: ${impactoMultas}%</p>
                   <hr>    
               </div>
               
@@ -157,8 +160,12 @@
           : ""}
                   
   
-                  <p><b>Total Funcionários:</b> ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+                  <p><b>Multa pelo total de Funcionários:</b> ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+
+                  <p>Em caso de reincidência...</p>
+
                   <p><b>Total de Multas:</b> ${totalMultas.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+                  ${multaMinimaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} (multa em 1º caso) + ${multaReincidencia.toLocaleString("pt-BR", {style:"currency", currency: "BRL"})} (multa máx. por reincidência) + ${perdaFunc.toLocaleString("pt-BR", {style:"currency", currency: "BRL"})} (multa por funcionário x quantidade de funcionários).</p>
 
                   <h3> Perda Total Estimada:</h3>
                   <h2 style="color: red;">${perdaTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
@@ -168,8 +175,9 @@
               
               <div class="bloco-reducao">
                   <h4>Simulação de Redução de Prejuízo</h4>
-                  <p>Com nossa equipe temos uma melhoria de ${impactoReincidencia}% referente a multa Reincidencia .</p>
-                  <p>Eliminando ela em: ${multaReincidencia.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+                  <p>Com nossa equipe temos uma melhoria de ${impactoMultas}%  em cima do seu faturamento mensal referente ao total de multas .</p>
+                  <p><b>Eliminando a perda de:</b> ${totalMultas.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} em multas
+                    
                   <p>Com nosso serviço a tomada de decisão é aprimorada com base nos dados </p> 
                   <h3>Poupando</h3> 
                   <h2 style="color: green;" >${poupando.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
@@ -180,11 +188,10 @@
           <div class="lado">
               <div class="bloco-informativo">
                   <h4>Multas</h4>
-                  <p><b>Multa mínima:</b> ${multaMin.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
-                  <p><b>Multa máxima:</b> ${multaMax.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
-                  <p>(Multa base: ${multaMinimaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })})</p>
-                  <p>(Reincidência: ${multaReincidencia.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })})</p>
-                  <p>(Por funcionário: ${multaFuncionario.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })})</p>
+                  <p><b>Multa mínima:</b> ${multaMinimaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+                  <p><b>Multa máxima em caso de Reincidência:</b> ${multaReincidencia.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
+                  
+                  <p><b>Multa por funcionário:</b> ${multaFuncionario.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })})</p>
               </div>
           </div>
       </div>
