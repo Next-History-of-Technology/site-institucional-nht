@@ -169,7 +169,9 @@
 .coluna-missao{
     display: flex;
     justify-content: center;
-    gap: 90px;
+    width: 100%;
+    gap: 20px;
+    
     font-size: 20px;
     margin-top: 10px;
     font-weight: 500; 
@@ -182,33 +184,20 @@
   margin: 10px 0 15px;
 }
 
-.card-visao { 
+
+.card-missao,
+.card-valores,
+.card-visao 
+{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 370px;
-    padding-right: 80px;
-    border-right: 2px solid #a038f2;
-
-}
-
-.card-missao{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 370px;
-    padding-right: 80px;
-    border-right: 2px solid #a038f2;
-
-}
-.card-valores {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 370px;
+    width: 30%;
     padding: 20px;
     border-right: 2px solid #a038f2;
+
 }
+
+
 
 .card-valores {
   border-right: none;
@@ -219,14 +208,11 @@
 .img-valores img {
   background-color: #a038f2;       
   border-radius: 100%;           
-  padding: 25px;                
+  padding: 10px;                
   width: 200px;                
   height: 200px;              
   margin-bottom: 20px;        
 }
-
-
-
 
 
 
@@ -240,13 +226,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-}
+    gap: 40px;
+}   
 
 .fundo-container {
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 350px;
     height: 500px;
     padding: 10px;
     background-color: white;
