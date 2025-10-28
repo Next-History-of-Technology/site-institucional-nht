@@ -63,11 +63,18 @@ a {
 .nav-links a {
     display: flex;
     align-items: center;
-    padding: 15px 25px;
+    padding: 10px 25px;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
     /*aplica uma traqnsição suave "all" é para todas as propriedades "0.3" é o tempo dessa animação
     "Ease" a animação começa lenta no meio fica rápida e e termina lenta*/
+}
+
+.nav-link-pai {
+    margin-left: -5px;
+    margin-bottom: -5px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .nav-footer {
@@ -183,10 +190,10 @@ a {
     font-weight: bold;
 }
 
-.metrica-dados{
+.metrica-dados {
     width: 100%;
     display: flex;
-    align-items: flex-start ;
+    align-items: flex-start;
     flex-direction: column;
     margin-left: 10px;
     gap: -20px;
@@ -468,4 +475,8 @@ a {
 
 .card-seguro {
     background: linear-gradient(50deg, #28155e, #5a47b8);
+}
+
+.situacao-conteudo-alerta {
+    background: linear-gradient(45deg, #ffea00, #ffd600);
 }
