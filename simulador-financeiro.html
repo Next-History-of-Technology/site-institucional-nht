@@ -27,8 +27,13 @@
     </div>
 
     <div class="botao_container">
-      <button onclick="logar()" class="btn_login">Login</button>
-      <button onclick="cadastrar()" class="btn_cadastrar">Cadastrar</button>
+      <a href="./login.html">
+        <button class="btn_login" style="height: 44px;">Login</button>
+      </a>
+
+      <a href="./cadastro.html">
+        <button class="btn_cadastrar" style="height: 44px;">Cadastrar</button>
+      </a>
     </div>
 
   </div>
@@ -147,9 +152,9 @@
             <div class="bloco-faturamento"> 
                   <h4>Faturamento Mensal</h4>
                   <p>Faturamento mensal estimado: ${faturamentoMensal.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      })}</p>
+      style: "currency",
+      currency: "BRL"
+    })}</p>
                   <p>Impacto das multas no faturamento mensal: ${impactoMultas}%</p>
                   <hr>    
               </div>
@@ -157,10 +162,10 @@
               <div class="bloco-inicial">
                   <h3>Prejuízo Estimado</h3>
                   ${houveParalisacao == "Sim" ? `<p><b>Perda direta de faturamento:</b> ${perda.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      })}</p>`
-          : ""}
+      style: "currency",
+      currency: "BRL"
+    })}</p>`
+        : ""}
                   
   
                   <p><b>Multa pelo total de Funcionários:</b> ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
@@ -168,7 +173,7 @@
                   <p>Em caso de reincidência...</p>
 
                   <p><b>Total de Multas:</b> ${totalMultas.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
-                  ${multaMinimaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} (multa em 1º caso) + ${multaReincidencia.toLocaleString("pt-BR", {style:"currency", currency: "BRL"})} (multa máx. por reincidência) + ${perdaFunc.toLocaleString("pt-BR", {style:"currency", currency: "BRL"})} (multa por funcionário x quantidade de funcionários).</p>
+                  ${multaMinimaBase.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} (multa em 1º caso) + ${multaReincidencia.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} (multa máx. por reincidência) + ${perdaFunc.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} (multa por funcionário x quantidade de funcionários).</p>
 
                   <h3> Perda Total Estimada:</h3>
                   <h2 style="color: red;">${perdaTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</h2> 
@@ -202,14 +207,4 @@
 
     msg.innerHTML = msgHTML;
   }
-
-
-  function logar() {
-    window.location.href = './login.html'
-  }
-
-  function cadastrar() {
-    window.location.href = './cadastro.html'
-  }
-
 </script>

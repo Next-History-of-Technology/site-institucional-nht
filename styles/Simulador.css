@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body{
+
+body {
      display: flex;
      justify-content: center;
      font-family: 'Poppins';
 }
 
 
-.conteudo{
+.conteudo {
      margin-top: 125px;
      display: flex;
      align-items: center;
      flex-direction: column;
-     justify-content:center;
+     justify-content: center;
      width: 60%;
      height: auto;
      box-shadow: 0 2px 4px #505050;
@@ -21,7 +22,7 @@ body{
      padding: 12px;
 }
 
-.titulo{
+.titulo {
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -29,36 +30,38 @@ body{
      font-size: 20px;
 }
 
-.subtitulo{
+.subtitulo {
      display: flex;
      flex-direction: column;
      align-items: center;
 }
 
-.card-input{
+.card-input {
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
      width: 80%;
 }
-.inp_fat{
+
+.inp_fat {
      display: flex;
      flex-direction: column;
      justify-content: start;
      align-items: center;
      width: 100%;
      background-color: rebeccapurple;
-
 }
-.container-inputs{
+
+.container-inputs {
      display: flex;
      justify-content: center;
      flex-direction: column;
      text-align: center;
      gap: 10px;
 }
-.inp_escolha{
+
+.inp_escolha {
      display: flex;
      flex-direction: column;
      justify-content: center;
@@ -67,48 +70,52 @@ body{
      width: 100%;
 }
 
-#campos_paralisacao{
+#campos_paralisacao {
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
      margin-bottom: -18.5px;
 }
-.inp_fat input{
-width: 80%;
-}
-input{
-    border-radius: 5px;
-    border: solid 2px #5630D8;
-    padding: 7px 8px;
-    width: 300px;
-    outline: none;
-    margin: 5px 0 10px 0;
-    font-size: 18px;
-    color: #363636;
-}
-select{
-    border-radius: 5px;
-    border: solid 2px #5630D8;
-    padding: 7px 8px;
-    width: 320px;
-    margin: 5px 0 10px 0;
-    font-size: 18px;
-    background-color:#5630D8 ;
-    color: #ffffff;
+
+.inp_fat input {
+     width: 80%;
 }
 
-.button-calcular{
-    color: #fff;
-    background-color: #5630D8;
-    border-radius: 10px;
-    border: none;
-    font-size: 18px;
-    width: 200px;
-    padding: 8px 10px;
-    cursor: pointer; /*Cursor da mãozinha ao passar o mouse no botão*/
-    box-shadow: 0  4px 8px #505050;
-    margin-top: 30px;
+input {
+     border-radius: 5px;
+     border: solid 2px #5630D8;
+     padding: 7px 8px;
+     width: 300px;
+     outline: none;
+     margin: 5px 0 10px 0;
+     font-size: 18px;
+     color: #363636;
+}
+
+select {
+     border-radius: 5px;
+     border: solid 2px #5630D8;
+     padding: 7px 8px;
+     width: 320px;
+     margin: 5px 0 10px 0;
+     font-size: 18px;
+     background-color: #5630D8;
+     color: #ffffff;
+}
+
+.button-calcular {
+     color: #fff;
+     background-color: #5630D8;
+     border-radius: 10px;
+     border: none;
+     font-size: 18px;
+     width: 200px;
+     padding: 8px 10px;
+     cursor: pointer;
+     /*Cursor da mãozinha ao passar o mouse no botão*/
+     box-shadow: 0 4px 8px #505050;
+     margin-top: 30px;
 }
 
 
@@ -116,95 +123,111 @@ select{
 
 /* Ocultando o hr original para usar separadores dentro do HTML gerado */
 .conteudo hr {
-    display: none;
+     display: none;
 }
 
 .resultado-container {
-   display: flex;
-   width: 100%;
-   padding: 0 20px;
-   gap: 30px;
-   align-items: flex-start; /* Alinha os itens ao topo */
+     display: flex;
+     width: 100%;
+     padding: 0 20px;
+     gap: 30px;
+     align-items: flex-start;
+     /* Alinha os itens ao topo */
 }
 
 .coluna-texto {
-   display: flex;
-   flex-direction: column;
-   flex: 2;
-   padding-right: 20px; /* Espaço para a coluna principal */
+     display: flex;
+     flex-direction: column;
+     flex: 2;
+     padding-right: 20px;
+     /* Espaço para a coluna principal */
 }
 
 /* Estilo para as novas linhas de separação */
 .separador {
-    width: 100%;
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin: 10px 0; /* Espaçamento da linha */
+     width: 100%;
+     border: none;
+     height: 1px;
+     background-color: #ccc;
+     margin: 10px 0;
+     /* Espaçamento da linha */
 }
 
-.bloco-inicial, .bloco-multa, .bloco-impacto, .bloco-simulacao, .bloco-total {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha o texto à esquerda dentro do bloco */
-    width: 100%;
-    margin: 5px 0; /* Ajuste o espaçamento entre blocos */
+.bloco-inicial,
+.bloco-multa,
+.bloco-impacto,
+.bloco-simulacao,
+.bloco-total {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     /* Alinha o texto à esquerda dentro do bloco */
+     width: 100%;
+     margin: 5px 0;
+     /* Ajuste o espaçamento entre blocos */
 }
 
 .bloco-total {
-    margin-top: 20px; /* Mais espaço antes do total */
-    padding-top: 10px;
-    border-top: 2px solid #5630D8; /* Linha de destaque para o total */
+     margin-top: 20px;
+     /* Mais espaço antes do total */
+     padding-top: 10px;
+     border-top: 2px solid #5630D8;
+     /* Linha de destaque para o total */
 }
 
 .bloco-total h2 {
-    color: #5630D8; /* Cor de destaque para o valor total */
-    font-size: 2em;
-    margin: 5px 0;
+     color: #5630D8;
+     /* Cor de destaque para o valor total */
+     font-size: 2em;
+     margin: 5px 0;
 }
 
 .lado {
-    flex: 1;
-    margin-top: 15px;
-    min-width: 250px; /* Garante que o card de multas tenha espaço */
+     flex: 1;
+     margin-top: 15px;
+     min-width: 250px;
+     /* Garante que o card de multas tenha espaço */
 }
 
-.bloco-informativo{
-   display: flex;
-   justify-content: center;
-   align-items: flex-start; /* Alinha o texto do card à esquerda */
-   flex-direction: column;
-   box-shadow: 0 4px 8px #505050;
-   width: 100%; /* Ocupa a largura total do 'lado' */
-   max-width: 200px;
-   border-radius: 12px;
-   background-color: white;
-   margin: 0;
-   padding: 15px; /* Adiciona padding interno */
-   gap: 5px;
+.bloco-informativo {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     /* Alinha o texto do card à esquerda */
+     flex-direction: column;
+     box-shadow: 0 4px 8px #505050;
+     width: 100%;
+     /* Ocupa a largura total do 'lado' */
+     max-width: 200px;
+     border-radius: 12px;
+     background-color: white;
+     margin: 0;
+     padding: 15px;
+     /* Adiciona padding interno */
+     gap: 5px;
 }
 
 .bloco-informativo h4 {
-    align-self: center; 
-    margin-top: 0;
-    margin-bottom: 10px;
+     align-self: center;
+     margin-top: 0;
+     margin-bottom: 10px;
 }
 
 .bloco-informativo p {
-    margin: 4px 0;
-    font-size: 0.9em;
+     margin: 4px 0;
+     font-size: 0.9em;
 }
 
-.conteudo button{
+.conteudo button {
      height: 35px;
      width: 135px;
 }
 
-.container-input{
+.container-input {
      height: 80px;
 }
 
-.titulo-input{
+.titulo-input {
      display: flex;
      align-items: flex-start;
      margin-bottom: -25px;

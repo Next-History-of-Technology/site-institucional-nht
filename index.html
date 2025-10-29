@@ -28,20 +28,25 @@
     </div>
 
     <div class="botao_container">
-      <button onclick="logar()" class="btn_login">Login</button>
-      <button onclick="cadastrar()" class="btn_cadastrar">Cadastrar</button>
+      <a href="./login.html">
+        <button class="btn_login">Login</button>
+      </a>
+
+      <a href="./cadastro.html">
+        <button class="btn_cadastrar">Cadastrar</button>
+      </a>
     </div>
 
   </div>
 
   <div id="main">
     <h1>
-      Monitoramento de <br> Vazamentos de gás amônia no <br>Sistema de Refrigeração em <br>
-      Frigoríficos.
+      Monitoramento de <br> vazamentos de gás amônia no <br>sistema de refrigeração em <br>
+      frigoríficos.
     </h1>
 
     <a href="#container-missao-visao-valores">
-      <button>Ver nossas Missões</button>
+      <button>Ver nossas missões</button>
     </a>
   </div>
 
@@ -298,13 +303,3 @@
 </body>
 
 </html>
-
-<script>
-  function logar() {
-    window.location.href = './login.html'
-  }
-
-  function cadastrar() {
-    window.location.href = './cadastro.html'
-  }
-</script>
