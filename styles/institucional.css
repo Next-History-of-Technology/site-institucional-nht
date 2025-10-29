@@ -34,14 +34,16 @@
     padding: 13px 5px;
     width: 250px;
     font-size: 20px;
-    color: #a038f2;
     font-weight: 700;
     cursor: pointer;
+        text-decoration: none;
+    color: #a038f2;
 }
+
 /*Fim da estilização da tela principal*/
 
 /*Inicio da estilização da tela nossas soluções*/
-.secao_solucoes {
+#secao_solucoes {
     background-color: #e2e2eb;
     height: 100vh;
     display: flex;
@@ -49,7 +51,7 @@
     justify-content: space-evenly;
 }
 
-.secao_solucoes h2 {
+#secao_solucoes h2 {
     text-align: center;
     font-size: 40px;
 }
@@ -165,7 +167,7 @@
 
 /* inicio das nossas missoes */
 
-.container-missao-visao-valores {
+#container-missao-visao-valores {
     display: flex;
     flex-direction: column;
     align-items: center;
