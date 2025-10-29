@@ -34,27 +34,28 @@
   </div>
 
 
-  <!-- conteudo -->
   <div class="conteudo">
     <div class="titulo">
       <h1>Simulador Financeiro</h1>
     </div>
     <div class="subtitulo">
 
-      <p>Um frigorífico deve ter sistemas de monitoramento de gás de acordo com a lei NR-15 e NR-36, e em caso de descumprimento, estará suscetível a multas e indenizações.</p>
+      <p>Um frigorífico deve ter sistemas de monitoramento de gás de acordo com a lei NR-15 e NR-36, e em caso de
+        descumprimento, estará suscetível a multas e indenizações.</p>
       <p>
-        Calcule o prejuízo potencial em caso de vazamento de gás amônia no seu frigorífico e a recuperação com redução de riscos.
+        Calcule o prejuízo potencial em caso de vazamento de gás amônia no seu frigorífico e a recuperação com redução
+        de riscos.
       </p>
     </div>
     <div class="card-input">
       <div class="container-inputs">
         <label class="container-input">
           <span class="titulo-input"><b>Informe o faturamento diário:</b></span> <br />
-          <input type="text" id="input_faturamento" placeholder="ex: 15000" value="15000"/>
+          <input type="text" id="input_faturamento" placeholder="ex: 15000" value="15000" />
           <br /><br />
         </label>
         <label class="container-input">
-           <b class="titulo-input"> Houve paralisação?</b><br />
+          <b class="titulo-input"> Houve paralisação?</b><br />
           <select id="select_paralisacao" onchange="mostrarCampos()">
             <option selected disabled value="default">Escolha uma opção</option>
             <option value="Não">Não</option>
@@ -65,79 +66,81 @@
 
         <div id="campos_paralisacao" style="display: none;">
           <label class="container-input">
-  
+
             <span class="titulo-input"><b> Quantos dias durou a paralisação?</b></span> <br />
-            <input type="text" id="input_periodo" placeholder="ex: 2" value="2"/>
+            <input type="text" id="input_periodo" placeholder="ex: 2" value="2" />
             <br /><br />
-          </label>        
+          </label>
         </div>
 
         <label class="container-input qtd_funcionario">
           <span class="titulo-input"><b>Quantidade de funcionários:</b></span> <br />
-          <input type="text" id="input_funcionarios" placeholder="ex: 50" value="50"/><br /><br />
+          <input type="text" id="input_funcionarios" placeholder="ex: 50" value="50" /><br /><br />
         </label>
 
       </div>
     </div>
 
     <button class="button-calcular" onclick="calcular()">CALCULAR</button>
-    <br/>
+    <br />
     <div class="exibicao" id="msg"></div>
   </div>
 
-  <script>
-    function mostrarCampos() {
-      if (select_paralisacao.value == "Sim") {
-        campos_paralisacao.style.display = "block";
-      } else {
-        campos_paralisacao.style.display = "none";
-      }
+</body>
+
+</html>
+<script>
+  function mostrarCampos() {
+    if (select_paralisacao.value == "Sim") {
+      campos_paralisacao.style.display = "block";
+    } else {
+      campos_paralisacao.style.display = "none";
+    }
+  }
+
+  function calcular() {
+    var faturamento = Number(input_faturamento.value);
+    var dias = Number(input_periodo.value);
+    var funcionarios = Number(input_funcionarios.value);
+    var houveParalisacao = select_paralisacao.value;
+
+
+    // validação
+    if (faturamento <= 0 || isNaN(faturamento)) {
+      alert("Informe um faturamento válido");
+      return;
+    } else if (houveParalisacao == "default") {
+      alert("Por favor, selecione se houve paralisação.");
+      return;
+    } else if (houveParalisacao == "Sim" && (dias <= 0 || isNaN(dias))) {
+      alert("Informe um período (dias) válido");
+      return;
+    } else if (funcionarios <= 0 || isNaN(funcionarios)) {
+      alert("Informe uma quantidade válida de funcionários");
+      return;
     }
 
-    function calcular() {
-      var faturamento = Number(input_faturamento.value);
-      var dias = Number(input_periodo.value);
-      var funcionarios = Number(input_funcionarios.value);
-      var houveParalisacao = select_paralisacao.value;
+    // valores fixos
+    var multaMinimaBase = 443.97;
+    var multaReincidencia = 44396.84;
+    var multaFuncionario = 104.31;
+    var faturamentoMensal = faturamento * 30;
 
+    var perda = 0;
+    if (houveParalisacao == "Sim") {
+      perda = faturamento * dias;
+    }
 
-      // validação
-      if (faturamento <= 0 || isNaN(faturamento)) {
-        alert("Informe um faturamento válido");
-        return;
-      } else if (houveParalisacao == "default") {
-        alert("Por favor, selecione se houve paralisação.");
-        return;
-      } else if (houveParalisacao == "Sim" && (dias <= 0 || isNaN(dias))) {
-        alert("Informe um período (dias) válido");
-        return;
-      } else if (funcionarios <= 0 || isNaN(funcionarios)) {
-        alert("Informe uma quantidade válida de funcionários");
-        return;
-      }
+    var perdaFunc = funcionarios * multaFuncionario;
+    var totalMultas = perdaFunc + multaMinimaBase + multaReincidencia;
+    var impactoMultas = ((totalMultas / faturamentoMensal) * 100).toFixed(1);
+    var perdaTotal = perda + totalMultas;
+    var poupando = totalMultas
+    var multaMin = multaMinimaBase + perdaFunc;
+    var multaMax = multaReincidencia + perdaFunc;
 
-      // valores fixos
-      
-      var multaMinimaBase = 443.97;
-      var multaReincidencia = 44396.84;
-      var multaFuncionario = 104.31;
-      var faturamentoMensal = faturamento * 30;
-
-      var perda = 0;
-      if (houveParalisacao == "Sim") {
-        perda = faturamento * dias;
-      }
-
-      var perdaFunc = funcionarios * multaFuncionario;
-      var totalMultas = perdaFunc + multaMinimaBase + multaReincidencia;
-      var impactoMultas = ((totalMultas / faturamentoMensal) * 100).toFixed(1);
-      var perdaTotal = perda + totalMultas;
-      var poupando = totalMultas
-      var multaMin = multaMinimaBase + perdaFunc;
-      var multaMax = multaReincidencia + perdaFunc;
-
-      // mensagem organizada nas DIVs
-      var msgHTML = `
+    // mensagem organizada nas DIVs
+    var msgHTML = `
       <div class="resultado-container"> 
           <div class="coluna-texto">
             
@@ -197,9 +200,6 @@
       </div>
   `;
 
-      msg.innerHTML = msgHTML;
-    }
-  </script>
-</body>
-
-</html>
+    msg.innerHTML = msgHTML;
+  }
+</script>
