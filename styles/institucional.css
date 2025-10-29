@@ -1,3 +1,5 @@
+
+/*estilização da página inteira*/
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +7,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+/*inicio da estilização da tela principal*/
 #main {
     background-image: url(../assets/tela\ inicial.png);
     height: 100vh;
@@ -35,7 +38,9 @@
     font-weight: 700;
     cursor: pointer;
 }
+/*Fim da estilização da tela principal*/
 
+/*Inicio da estilização da tela nossas soluções*/
 .secao_solucoes {
     background-color: #e2e2eb;
     height: 100vh;
@@ -73,7 +78,9 @@
 .card_solucoes h4 {
     margin-bottom: 10px;
 }
+/*Fim da estilização da tela nossas soluções*/
 
+/*Inicio da estilização da tela sobre nós*/
 #quem_somos {
     display: flex;
     background-color: #FFFFFF;
@@ -109,7 +116,9 @@
     font-size: 25px;
     text-align: justify;
 }
+/*Fim da estilização da tela sobre nós*/
 
+/*Inicio da estilização da tela pra que serve*/
 .pra_que_serve {
     background-color: #5a189a;
     height: 100vh;
@@ -151,6 +160,8 @@
     gap: 1rem;
     font-size: 20px;
 }
+
+/*Fim da estilização da tela pra que serve*/
 
 /* inicio das nossas missoes */
 
