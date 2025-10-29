@@ -158,22 +158,6 @@
             input_email.style.border = 'solid 2px red'
             email_span.innerHTML = 'Formato de email inválido'
         }
-        
-        // while (contador < email.length) {
-        //     if (email[contador] == '@' && (email.endsWith('sptech.school') ||
-        //         email.endsWith('.com') ||
-        //         email.endsWith('.com.br'))) {
-        //         input_email.style.border = 'solid 2px #28DF99'
-        //         email_span.innerHTML = ''
-
-        //         break
-        //     } else {
-        //         input_email.style.border = 'solid 2px red'
-        //         email_span.innerHTML = 'Formato de email inválido'
-        //     }
-
-        //     contador++
-        // }
     }
 
     function validarNome() { //Função para verificar se é um nome válido
@@ -242,18 +226,13 @@
 
     function validarSenha() { //Função que valida a Senha inserida
         var senha = input_senha.value
-        var contador = 0
 
-        while (contador < senha.length) { //Enquanto o contador for menor que o tamanho da senha
-            contador++
-
-            if (senha.length < 8) { //Se o tamanho da senha for menor que 8 caracteres, ela não será válida
-                senha_span.innerHTML = 'Senha necessita de, no mínimo, 8 caracteres'
-                input_senha.style.border = 'solid 2px red'
-            } else {
-                senha_span.innerHTML = ''
-                input_senha.style.border = 'solid 2px #28DF99'
-            }
+        if (senha.length < 8) { //Se o tamanho da senha for menor que 8 caracteres, ela não será válida
+            senha_span.innerHTML = 'Senha necessita de, no mínimo, 8 caracteres'
+            input_senha.style.border = 'solid 2px red'
+        } else {
+            senha_span.innerHTML = ''
+            input_senha.style.border = 'solid 2px #28DF99'
         }
     }
 
@@ -273,7 +252,7 @@
     function validarCodigoAtivacao() {
         var codigoAtivacao = input_codigo_ativacao.value
 
-        if (codigoAtivacao.length <= 1) {
+        if (codigoAtivacao.length < 5) {
             codigo_ativacao_span.innerHTML = 'Insira um código válido'
             input_codigo_ativacao.style.border = 'solid 2px red'
         } else {
