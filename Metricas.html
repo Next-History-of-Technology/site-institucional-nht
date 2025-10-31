@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Métricas NH₃</title>
-  <link rel="stylesheet" href="styles/metricas.css" />
+  <link rel="stylesheet" href="styles/metricas2.css" />
   <link rel="stylesheet" href="styles/header.css">
 </head>
 
@@ -22,110 +22,52 @@
     </div>
 
     <p class="introducao">
-      Monitoramos continuamente os níveis de gás amônia (NH₃) em partes por
+      <b> Monitoramos continuamente os níveis de gás amônia (NH₃) em partes por
       milhão (PPM), garantindo segurança e conformidade com as normas
       brasileiras.
+    </b>
     </p>
 
     <div class="conteudo">
       <div class="normas">
-        <div class="card nr15">
-          <h2>🧪 NR-15</h2>
-          <p>
-            <b>Define limites de exposição a agentes químicos</b>, como a
-            amônia.
-          </p>
-          <br />
-
-          Limite máximo: <b>20 ppm</b> (jornada de 48h semanais). <br />
-          Base legal para controle de exposição. <br />
-          Serve de referência para alarmes de segurança.
+        <div class="card">
+          <h3>🧪 <b>NR-15</b></h3>
+          <p> Estabelece o limite de exposição a agentes quimicos em até 20 ppm para 48h semanais por jornada<br />
+            <br /> <br /> <b> Base legal para controle de exposição.<br /> Serve de referência para alarmes de
+              segurança. </b> </p>
         </div>
-
-        <div class="card nr33">
-          <h2>🧊 NR-33</h2>
-          <p>
-            <b>Aplica-se a ambientes confinados</b> como câmaras frias e salas
-            de máquinas.
+        <div class="card">
+          <h3>🧊 <b>NR-33</b></h3>
+          <p> Exige avaliação contínua de ambientes confinados, ou seja, monitoramento.<br /> <br /> <br /> <b> Previne
+              asfixia e explosões por acúmulo de gás.<br /> Garante ventilação adequada e planos de emergência. </b>
           </p>
-          <br />
-
-          Exige avaliação contínua da atmosfera. <br />
-          Previne asfixia e explosões por acúmulo de gás. <br />
-          Garante ventilação adequada e planos de emergência.<br />
         </div>
-
-        <div class="card nr36">
-          <h2>🧯 NR-36</h2>
-          <p>
-            <b>Regulamenta a segurança em frigoríficos e câmaras frias.</b>
-          </p>
-          <br />
-
-          Obrigatoriedade de sensores e alarmes de amônia. <br />
-          Define ações automáticas em caso de vazamento. <br />
-          Protege os trabalhadores e evita contaminação dos alimentos.
+        <div class="card">
+          <h3>🚨 <b>NR-36</b></h3>
+          <p> Determina a instalação de sensores e alertas de segurança em frigoríficos e câmaras frias.<br /> <br />
+            <b> Define ações automáticas em caso de vazamento.<br /> Protege os trabalhadores e evita contaminação dos
+              alimentos. </b> </p>
+        </div>
+        <div class="referencias">
+          <h2>📊 Níveis de Referência</h2> <br> <br> <br>
+          <h2> O ideal é o mais próximo de zero (0).</h2> <br>
+          <div class="nivel" style="background-color: #a855f7"> <b>✅ SEGURO</b>0 - 5 ppm <br> <br /> <br>De 0 até 5 PPM,
+            o ambiente apresenta odor<br /> característico da amônia, mas o ambiente está "seguro". </div>
+          <div class="nivel" style="background-color: #7e22ce"> <b>⚠️ Risco Moderado</b>5 - 25 ppm <br /> <br> Com
+            irritações "leves" (nos olhos e no trato respiratório). </div>
+          <div class="nivel" style="background-color: #5b21b6"> <b>🚨 Risco Alto</b>25 - 50 ppm <br /> <br> Com risco é
+            "alto", causando efeitos ainda mais graves. </div>
+          <div class="nivel" style="background-color: #3b0a6b"> <b> 🆘 Risco Crítico</b>5 - 25 ppm <br /> <br> O risco é
+            "extremo" causando sintomas como inchaço, <br>
+            conjuntivite e vômito. Onde a exposição prolongada 
+            <br>a altas concentrações pode resultar em morte. </div>
         </div>
       </div>
-
-      <div class="referencias">
-        <h2>📊 Níveis de Referência</h2>
-
-        <div class="nivel ideal">
-          <h3>✅ Ideal</h3>
-          <p>Até <b>5 ppm</b></p>
-        </div>
-
-        <div class="nivel alerta">
-          <h3>⚠️ Alerta</h3>
-          <p>Entre <b>6 e 25 ppm</b></p>
-        </div>
-
-        <div class="nivel risco">
-          <h3>🚨 Risco Alto </h3>
-          <p>Acima de <b>25 ppm</b></p>
-        </div>
-
-        <div class="nivel risco critico">
-          <h3>🚨 Alerta Crítico </h3>
-          <p>Acima de <b>50 ppm</b></p>
-        </div>
+      <div class="rodape">
+        <p> <b> As métricas são atualizadas automaticamente na dashboard, garantindo uma visualização clara dos níveis
+            de amônia e a segurança dos colaboradores conforme as normas legais. </b> </p>
       </div>
     </div>
-
-    <div class="descricao">
-      <p><b>O ideal é o mais próximo de zero.</b></p>
-
-      <li><b>5</b> ppm está seguro, mas já apresenta o odor característico da amônia</li>
-
-      <ul>
-        <li>Entre <b>6 e 25</b> ppm alerta o perigo é médio.(Entre 6 e 25 ppm causa irritação nos olhos e no trato
-          respiratório)
-        </li>
-        <li>Acima de <b>25</b> ppm alerta o perigo é alto causando irritações cada vez mais graves</li>
-        <li>A partir de <b>50</b> ppm o perigo é crítico, causando inchaço nas pálpebras, conjuntivite, vômito e irritação na
-          garganta.</li>
-      </ul>
-
-      <p>A exposição prolongada a altas concentrações poderão resultar em morte.</p>
-
-    </div>
-
-
-  </div>
-
-
-
-
-
-  <div class="rodape">
-    <p>
-      As métricas são atualizadas automaticamente no dashboard, garantindo
-      uma visualização clara dos níveis de amônia e a segurança dos
-      colaboradores conforme as normas legais.
-    </p>
-  </div>
-  </div>
 </body>
 
 </html>
