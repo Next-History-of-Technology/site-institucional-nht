@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./styles/cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <div class="banner-container">
+            <a href="./index.html" class="link_voltar">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Voltar
+            </a>
+
+            <h1>Bem-vindo à
+                <br>
+                tela de cadastro
+            </h1>
+        </div>
+
+        <div class="cadastro-container">
+            <img src="./assets/logo-nh3.png" alt="Logo Next History Technology">
+            <h2>Cadastre-se</h2>
+
+            <div class="inputs-container">
+                <div class="dupla-input">
+                    <label>
+                        Email:
+                        <br>
+
+                        <div>
+                            <input type="email" placeholder="Email" id="input_email" oninput="validarEmail()"
+                                value="julia.araripe@sptech.school">
+                            <span id="email_span"></span>
+                        </div>
+                    </label>
+
+                    <label>
+                        Nome:
+                        <br>
+
+                        <div>
+                            <input type="text" placeholder="Nome" id="input_nome" oninput="validarNome()"
+                                value="Julia Araripe">
+                            <span id="nome_span"></span>
+                        </div>
+                    </label>
+                </div>
+
+
+                <div class="dupla-input">
+                    <label>
+                        Telefone:
+                        <br>
+
+                        <div>
+                            <input type="text" placeholder="Telefone" id="input_telefone" oninput="validarTelefone()"
+                                maxlength="15" value="(11) 99999-9999">
+                            <span id="telefone_span"></span>
+                        </div>
+                    </label>
+
+                    <label>
+                        CPF:
+                        <br>
+
+                        <div>
+                            <input type="text" placeholder="CPF" id="input_cpf" maxlength="14" oninput="validarCpf()"
+                                value="555.555.555-55">
+                            <span id="cpf_span"></span>
+                        </div>
+                    </label>
+                </div>
+
+
+                <div class="dupla-input">
+                    <label>
+                        Senha:
+                        <br>
+
+                        <div>
+                            <input type="password" placeholder="Senha" id="input_senha" oninput="validarSenha()">
+                            <span id="senha_span"></span>
+                        </div>
+                    </label>
+
+                    <label>
+                        Confirmar senha:
+                        <br>
+
+                        <div>
+                            <input type="password" placeholder="Confirme a senha" id="input_confirmar_senha"
+                                oninput="validarSenhaRepetida()">
+                            <span id="confirmar_senha_span"></span>
+                        </div>
+                    </label>
+                </div>
+
+                <label>
+                    Código de ativação:
+                    <br>
+                    <div style="display: flex; flex-direction: column;">
+                        <input type="text" placeholder="Insira o código aqui" id="input_codigo_ativacao"
+                            oninput="validarCodigoAtivacao()" maxlength="5" value="5#AB0">
+                        <span id="codigo_ativacao_span" style="font-size: 13.5px; color: red;"></span>
+                    </div>
+                </label>
+            </div>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+
+            <p>Já é cadastrado? <a href="./login.html">Acesse sua conta!</a></p>
+        </div>
+    </main>
+</body>
+
+</html>
+<script src="./js/cadastro.js"></script>
+<script src="./js/sessao.js"></script>
+

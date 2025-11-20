@@ -56,28 +56,4 @@
 </body>
 
 </html>
-<script>
-    function entrar() { //Função para entrar na conta dos usuários cadastrados
-        var email = input_email.value
-        var senha = input_senha.value
-
-        emailClaudio = 'claudio.frizzarini@sptech.school'
-        senhaClaudio = 'Claudio123'
-
-        emailJulia = 'julia.araripe@sptech.school'
-        senhaJulia = 'Julia123'
-
-        if ((email == emailJulia && senha == senhaJulia) ||
-            (email == emailClaudio && senha == senhaClaudio)) {
-            window.location.href = './dashboard/dashboard.html'
-        } else if ((email != emailJulia && senha == senhaJulia) ||
-            (email != emailClaudio && senha == senhaClaudio)) {
-            alert('Email incorreto!')
-        } else if ((email == emailJulia && senha != senhaJulia) ||
-            (email == emailClaudio && senha != senhaClaudio)) {
-            alert('Senha incorreta!')
-        } else {
-            alert('Usuário não econtrado!')
-        }
-    }
-</script>
+<script src="./js/login.js"></script>
