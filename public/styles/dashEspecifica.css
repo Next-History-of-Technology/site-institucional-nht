@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    font-family: Poppins;
+    box-sizing: border-box;
+    /*Tira a aumento automatico da div quando se usa o padding*/
+}
+
+a {
+    text-decoration: none;
+    /*Tira a linha que fica embaixo dos links*/
+}
+
+
+/* Navbar */
+.navbar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    color: white;
+    position: fixed;
+    /*deixa a navbar em uma posição fixa na tela*/
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /*deixa a navBar na camada mais alta*/
+}
+
+.nav-logo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /*cria uma borda apenas na parte de baixo da div*/
+}
+
+.nav-logo img {
+    width: 140px;
+    margin-bottom: 15px;
+}
+
+.nav-logo h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    /*aplica uma traqnsição suave "all" é para todas as propriedades "0.3" é o tempo dessa animação
+    "Ease" a animação começa lenta no meio fica rápida e e termina lenta*/
+}
+
+.nav-link-pai {
+    margin-left: -5px;
+    margin-bottom: -5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-sair {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    /*O ponteiro do mouse muda ao passar sobre o botão*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*estilização da font awesome*/
+.btn-sair i {
+    margin-right: 8px;
+}
+
+/* Container Principal */
+.container {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/*Conteudo da dashboard*/
+
+.container-conteudo {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.container-esquerdo {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-around;
+    height: 90vh;
+    margin-top: 30px;
+}
+
+
+/* KPI Cards */
+.container-cards {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.card-info-roxo {
+    width: 32%;
+    height: 130px;
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 12px;
+}
+
+.card-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #000000;
+    background: linear-gradient(150deg, #ffffff, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 8px 5px;
+    text-align: center;
+    margin-left: 2%;
+}
+
+.card-info span {
+    font-size: 12px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    /*Altura entre as linha do texto*/
+    color: #555;
+    text-align: center;
+}
+
+.card-info p {
+    color: #000000;
+    font-weight: bold;
+}
+
+.card-info h1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.metrica-dados {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 10px;
+    gap: -20px;
+}
+
+/* Container Gráfico KPI */
+.container-grafico-kpi {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: -10px;
+}
+
+.container-grafico {
+    width: 100%;
+    height: 400px;
+}
+
+.alerta {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+.card-situacao {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    width: 28%;
+    height: 100%;
+    display: flex;
+    border-top-left-radius: 12px;
+    /*apenas a borda esquerda do top vai ficar arredondada*/
+    border-bottom-left-radius: 12px;
+    /*apenas a borda esqueda de baixo vai ficar arredondada*/
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.situacao-conteudo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.situacao-conteudo img {
+    width: 120px;
+}
+
+.situacao-conteudo p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.grafico {
+    width: 72%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.kpi-grafico.leitura {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    height: 40px;
+}
+
+.kpi-img {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-img img {
+    width: 24px;
+    height: 24px;
+}
+
+.kpi-info span {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+.grafico-ppm {
+    width: 100%;
+    flex: 1;
+}
+
+.container-metricas {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    height: 110px;
+}
+
+.card-metricas {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 100%;
+    width: 33.33%;
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.card-metricas img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.conteudo-metrica {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metrica-descricao {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.metrica-valor {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.container-graficos-direita {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50%;
+}
+
+/* Gráficos Barra e Pizza */
+.container-grafico-barra {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    margin-top: 22px;
+}
+
+.grafico-card-pai {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    height: 325px;
+    display: flex;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    flex: 1;
+}
+
+.grafico-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-kpi-grafico {
+    width: 100%;
+    display: flex;
+}
+
+.kpi-grafico {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 50px;
+}
+
+.kpi-grafico .kpi-info {
+    width: 48%;
+}
+
+.kpi-grafico .kpi-info span {
+    font-size: 13px;
+    color: #555;
+    font-weight: bold;
+    display: block;
+}
+
+.kpi-grafico .kpi-info p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b1ca3;
+    margin: 4px 0 0 0;
+}
+
+.kpi-grafico .kpi-img {
+    width: 45px;
+    height: 45px;
+}
+
+.kpi-grafico .kpi-img img {
+    width: 22px;
+    height: 22px;
+}
+
+
+.card-grafico-menor {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cores das métricas */
+.card-risco {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
+}
+
+.card-perigo {
+    background: linear-gradient(45deg, #f57c00, #ff9800);
+}
+
+.card-alerta {
+    background: linear-gradient(45deg, #ffea00, #ffd600);
+}
+
+.card-seguro {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+}
+
+.situacao-conteudo-alerta {
+    background: linear-gradient(45deg, #ffea00, #ffd600);
+}
+
+
+.container-kpi {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.titulo-kpi {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #28155e;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.sensores-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.linha-sensor {
+    display: flex;
+    gap: 15px;
+}
+
+.sensor-card {
+    flex: 1;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sensor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #5a47b8;
+}
+
+.sensor-nome {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.sensor-status {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #28155e;
+}

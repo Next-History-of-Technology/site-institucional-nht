@@ -1,36 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/*Import da font Poppins*/
 
 * {
     margin: 0;
-    /*Tira a margem padrão*/
     font-family: Poppins;
-    /*Consigura todos os texto como poppins*/
     box-sizing: border-box;
-    /*Tira a aumento automatico da div quando se usa o padding*/
 }
 
 a {
     text-decoration: none;
-    /*Tira a linha que fica embaixo dos links*/
 }
-
 
 /* Navbar */
 .navbar {
     width: 250px;
     height: 100vh;
-    /*deixa a navbar com o tamamnho total da tela*/
     background: linear-gradient(50deg, #28155e, #5a47b8);
     color: white;
     position: fixed;
-    /*deixa a navbar em uma posição fixa na tela*/
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
-    /*cria uma sombra nas borda da div*/
     z-index: 1000;
-    /*deixa a navBar na camada mais alta*/
 }
 
 .nav-logo {
@@ -39,7 +29,6 @@ a {
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /*cria uma borda apenas na parte de baixo da div*/
 }
 
 .nav-logo img {
@@ -51,12 +40,10 @@ a {
     color: white;
     font-size: 18px;
     font-weight: bold;
-    /*deixa a font em formato negrito*/
 }
 
 .nav-links {
     flex: 1;
-    /*faz com que o item ocupe o espaço disponível dentro do contêiner.*/
     padding: 20px 0;
 }
 
@@ -66,8 +53,6 @@ a {
     padding: 10px 25px;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
-    /*aplica uma traqnsição suave "all" é para todas as propriedades "0.3" é o tempo dessa animação
-    "Ease" a animação começa lenta no meio fica rápida e e termina lenta*/
 }
 
 .nav-link-pai {
@@ -80,7 +65,6 @@ a {
 .nav-footer {
     padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /*borda apenas na parte de cima da div*/
 }
 
 .btn-sair {
@@ -88,21 +72,15 @@ a {
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
-    /*Tira a borda padrão do botão*/
     border-radius: 8px;
-    /*Arredonda a borda do botão*/
     color: white;
     font-weight: bold;
     cursor: pointer;
-    /*O ponteiro do mouse muda ao passar sobre o botão*/
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-
-/*estilização da font awesome*/
 .btn-sair i {
     margin-right: 8px;
 }
@@ -111,199 +89,33 @@ a {
 .container {
     margin-left: 250px;
     padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
-/*Conteudo da dashboard*/
 
 .container-conteudo {
     display: flex;
     gap: 20px;
     width: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex: 1;
 }
 
 .container-esquerdo {
     width: 65%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    justify-content: space-around;
-    height: 90vh;
-    margin-top: 30px;
+    gap: 2vh;
 }
 
-
-/* KPI Cards */
-.container-cards {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-
-.card-info-roxo {
-    width: 32%;
-    height: 130px;
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-    border-radius: 12px;
-}
-
-.card-info {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    color: #000000;
-    background: linear-gradient(150deg, #ffffff, #ffffff);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    padding: 8px 5px;
-    text-align: center;
-    margin-left: 2%;
-}
-
-.card-info span {
-    font-size: 12px;
-    margin-bottom: 4px;
-    line-height: 1.2;
-    /*Altura entre as linha do texto*/
-    color: #555;
-    text-align: center;
-}
-
-.card-info p {
-    color: #000000;
-    font-weight: bold;
-}
-
-.card-info h1 {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.metrica-dados {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    margin-left: 10px;
-    gap: -20px;
-}
-
-/* Container Gráfico KPI */
-.container-grafico-kpi {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: -10px;
-}
-
-.container-grafico {
-    width: 100%;
-    height: 400px;
-}
-
-.alerta {
-    border-radius: 12px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background: white;
-}
-
-.card-situacao {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-    width: 28%;
-    height: 100%;
-    display: flex;
-    border-top-left-radius: 12px;
-    /*apenas a borda esquerda do top vai ficar arredondada*/
-    border-bottom-left-radius: 12px;
-    /*apenas a borda esqueda de baixo vai ficar arredondada*/
-    color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.situacao-conteudo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    padding: 15px;
-    text-align: center;
-}
-
-.situacao-conteudo img {
-    width: 120px;
-}
-
-.situacao-conteudo p {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.grafico {
-    width: 72%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-}
-
-.kpi-grafico.leitura {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    height: 40px;
-}
-
-.kpi-img {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.kpi-img img {
-    width: 24px;
-    height: 24px;
-}
-
-.kpi-info span {
-    font-size: 13px;
-    font-weight: bold;
-    color: #333;
-}
-
-.grafico-ppm {
-    width: 100%;
-    flex: 1;
-}
-
+/* Métricas Cards */
 .container-metricas {
     width: 100%;
     display: flex;
-    flex-direction: row;
     gap: 12px;
-    height: 110px;
+    height: 12vh;
+    min-height: 80px;
+    max-height: 100px;
 }
 
 .card-metricas {
@@ -315,15 +127,20 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     height: 100%;
-    width: 33.33%;
+    width: 25%;
     flex-direction: row;
     text-align: left;
     justify-content: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.card-metricas:hover {
+    transform: translateY(-2px);
 }
 
 .card-metricas img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-right: 10px;
 }
 
@@ -334,33 +151,120 @@ a {
 }
 
 .metrica-descricao {
-    font-size: 13px;
+    font-size: 12px;
     opacity: 0.9;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     text-align: left;
 }
 
 .metrica-valor {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
 }
 
+/* Container Câmaras */
+.container-camaras {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 20px;
+    background-color: white;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.card-camara {
+    width: 100%;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 18vh;
+    min-height: 120px;
+    max-height: 150px;
+}
+
+.card-camara:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-camara {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.nome-camara {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sensores-container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha-sensor {
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+
+.sensor-card {
+    height: 100%;
+    width: 50%;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sensor-card:hover {
+    background-color: #e9ecef;
+}
+
+.sensor-nome {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #28155e;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.sensor-status {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5a47b8;
+}
+
+/* Gráficos Laterais */
 .container-graficos-direita {
     width: 35%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    height: 520px;
-}
-
-/* Gráficos Barra e Pizza */
-.container-grafico-barra {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 100%;
-    margin-top: 22px;
+    gap: 2vh;
+    flex: 1;
 }
 
 .grafico-card-pai {
@@ -368,10 +272,10 @@ a {
     border-radius: 12px;
     padding: 20px;
     width: 100%;
-    height: 325px;
+    height: 48%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    flex: 1;
+    flex-direction: column;
 }
 
 .grafico-card {
@@ -379,11 +283,7 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.container-kpi-grafico {
-    width: 100%;
-    display: flex;
+    flex: 1;
 }
 
 .kpi-grafico {
@@ -391,73 +291,38 @@ a {
     align-items: center;
     gap: 8px;
     margin-bottom: 15px;
-    width: 100%;
     height: 50px;
-
 }
 
-.kpi-grafico .kpi-info {
-    width: 48%;
+.kpi-img {
+    background: linear-gradient(50deg, #28155e, #5a47b8);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.kpi-grafico .kpi-info span {
+.kpi-img img {
+    width: 22px;
+    height: 22px;
+}
+
+.kpi-info span {
     font-size: 13px;
     color: #555;
     font-weight: bold;
     display: block;
 }
 
-.kpi-grafico .kpi-info p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #3b1ca3;
-    margin: 4px 0 0 0;
-}
-
-.kpi-grafico .kpi-img {
-    width: 45px;
-    height: 45px;
-}
-
-.kpi-grafico .kpi-img img {
-    width: 22px;
-    height: 22px;
-}
-
-.filtro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 45%;
-}
-
-.filtro label {
-    font-size: 11px;
-    color: #555;
-    margin-bottom: 5px;
-    text-align: right;
-    /*Alinha o texto ao meio*/
-    width: 100%;
-}
-
-.filtro input,
-.filtro select {
-    background-color: #fff;
-    border: 2px solid #3b1ca3;
-    border-radius: 6px;
-    padding: 7px 8px;
-    font-size: 11px;
-    color: #3b1ca3;
-    font-weight: bold;
-    width: 100%;
-}
-
 .card-grafico-menor {
     width: 100%;
-    height: 220px;
+    height: 100% ;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 /* Cores das métricas */
@@ -475,8 +340,4 @@ a {
 
 .card-seguro {
     background: linear-gradient(50deg, #28155e, #5a47b8);
-}
-
-.situacao-conteudo-alerta {
-    background: linear-gradient(45deg, #ffea00, #ffd600);
 }

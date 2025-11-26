@@ -43,7 +43,7 @@ function entrar() {
                 teste.push(json)
 
                 setTimeout(function () {
-                    // window.location.href = "../dashboard/dashboard.html";
+                    window.location.href = "../dashboard/dashboard.html";
                 }, 1000); // apenas para exibir o loading
 
             });
