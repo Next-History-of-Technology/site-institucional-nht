@@ -39,13 +39,19 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.TIPO_USUARIO = json.tipo
                 sessionStorage.CAMARA = JSON.stringify(json.camaras)
                 teste.push(json)
 
-                setTimeout(function () {
-                    window.location.href = "../dashboard/dashboard.html";
-                }, 1000); // apenas para exibir o loading
-
+                if (json.tipo == 'suporte') {
+                    setTimeout(function () {
+                        window.location.href = "../bobia.html";
+                    }, 1000)
+                } else {
+                    setTimeout(function () {
+                        window.location.href = "../dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+                }
             });
 
         } else {

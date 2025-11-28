@@ -29,13 +29,14 @@ function autenticar(req, res) {
                                         cpf: resultadoAutenticar[0].cpf,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
+                                        tipo: resultadoAutenticar[0].tipo,
                                         camaras: resultadoCamaras
                                     });
                                 } else {
                                     res.status(204).json({ camaras: [] });
                                 }
 
-                                
+
                             })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
