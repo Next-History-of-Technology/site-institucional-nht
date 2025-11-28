@@ -13,13 +13,13 @@
     <!-- NavBar Lateral -->
     <div class="navbar">
         <div class="nav-logo">
-            <img src="../assets/logo-footer.png" width="110px">
+            <img src="../assets/logo-footer.png">
             <h3 id="nome_usuario">Bem vindo(a), </h3>
         </div>
 
         <div class="nav-links">
             <a class="nav-link-pai" href="#">Visão Geral</a>
-            <a href="camara1.html">Câmara Fria 1</a>
+            <a href="camara.html">Câmara Fria 1</a>
         </div>
 
         <div class="nav-footer">
@@ -36,7 +36,7 @@
     <div class="container">
         <div class="container-conteudo">
             <div class="container-esquerdo">
-                 
+
                 <div class="container-metricas">
                     <div class="card-metricas card-seguro">
                         <img src="../assets/seguro.png">
@@ -53,7 +53,7 @@
                             <p class="metrica-valor">PPM: 6 - 25</p>
                         </div>
                     </div>
-                    
+
                     <div class="card-metricas card-perigo">
                         <img src="../assets/metrica-alerta.png">
                         <div class="conteudo-metrica">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="card-camara">
                         <div class="info-camara">
@@ -178,27 +178,13 @@
                     </div>
                 </div>
 
-                <div class="grafico-card-pai">
-                    <div class="grafico-card">
-                        <div class="kpi-grafico sensor">
-                            <div class="kpi-img">
-                                <img src="../assets/sensor.png" width="25">
-                            </div>
-                            <div class="kpi-info">
-                                <span>Câmaras acima de 5 PPM no mês</span>
-                            </div>
-                        </div>
-                        <div class="card-grafico-menor">
-                            <canvas class="grafico-pie" id="myChartPie"></canvas>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/chartGeral.js"></script>
-    <script src="../js/dashboard.js"></script>
 </body>
+
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/chartGeral.js"></script>
+<script src="../js/dashboard.js"></script>

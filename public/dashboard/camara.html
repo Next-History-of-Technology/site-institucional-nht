@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/dashEspecifica.css">
+</head>
+
+<body>
+    <!-- NavBar Lateral -->
+    <div class="navbar">
+        <div class="nav-logo">
+            <img src="../assets/logo-footer.png" width="110px">
+            <h3>Minerva Foods</h3>
+        </div>
+
+        <div class="nav-links">
+            <a class="nav-link-pai" href="./dashboard.html">Visão Geral</a>
+            <a href="camara.html">Câmara Fria 1</a>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../login.html">
+                <button class="btn-sair">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container">
+
+        <div class="container-conteudo">
+            <div class="container-superior">
+                <div class="container-esquerdo">
+                    <div class="container-metricas">
+                        <div class="card-metricas card-seguro">
+                            <img src="../assets/seguro.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Seguro</p>
+                                <p class="metrica-valor">PPM: 0 - 5</p>
+                            </div>
+                        </div>
+
+                        <div class="card-metricas card-alerta">
+                            <img src="../assets/metrica-alerta.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Alerta</p>
+                                <p class="metrica-valor">PPM: 6 - 25</p>
+                            </div>
+                        </div>
+
+                        <div class="card-metricas card-perigo">
+                            <img src="../assets/metrica-alerta.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Risco Alto</p>
+                                <p class="metrica-valor">PPM: 26 - 50</p>
+                            </div>
+                        </div>
+
+                        <div class="card-metricas card-risco">
+                            <img src="../assets/metrica-risco.png">
+                            <div class="conteudo-metrica">
+                                <p class="metrica-descricao">Alerta Crítico</p>
+                                <p class="metrica-valor">PPM: 50+</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-grafico">
+                        <div class="alerta">
+                            <div class="card-situacao">
+                                <div class="situacao-conteudo">
+                                    <img src="../assets/seguro.png" width="110px">
+                                    <p>Seu Frigorífico está seguro!</p>
+                                </div>
+                            </div>
+                            <div class="grafico">
+                                <div class="kpi-grafico leitura">
+                                    <div class="kpi-img">
+                                        <img src="../assets/leitura.png">
+                                    </div>
+                                    <div class="kpi-info">
+                                        <span>Leitura dos sensores</span>
+                                    </div>
+                                </div>
+                                <canvas class="grafico-ppm" id="myChartLine"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-graficos-direita">
+
+                    <div class="container-kpi">
+                        <div class="titulo-kpi">Dias sem vazamentos (ppm acima de 5)</div>
+                        <div class="sensores-container">
+                            <div class="linha-sensor">
+                                <div class="sensor-card">
+                                    <div class="sensor-nome">Sensor Evaporador</div>
+                                    <div class="sensor-status">10 Dias</div>
+                                </div>
+                                <div class="sensor-card">
+                                    <div class="sensor-nome">Sensor Condensador</div>
+                                    <div class="sensor-status">5 Dias</div>
+                                </div>
+                            </div>
+                            <div class="linha-sensor">
+                                <div class="sensor-card">
+                                    <div class="sensor-nome">Sensor Compressor</div>
+                                    <div class="sensor-status">3 dias</div>
+                                </div>
+                                <div class="sensor-card">
+                                    <div class="sensor-nome">Valvula de expansão</div>
+                                    <div class="sensor-status">3 Dias</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-sensores-inferior">
+                <div class="sensor-card">
+                    <div class="sensor-nome">Sensor Compressor</div>
+                    <div class="sensor-status">10 PPM</div>
+                </div>
+                <div class="sensor-card">
+                    <div class="sensor-nome">Sensor Evaporador</div>
+                    <div class="sensor-status">10 PPM</div>
+                </div>
+                <div class="sensor-card">
+                    <div class="sensor-nome">Sensor Condensador</div>
+                    <div class="sensor-status">10 PPM</div>
+                </div>
+                <div class="sensor-card">
+                    <div class="sensor-nome">Valvula de expansão</div>
+                    <div class="sensor-status">10 PPM</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/chartEspecifica.js"></script>

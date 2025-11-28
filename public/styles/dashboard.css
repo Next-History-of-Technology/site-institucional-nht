@@ -114,8 +114,6 @@ a {
     display: flex;
     gap: 12px;
     height: 12vh;
-    min-height: 80px;
-    max-height: 100px;
 }
 
 .card-metricas {
@@ -127,20 +125,15 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     height: 100%;
-    width: 25%;
+    width: 33.33%;
     flex-direction: row;
     text-align: left;
     justify-content: flex-start;
-    transition: transform 0.2s ease;
-}
-
-.card-metricas:hover {
-    transform: translateY(-2px);
 }
 
 .card-metricas img {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
 }
 
@@ -151,14 +144,14 @@ a {
 }
 
 .metrica-descricao {
-    font-size: 12px;
+    font-size: 13px;
     opacity: 0.9;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     text-align: left;
 }
 
 .metrica-valor {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: bold;
 }
 
