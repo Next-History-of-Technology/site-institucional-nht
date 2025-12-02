@@ -17,9 +17,8 @@
             <h3 id="nome_usuario">Bem vindo(a), </h3>
         </div>
 
-        <div class="nav-links">
+        <div class="nav-links" id="nav_link">
             <a class="nav-link-pai" href="#">Visão Geral</a>
-            <a href="camara.html">Câmara Fria 1</a>
         </div>
 
         <div class="nav-footer">
@@ -72,113 +71,67 @@
                 </div>
 
                 <!-- Câmaras -->
-                <div class="container-camaras">
-                    <div class="card-camara">
-                        <div class="info-camara">
-                            <div class="nome-camara">Câmara 01</div>
-                        </div>
-                        <div class="sensores-container">
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Evaporador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Condensador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Compressor</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Valvula de expansão</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container-camaras" id="container_camaras">
 
-
-                    <div class="card-camara">
-                        <div class="info-camara">
-                            <div class="nome-camara">Câmara 02</div>
-                        </div>
-                        <div class="sensores-container">
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Evaporador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Condensador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Compressor</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Valvula de expansão</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-camara">
-                        <div class="info-camara">
-                            <div class="nome-camara">Câmara 03</div>
-                        </div>
-                        <div class="sensores-container">
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Evaporador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Condensador</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                            <div class="linha-sensor">
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Sensor Compressor</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                                <div class="sensor-card">
-                                    <div class="sensor-nome">Valvula de expansão</div>
-                                    <div class="sensor-status">Seguro</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
             </div>
 
             <!-- Gráficos Laterais -->
             <div class="container-graficos-direita">
-                <div class="grafico-card-pai">
-                    <div class="grafico-card">
-                        <div class="kpi-grafico vazamento">
-                            <div class="kpi-img">
-                                <img src="../assets/alerta.png" width="25">
-                            </div>
-                            <div class="kpi-info">
-                                <span>Alertas totais atual</span>
-                            </div>
+                <!-- Card Seguro -->
+                <div class="card-sensores card-seguro">
+                    <div>
+                        <div class="estado-sensores">
+                            Seguro
                         </div>
-                        <div class="card-grafico-menor">
-                            <canvas class="grafico-barra" id="myChartBarra"></canvas>
-                        </div>
+                    </div>
+                    <div class="total-sensores">10</div>
+                    <div class="icon-container">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                 </div>
 
+                <!-- Card Baixo -->
+                <div class="card-sensores card-baixo">
+                    <div>
+                        <div class="estado-sensores">
+                            Baixo
+                        </div>
+                    </div>
+                    <div class="total-sensores">2</div>
+                    <div class="icon-container">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+
+                <!-- Card Moderado -->
+                <div class="card-sensores card-moderado">
+                    <div>
+                        <div class="estado-sensores">
+                            Moderado
+                        </div>
+                    </div>
+                    <div class="total-sensores">3</div>
+                    <div class="icon-container">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+
+                <!-- Card Crítico -->
+                <div class="card-sensores card-critico">
+                    <div>
+                        <div class="estado-sensores">
+                            Crítico
+                        </div>
+                    </div>
+                    <div class="total-sensores">1</div>
+                    <div class="icon-container">
+                        <i class="fas fa-radiation-alt"></i>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 

@@ -48,11 +48,15 @@ nome VARCHAR(60) NOT NULL,
 senha VARCHAR(100) NOT NULL,
 telefone CHAR(15) UNIQUE NOT NULL,
 cpf VARCHAR(14) UNIQUE NOT NULL ,
-statusFuncionario TINYINT DEFAULT 1
+statusFuncionario TINYINT DEFAULT 1,
+tipo VARCHAR(45) NOT NULL
 );
 
+ALTER TABLE cadastroFuncionario ADD CONSTRAINT chkTipo
+	CHECK(tipo = 'suporte' OR tipo = 'funcionario');
+    
 INSERT INTO cadastroFuncionario VALUES
-(1, 1, 'amandha@jbs.com', 'Amandha', 'amandhajbs123', '11 965432524', '09854327689', default);
+(1, 1, 'amandha@jbs.com', 'Amandha', 'amandhajbs123', '11 965432524', '09854327689', default, 'suporte');
 
 
 
@@ -66,7 +70,8 @@ REFERENCES empresa(idEmpresa)
 );
 
 INSERT INTO camaraFria VALUES 
-(default, 'Câmara Bovinos', default, 1);
+(default, 'Câmara Bovinos', default, 1),
+(default, 'Câmara Suíno', default, 1);
 
 CREATE TABLE localSensor (
 idLocalSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -86,7 +91,14 @@ INSERT INTO localSensor VALUES
 (default, 'evaporador', default, 1, 1),
 (default, 'compressor', default, 1, 1),
 (default, 'condensador', default, 1, 1),
-(default, 'válvula de expansão', default, 1, 1);
+(default, 'válvula de expansão', default, 1, 1),
+
+(default, 'evaporador', default, 2, 1),
+(default, 'compressor', default, 2, 1),
+(default, 'condensador', default, 2, 1),
+(default, 'válvula de expansão', default, 2, 1);
+
+
 
 CREATE TABLE sensor (
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -102,8 +114,14 @@ INSERT INTO sensor VALUES
 (default, 234567, '2025-11-14', 1),
 (default, 234568, '2025-11-14', 2),
 (default, 234569, '2025-11-14', 3),
-(default, 234560, '2025-11-14', 4);
+(default, 234560, '2025-11-14', 4),
 
+(default, 234560, '2025-11-14', 5),
+(default, 234560, '2025-11-14', 6),
+(default, 234560, '2025-11-14', 7),
+(default, 234560, '2025-11-14', 8);
+
+select * from sensor;
 CREATE TABLE leitura (
 idLeitura INT AUTO_INCREMENT,
 fkSensor INT NOT NULL,
@@ -117,10 +135,15 @@ valorPPM DECIMAL(5,2)
 );
 
 INSERT INTO leitura VALUES
-(default, 1, default, 7),
-(default, 2, default, 8),
-(default, 3, default, 9),
-(default, 4, default, 10);
+(default, 1, default, 2),
+(default, 2, default, 2),
+(default, 3, default, 1),
+(default, 4, default, 10),
+
+(default, 5, default, 10),
+(default, 6, default, 10),
+(default, 7, default, 10),
+(default, 8, default, 10);
 
 
 select * from empresa join cadastroFuncionario as func on func.fkEmpresa = empresa.idEmpresa join plano on empresa.fkPlano = plano.idPlano
@@ -147,6 +170,30 @@ join leitura on leitura.fkSensor = sensor.idSensor join camaraFria as camara on 
 
 select * from leitura;
 
-select * from cadastrofuncionario;
+select * from cadastroFuncionario;
 
 SELECT idEmpresa, CNPJ, nomeFantasia, razaoSocial, telefone, statusEmpresa, codigoEmpresa, fkPlano FROM empresa;
+
+
+
+SELECT 
+    s.idSensor,
+    ls.nomeLocal,
+    cf.nome AS nomeCamara,
+    l.valorPPM,
+    l.dataHora AS dataUltimaLeitura
+
+FROM sensor s
+JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
+JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
+JOIN empresa e ON e.idEmpresa = cf.fkEmpresa
+
+JOIN leitura l ON l.idLeitura = (
+    SELECT idLeitura
+    FROM leitura
+    WHERE fkSensor = s.idSensor
+    ORDER BY dataHora DESC
+    LIMIT 1
+)
+WHERE cf.idCamaraFria = 1;
+

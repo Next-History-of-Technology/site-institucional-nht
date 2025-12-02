@@ -311,7 +311,7 @@ a {
 
 .card-grafico-menor {
     width: 100%;
-    height: 100% ;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,4 +333,78 @@ a {
 
 .card-seguro {
     background: linear-gradient(50deg, #28155e, #5a47b8);
+}
+
+
+.card-sensores {
+    border-radius: 20px;
+    padding: 30px 25px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 160px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.card-sensores:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Classes específicas para cada estado */
+.card-seguro {
+    background: linear-gradient(135deg, #28155e, #5a47b8);
+}
+
+.card-baixo {
+    background: linear-gradient(135deg, #f57c00, #ff9800);
+}
+
+
+.card-moderado {
+    background: linear-gradient(135deg, #ffea00, #ffd600);
+}
+
+.card-critico {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+}
+
+.estado-sensores {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.estado-sensores i {
+    font-size: 32px;
+}
+
+.total-sensores {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.icon-container i {
+    font-size: 80px;
 }

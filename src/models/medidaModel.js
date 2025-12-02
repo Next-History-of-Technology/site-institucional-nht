@@ -15,21 +15,64 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarMedidasEmTempoReal(idCamara) {
 
     var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+    s.idSensor,
+    ls.nomeLocal,
+    cf.nome AS nomeCamara,
+    l.valorPPM,
+    l.dataHora AS dataUltimaLeitura
+
+    FROM sensor s
+    JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
+    JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
+    JOIN empresa e ON e.idEmpresa = cf.fkEmpresa
+
+    JOIN leitura l ON l.idLeitura = (
+    SELECT idLeitura
+    FROM leitura
+    WHERE fkSensor = s.idSensor
+    ORDER BY dataHora DESC
+    LIMIT 1
+)
+WHERE cf.idCamaraFria = ${idCamara};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+
+function buscarMedidasEmTempoRealTodas(idEmpresa) {
+
+    var instrucaoSql = `SELECT 
+    s.idSensor,
+    ls.nomeLocal,
+    cf.nome AS nomeCamara,
+    l.valorPPM,
+    l.dataHora AS dataUltimaLeitura
+
+    FROM sensor s
+    JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
+    JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
+    JOIN empresa e ON e.idEmpresa = cf.fkEmpresa
+
+    JOIN leitura l ON l.idLeitura = (
+    SELECT idLeitura
+    FROM leitura
+    WHERE fkSensor = s.idSensor
+    ORDER BY dataHora DESC
+    LIMIT 1
+)
+WHERE e.idEmpresa = ${idEmpresa};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
+    buscarMedidasEmTempoRealTodas,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 }

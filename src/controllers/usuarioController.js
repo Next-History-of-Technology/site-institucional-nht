@@ -25,6 +25,7 @@ function autenticar(req, res) {
                                 if (resultadoCamaras.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].idFuncionario,
+                                        fkEmpresa: resultadoAutenticar[0].empresaId,
                                         email: resultadoAutenticar[0].email,
                                         cpf: resultadoAutenticar[0].cpf,
                                         nome: resultadoAutenticar[0].nome,
