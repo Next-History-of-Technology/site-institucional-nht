@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #63B1BC;
+    background-color: #FFFFFF;
     margin: 0;
     padding: 0;
 }
@@ -13,13 +13,15 @@ body {
 
 h1 {
     color: #1F2A44;
+    display: flex;
+    justify-content: flex-start;
 }
 
 textarea[type="text"] {
     padding: 8px;
     font-size: 16px;
     border-radius: 5px;
-    width: 400px;
+    width: 90%;
 }
 
 select,

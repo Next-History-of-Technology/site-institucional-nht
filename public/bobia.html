@@ -10,13 +10,15 @@
 
 <body>
 
+    <h1>BobIA</h1>
     <div id="container">
-        <h1>BobIA</h1>
         <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+        <div id="resposta"></div> 
         <br><br>
-        <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
+        <div class="botao">
+            <button onclick="gerarResposta()">Gerar Resposta</button>
+        </div>
+            <h3>Resposta da IA:</h3>
     </div>
 
     <script>
