@@ -18,4 +18,8 @@ router.get("/dias-sem-vazamento/:idCamara", function (req, res) {
 router.get("/tempo-real-todas/:idEmpresa", function (req, res) {
     medidaController.buscarMedidasEmTempoRealTodas(req, res);
 })
+
+router.get("/obter-dados-leituras/:idCamara", function (req, res) {
+    medidaController.obterDadosLeituras(req, res);
+})
 module.exports = router;

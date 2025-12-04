@@ -15,6 +15,32 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
+function obterDadosLeituras(idCamara) {
+
+    var instrucaoSql = `SELECT 
+    s.idSensor,
+    ls.nomeLocal,
+    cf.nome AS nomeCamara,
+    l.valorPPM,
+    l.dataHora AS dataUltimaLeitura
+
+    FROM sensor s
+    JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
+    JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
+    JOIN empresa e ON e.idEmpresa = cf.fkEmpresa
+
+    JOIN leitura l ON l.idLeitura = (
+    SELECT idLeitura
+    FROM leitura
+    WHERE fkSensor = s.idSensor
+    ORDER BY dataHora DESC
+)
+WHERE cf.idCamaraFria = ${idCamara};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function buscarMedidasEmTempoReal(idCamara) {
 
     var instrucaoSql = `SELECT 
@@ -104,5 +130,6 @@ module.exports = {
     buscarDiasSemVazamentos,
     buscarMedidasEmTempoRealTodas,
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    obterDadosLeituras
 }

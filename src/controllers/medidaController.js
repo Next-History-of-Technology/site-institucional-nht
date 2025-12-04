@@ -21,6 +21,23 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function obterDadosLeituras(req, res) {
+    var idCamara = req.params.idCamara;
+
+    console.log('Medidas gráficos')
+
+    medidaModel.obterDadosLeituras(idCamara).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        } else {
+            res.status(204).send('Nenhuma leitura encontrada')
+        }
+    }).catch(function (erro) {
+        console.log(erro)
+        res.status(500).json(erro.sqlMessage)
+    })
+}
+
 function buscarMedidasEmTempoReal(req, res) {
 
     var idCamara = req.params.idCamara;
@@ -83,6 +100,6 @@ module.exports = {
     buscarDiasSemVazamentos,
     buscarMedidasEmTempoRealTodas,
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarMedidasEmTempoReal,
+    obterDadosLeituras
 }

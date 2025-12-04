@@ -1,14 +1,20 @@
 //Gráfico de Linha
+
+var medidasEvaporador = []
+var medidasCompressor = []
+var medidasCondensador = []
+var medidasValvula = []
+
 const ctxLine = document.getElementById('myChartLine');
 
-new Chart(ctxLine, {
+var chartLine = new Chart(ctxLine, {
     type: 'line',
     data: {
         labels: ['12:40', '12:41', '12:42', '12:43', '12:44', '12:45'],
         datasets: [
             {
                 label: 'Sensor Válvula de Expansão',
-                data: [0, 0, 1, 5, 4, 3],
+                data: medidasValvula,
                 borderColor: '#6C63FF',
                 backgroundColor: 'rgba(108, 99, 255, 0.1)',
                 tension: 0.4,
@@ -19,7 +25,7 @@ new Chart(ctxLine, {
             },
             {
                 label: 'Sensor Evaporador',
-                data: [0, 2, 4, 3, 2, 5],
+                data: medidasEvaporador,
                 borderColor: '#C649FC',/*cor da linha*/
                 tension: 0.4,/*suaviza as linhas deixando de ser linhas retas */
                 pointBackgroundColor: '#C649FC',/*cor da bolinha*/
@@ -30,7 +36,7 @@ new Chart(ctxLine, {
             },
             {
                 label: 'Sensor Condensador',
-                data: [1, 4, 3, 1, 0, 0],
+                data: medidasCondensador,
                 borderColor: '#0cc2f0',
                 tension: 0.4,
                 pointBackgroundColor: '#0cc2f0',
@@ -41,7 +47,7 @@ new Chart(ctxLine, {
             },
             {
                 label: 'Sensor Compressor',
-                data: [1, 1, 3, 2, 3, 4],
+                data: medidasCompressor,
                 borderColor: '#12be8b',
                 tension: 0.4,
                 pointBackgroundColor: '#12be8b',
@@ -89,3 +95,27 @@ new Chart(ctxLine, {
     }
 });
 
+var idCamara = sessionStorage.CAMARA_ATUAL;
+
+function obterDadosLeituras() {
+    fetch(`/medidas/obter-dados-leituras/${idCamara}`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    medidasEvaporador.push(resposta[0].valorPPM)
+                    medidasCompressor.push(resposta[1].valorPPM)
+                    medidasCondensador.push(resposta[2].valorPPM)
+                    medidasValvula.push(resposta[3].valorPPM)
+
+                    chartLine.update()
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados ${error.message}`);
+        });
+}
+
+obterDadosLeituras()
