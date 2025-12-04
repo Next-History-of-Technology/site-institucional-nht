@@ -71,7 +71,37 @@ WHERE e.idEmpresa = ${idEmpresa};`;
 }
 
 
+function buscarDiasSemVazamentos(idCamara) {
+
+    var instrucaoSql = `
+SELECT 
+    s.idSensor,
+    cf.nome AS nomeCamara,
+
+    DATEDIFF(
+        NOW(),
+        (
+            SELECT l2.dataHora
+            FROM leitura l2
+            WHERE l2.fkSensor = s.idSensor
+              AND l2.valorPPM >= 5        
+            ORDER BY l2.dataHora DESC
+            LIMIT 1
+        )
+    ) AS diasSemVazamento
+
+FROM sensor s
+JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
+JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
+WHERE cf.idCamaraFria = ${idCamara};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
+    buscarDiasSemVazamentos,
     buscarMedidasEmTempoRealTodas,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal

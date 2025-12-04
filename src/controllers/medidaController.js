@@ -59,7 +59,28 @@ function buscarMedidasEmTempoRealTodas(req, res) {
     });
 }
 
+
+function buscarDiasSemVazamentos(req, res) {
+
+    var idCamara = req.params.idCamara;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarDiasSemVazamentos(idCamara).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
+    buscarDiasSemVazamentos,
     buscarMedidasEmTempoRealTodas,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal

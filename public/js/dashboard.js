@@ -53,12 +53,38 @@ function EscolherCamara(idCamaraFria) {
 
 
 
+
 // apenas teste não esta 100% funcional 
 var idCamara = 1
 function buscarMedidasEmTempoReal() {
     fetch(`/medidas/tempo-real/${idCamara}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
+
+                var totalCritico = 0
+                var totalAlerta = 0
+                var totalRisco = 0
+                var totalSeguro = 0
+
+
+                for (var i = 0; i < resposta.length; i++) {
+                    var ppm = Number(resposta[i].valorPPM)
+
+                    if (ppm < 5) {
+                        totalSeguro++
+                    } else if (ppm <= 25) {
+                        totalAlerta++
+                    } else if (ppm <= 50) {
+                        totalRisco++
+                    } else {
+                        totalCritico++
+                    }
+                }
+
+                total_seguro.innerHTML = `${totalSeguro}`
+                total_alerta.innerHTML = `${totalAlerta}`
+                total_risco.innerHTML = `${totalRisco}`
+                total_critico.innerHTML = `${totalCritico}`
 
                 var evaporador = resposta[0].valorPPM
                 var compressor = resposta[1].valorPPM
@@ -152,6 +178,8 @@ function buscarMedidasEmTempoReal() {
             console.error(`Erro na obtenção dos dados ${error.message}`);
         });
 }
+
+
 
 buscarMedidasEmTempoReal();
 

@@ -11,6 +11,9 @@ router.get("/tempo-real/:idCamara", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/dias-sem-vazamento/:idCamara", function (req, res) {
+    medidaController.buscarDiasSemVazamentos(req, res);
+})
 
 router.get("/tempo-real-todas/:idEmpresa", function (req, res) {
     medidaController.buscarMedidasEmTempoRealTodas(req, res);
