@@ -102,7 +102,7 @@ a {
 }
 
 .container-esquerdo {
-    width: 65%;
+    width: 72%;
     display: flex;
     flex-direction: column;
     gap: 2vh;
@@ -113,27 +113,27 @@ a {
     width: 100%;
     display: flex;
     gap: 12px;
-    height: 12vh;
+    height: 17vh;
 }
 
 .card-metricas {
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     height: 100%;
-    width: 33.33%;
+    width: 100%;
     flex-direction: row;
     text-align: left;
     justify-content: flex-start;
 }
 
 .card-metricas img {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     margin-right: 10px;
 }
 
@@ -144,14 +144,14 @@ a {
 }
 
 .metrica-descricao {
-    font-size: 13px;
+    font-size: 16px;
     opacity: 0.9;
     margin-bottom: 6px;
     text-align: left;
 }
 
 .metrica-valor {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -251,73 +251,6 @@ a {
     color: #5a47b8;
 }
 
-/* Gráficos Laterais */
-.container-graficos-direita {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-    flex: 1;
-}
-
-.grafico-card-pai {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    width: 100%;
-    height: 48%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-}
-
-.grafico-card {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.kpi-grafico {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-    height: 50px;
-}
-
-.kpi-img {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
-    border-radius: 50px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.kpi-img img {
-    width: 22px;
-    height: 22px;
-}
-
-.kpi-info span {
-    font-size: 13px;
-    color: #555;
-    font-weight: bold;
-    display: block;
-}
-
-.card-grafico-menor {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
 /* Cores das métricas */
 .card-risco {
     background: linear-gradient(45deg, #d32f2f, #f44336);
@@ -336,75 +269,94 @@ a {
 }
 
 
-.card-sensores {
-    border-radius: 20px;
-    padding: 30px 25px;
+/*Conteudo a direita*/
+
+.container-graficos-direita {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    flex: 1;
+}
+
+.titulo-secao {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.titulo-secao h2 {
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.titulo-secao h2 i {
+    color: #5a47b8;
+    font-size: 32px;
+}
+
+.subtitulo-secao {
+    color: #7f8c8d;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card-status {
+    border-radius: 8px;
+    padding: 25px;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 80%;
-    height: 160px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 125px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     position: relative;
 }
 
-.card-sensores:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Classes específicas para cada estado */
-.card-seguro {
-    background: linear-gradient(135deg, #28155e, #5a47b8);
-}
-
-.card-baixo {
-    background: linear-gradient(135deg, #f57c00, #ff9800);
-}
-
-
-.card-moderado {
-    background: linear-gradient(135deg, #ffea00, #ffd600);
-}
-
-.card-critico {
-    background: linear-gradient(135deg, #d32f2f, #f44336);
-}
-
-.estado-sensores {
-    font-size: 28px;
-    font-weight: 700;
+.card-topo {
     margin-bottom: 10px;
-    position: relative;
-    z-index: 2;
+}
+
+.card-meio {
+    flex: 1;
+}
+
+.contador-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 8px;
 }
 
-.estado-sensores i {
-    font-size: 32px;
-}
-
-.total-sensores {
-    font-size: 50px;
+.numero-contador {
+    font-size: 48px;
     font-weight: 800;
-    text-align: right;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    line-height: 1;
 }
 
-.icon-container {
+.texto-contador {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.card-icone-fundo {
     position: absolute;
-    bottom: 15px;
-    left: 25px;
-    opacity: 0.15;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.1;
     z-index: 1;
+    transform: scale(1.5);
 }
 
-.icon-container i {
-    font-size: 80px;
+.card-icone-fundo i {
+    font-size: 100px;
 }
