@@ -1,188 +1,154 @@
-nome_usuario.innerHTML += sessionStorage.NOME_USUARIO
-var camaras = JSON.parse(sessionStorage.CAMARA)
+nome_usuario.innerHTML += sessionStorage.NOME_USUARIO;
+var camaras = JSON.parse(sessionStorage.CAMARA);
 
 sessionStorage.CAMARA_ATUAL = 0;
 
-
-// para criar as camaras na navbar
+// gerar navbar
 for (var i = 0; i < camaras.length; i++) {
-    var idCamaraFria = camaras[i].idCamaraFria
-    nav_link.innerHTML += `<a href="camara.html" onclick="EscolherCamara(${idCamaraFria})">${camaras[i].nome}</a>`
+    var idCamaraFria = camaras[i].idCamaraFria;
+    nav_link.innerHTML += `<a href="camara.html" onclick="EscolherCamara(${idCamaraFria})">${camaras[i].nome}</a>`;
 }
 
-// function listar Camaras
+// gerar cards das camaras
 for (var i = 0; i < camaras.length; i++) {
 
-    var idCamaraFria = camaras[i].idCamaraFria
-
+    var idCamaraFria = camaras[i].idCamaraFria;
     container_camaras.innerHTML += `
-    <div class="card-camara" onclick="EscolherCamara(${idCamaraFria})">
+    <div class="card-camara" id="camara_${idCamaraFria}" onclick="EscolherCamara(${idCamaraFria})">
         <div class="info-camara">
             <div class="nome-camara">${camaras[i].nome}</div>
         </div>
         <div class="sensores-container">
             <div class="linha-sensor">
-                <div class="sensor-card" id="card_evaporador">
+                <div class="sensor-card" id="card_evaporador_${idCamaraFria}">
                     <div class="sensor-nome">Sensor Evaporador</div>
-                    <div class="sensor-status" id="sensor_evaporador"></div>
+                    <div class="sensor-status" id="sensor_evaporador_${idCamaraFria}"></div>
                 </div>
-                <div class="sensor-card" id="card_condensador">
+                <div class="sensor-card" id="card_condensador_${idCamaraFria}">
                     <div class="sensor-nome">Sensor Condensador</div>
-                    <div class="sensor-status" id="sensor_condensador"></div>
+                    <div class="sensor-status" id="sensor_condensador_${idCamaraFria}"></div>
                 </div>
             </div>
             <div class="linha-sensor">
-                <div class="sensor-card" id="card_compressor">
+                <div class="sensor-card" id="card_compressor_${idCamaraFria}">
                     <div class="sensor-nome">Sensor Compressor</div>
-                    <div class="sensor-status" id="sensor_compressor"></div>
+                    <div class="sensor-status" id="sensor_compressor_${idCamaraFria}"></div>
                 </div>
-                <div class="sensor-card" id="card_valvula">
-                    <div class="sensor-nome">Valvula de expansão</div>
-                    <div class="sensor-status" id="sensor_valvula"></div>
+                <div class="sensor-card" id="card_valvula_${idCamaraFria}">
+                    <div class="sensor-nome">Válvula de Expansão</div>
+                    <div class="sensor-status" id="sensor_valvula_${idCamaraFria}"></div>
                 </div>
             </div>
         </div>
-    </div>`
+    </div>`;
 }
 
 function EscolherCamara(idCamaraFria) {
-    sessionStorage.CAMARA_ATUAL = idCamaraFria
-    console.log('camara escolhida foi' + idCamaraFria)
-    window.location.href = `./camara.html`
+    sessionStorage.CAMARA_ATUAL = idCamaraFria;
+    window.location.href = "./camara.html";
 }
 
+var idEmpresa = sessionStorage.ID_EMPRESA;
 
+function buscarMedidasEmTempoRealTodas() {
+    fetch(`/medidas/tempo-real-todas/${idEmpresa}`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
 
+                    var totalCritico = 0;
+                    var totalAlerta = 0;
+                    var totalRisco = 0;
+                    var totalSeguro = 0;
 
-// apenas teste não esta 100% funcional 
-var idCamara = 1
-function buscarMedidasEmTempoReal() {
-    fetch(`/medidas/tempo-real/${idCamara}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
+                    var grupos = {};
 
-                var totalCritico = 0
-                var totalAlerta = 0
-                var totalRisco = 0
-                var totalSeguro = 0
+                    for (var i = 0; i < resposta.length; i++) {
+                        var camara = resposta[i].nomeCamara;
 
+                        if (grupos[camara] == undefined) {
+                            grupos[camara] = [];
+                        }
+                        grupos[camara].push(resposta[i]);
+                        var ppm = Number(resposta[i].valorPPM);
 
-                for (var i = 0; i < resposta.length; i++) {
-                    var ppm = Number(resposta[i].valorPPM)
-
-                    if (ppm < 5) {
-                        totalSeguro++
-                    } else if (ppm <= 25) {
-                        totalAlerta++
-                    } else if (ppm <= 50) {
-                        totalRisco++
-                    } else {
-                        totalCritico++
+                        if (ppm < 5) {
+                            totalSeguro++;
+                        } else if (ppm <= 25) {
+                            totalAlerta++;
+                        }
+                        else if (ppm <= 50) {
+                            totalRisco++;
+                        }
+                        else {
+                            totalCritico++;
+                        }
                     }
-                }
 
-                total_seguro.innerHTML = `${totalSeguro}`
-                total_alerta.innerHTML = `${totalAlerta}`
-                total_risco.innerHTML = `${totalRisco}`
-                total_critico.innerHTML = `${totalCritico}`
+                    total_seguro.innerHTML = totalSeguro;
+                    total_alerta.innerHTML = totalAlerta;
+                    total_risco.innerHTML = totalRisco;
+                    total_critico.innerHTML = totalCritico;
 
-                var evaporador = resposta[0].valorPPM
-                var compressor = resposta[1].valorPPM
-                var condensador = resposta[2].valorPPM
-                var valvula = resposta[3].valorPPM
+                    for (var i = 0; i < camaras.length; i++) {
 
-                // EVAPORADOR
-                if (evaporador <= 5) {
-                    sensor_evaporador.innerHTML = `Seguro`;
-                } else if (evaporador >= 6 && evaporador <= 25) {
-                    sensor_evaporador.innerHTML = `Risco Alto`;
-                    card_evaporador.style.background = "linear-gradient(45deg, #ffea00, #ffd600)";
-                    sensor_evaporador.style.color = "white";
+                        var nomeCamara = camaras[i].nome;
+                        var idCamaraFria = camaras[i].idCamaraFria;
+                        var sensoresDaCamara = grupos[nomeCamara];
 
-                } else if (evaporador >= 26 && evaporador <= 50) {
-                    sensor_evaporador.innerHTML = `Alerta Crítico`;
-                    card_evaporador.style.background = "linear-gradient(45deg, #f57c00, #ff9800)";
-                    sensor_evaporador.style.color = "white";
+                        if (sensoresDaCamara != undefined) {
 
-                } else if (evaporador > 50) {
-                    sensor_evaporador.innerHTML = `Crítico`;
-                    card_evaporador.style.background = "linear-gradient(45deg, #d32f2f, #f44336)";
-                    sensor_evaporador.style.color = "white";
-                }
+                            for (var j = 0; j < sensoresDaCamara.length; j++) {
 
-                // COMPRESSOR
-                if (compressor <= 5) {
-                    sensor_compressor.innerHTML = `Seguro`;
-                } else if (compressor >= 6 && compressor <= 25) {
-                    sensor_compressor.innerHTML = `Risco Alto`;
-                    card_compressor.style.background = "linear-gradient(45deg, #ffea00, #ffd600)";
-                    sensor_compressor.style.color = "white";
+                                var sensor = sensoresDaCamara[j];
+                                var ppm = Number(sensor.valorPPM);
+                                var local = sensor.nomeLocal;
 
-                } else if (compressor >= 26 && compressor <= 50) {
-                    sensor_compressor.innerHTML = `Alerta Crítico`;
-                    card_compressor.style.background = "linear-gradient(45deg, #f57c00, #ff9800)";
-                    sensor_compressor.style.color = "white";
+                                var divSensor;
+                                var card;
 
-                } else if (compressor > 50) {
-                    sensor_compressor.innerHTML = `Crítico`;
-                    card_compressor.style.background = "linear-gradient(45deg, #d32f2f, #f44336)";
-                    sensor_compressor.style.color = "white";
-                }
+                                if (local == "evaporador") {
+                                    divSensor = document.getElementById("sensor_evaporador_" + idCamaraFria);
+                                    card = document.getElementById("card_evaporador_" + idCamaraFria);
+                                } else if (local == "condensador") {
+                                    divSensor = document.getElementById("sensor_condensador_" + idCamaraFria);
+                                    card = document.getElementById("card_condensador_" + idCamaraFria);
+                                } else if (local == "compressor") {
+                                    divSensor = document.getElementById("sensor_compressor_" + idCamaraFria);
+                                    card = document.getElementById("card_compressor_" + idCamaraFria);
+                                } else if (local == "válvula de expansão") {
+                                    divSensor = document.getElementById("sensor_valvula_" + idCamaraFria);
+                                    card = document.getElementById("card_valvula_" + idCamaraFria);
+                                }
 
-                // CONDENSADOR
-                if (condensador <= 5) {
-                    sensor_condensador.innerHTML = `Seguro`;
-
-                } else if (condensador >= 6 && condensador <= 25) {
-                    sensor_condensador.innerHTML = `Risco Alto`;
-                    card_condensador.style.background = "linear-gradient(45deg, #ffea00, #ffd600)";
-                    sensor_condensador.style.color = "white";
-
-                } else if (condensador >= 26 && condensador <= 50) {
-                    sensor_condensador.innerHTML = `Alerta Crítico`;
-                    card_condensador.style.background = "linear-gradient(45deg, #f57c00, #ff9800)";
-                    sensor_condensador.style.color = "white";
-
-                } else if (condensador > 50) {
-                    sensor_condensador.innerHTML = `Crítico`;
-                    card_condensador.style.background = "linear-gradient(45deg, #d32f2f, #f44336)";
-                    sensor_condensador.style.color = "white";
-                }
-
-                // VÁLVULA
-                if (valvula <= 5) {
-                    sensor_valvula.innerHTML = `Seguro`;
-                } else if (valvula >= 6 && valvula <= 25) {
-                    sensor_valvula.innerHTML = `Risco Alto`;
-                    card_valvula.style.background = "linear-gradient(45deg, #ffea00, #ffd600)";
-                    sensor_valvula.style.color = "white";
-
-                } else if (valvula >= 26 && valvula <= 50) {
-                    sensor_valvula.innerHTML = `Alerta Crítico`;
-                    card_valvula.style.background = "linear-gradient(45deg, #f57c00, #ff9800)";
-                    sensor_valvula.style.color = "white";
-
-                } else if (valvula > 50) {
-                    sensor_valvula.innerHTML = `Crítico`;
-                    card_valvula.style.background = "linear-gradient(45deg, #d32f2f, #f44336)";
-                    sensor_valvula.style.color = "white";
-                }
-
-
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
+                                if (divSensor != undefined) {
+                                    if (ppm < 5) {
+                                        divSensor.innerHTML = "Seguro";
+                                        divSensor.style.color = "#28155e";
+                                    } else if (ppm <= 25) {
+                                        divSensor.innerHTML = "Risco Alto";
+                                        card.style.background = "#ffea00";
+                                        divSensor.style.color = "black";
+                                    } else if (ppm <= 50) {
+                                        divSensor.innerHTML = "Alerta Crítico";
+                                        card.style.background = "#ff9800";
+                                        divSensor.style.color = "white";
+                                    } else {
+                                        divSensor.innerHTML = "Crítico";
+                                        card.style.background = "#d32f2f";
+                                        divSensor.style.color = "white";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados ${error.message}`);
+            console.error("Erro:", error);
         });
 }
 
-
-
-buscarMedidasEmTempoReal();
-
-setInterval(() => {
-    buscarMedidasEmTempoReal();
-}, 1000); 
+buscarMedidasEmTempoRealTodas();
+setInterval(buscarMedidasEmTempoRealTodas, 1000);
