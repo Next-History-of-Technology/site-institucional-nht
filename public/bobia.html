@@ -6,24 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BobIA</title>
     <link rel="stylesheet" href="./styles/bobia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="cima" >
-    <span>BobIA</span>
-    <a href="./index.html">
-        <img src="./assets/logo-nh3.png" alt="" width="100px">
-    </a>
-</div>    
-    <div id="container">
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br><br>
-        <div class="botao">
-            <button onclick="gerarResposta()">Gerar Resposta</button>
+    <div class="cabecalho">
+        <div class="cabecalho-embrulho">
+                <a href="index.html">Sair</a>
+
+            <div class="emoji-container">
+                <i class="fa-solid fa-robot"></i>
+                <span>BobIA</span>
+            </div>
         </div>
+
+        <span class="cabecalho-legenda">Seu assistente de IA inteligente e responsivo</span>
     </div>
-    <h3>Resposta da IA:</h3>
-    <div id="resposta"></div> 
+
+    <main>
+        <from id="chat-container">
+            <textarea id="pergunta" type="text" rows="5" placeholder="Digite a pergunta..."></textarea>
+            <br><br>
+            <div class="botao">
+                <button onclick="gerarResposta()" type="button" class="btn-gerar-resposta">Gerar Resposta</button>
+            </div>
+
+            <h3>Resposta da IA:</h3>
+
+            <div id="resposta"></div>
+        </from>
+    </main>
 
     <script>
 
