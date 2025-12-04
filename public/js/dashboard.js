@@ -124,18 +124,18 @@ function buscarMedidasEmTempoRealTodas() {
                                 if (divSensor != undefined) {
                                     if (ppm < 5) {
                                         divSensor.innerHTML = "Seguro";
-                                        divSensor.style.color = "#28155e";
+                                        divSensor.style.color = "#007a3f";
                                     } else if (ppm <= 25) {
-                                        divSensor.innerHTML = "Risco Alto";
+                                        divSensor.innerHTML = "Moderado";
                                         card.style.background = "#ffea00";
                                         divSensor.style.color = "black";
                                     } else if (ppm <= 50) {
-                                        divSensor.innerHTML = "Alerta Crítico";
-                                        card.style.background = "#ff9800";
+                                        divSensor.innerHTML = "Risco Alto";
+                                        card.style.background = "#ff914d";
                                         divSensor.style.color = "white";
                                     } else {
                                         divSensor.innerHTML = "Crítico";
-                                        card.style.background = "#d32f2f";
+                                        card.style.background = "#ff3131";
                                         divSensor.style.color = "white";
                                     }
                                 }

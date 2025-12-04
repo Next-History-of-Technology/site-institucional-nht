@@ -359,17 +359,17 @@ body {
 
 /* Cores das métricas */
 .card-risco {
-    background: linear-gradient(45deg, #d32f2f, #f44336);
+    background: linear-gradient(45deg, #ff3131, #f44336);
 }
 
 .card-perigo {
-    background: linear-gradient(45deg, #f57c00, #ff9800);
+    background: linear-gradient(45deg, #ff914d, #ff9800);
 }
 
 .card-alerta {
-    background: linear-gradient(45deg, #ffea00, #ffd600);
+    background: linear-gradient(45deg, #ffb11f, #ffea00);
 }
 
 .card-seguro {
-    background: linear-gradient(50deg, #28155e, #5a47b8);
+    background: linear-gradient(50deg, #007a3f, #63E352);
 }
