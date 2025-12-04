@@ -16,26 +16,19 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 }
 
 function obterDadosLeituras(idCamara) {
-
-    var instrucaoSql = `SELECT 
+    var instrucaoSql = `SELECT
     s.idSensor,
     ls.nomeLocal,
     cf.nome AS nomeCamara,
     l.valorPPM,
-    l.dataHora AS dataUltimaLeitura
-
+    l.dataHora
     FROM sensor s
     JOIN localSensor ls ON ls.idLocalSensor = s.fkLocalSensor
     JOIN camaraFria cf ON cf.idCamaraFria = ls.fkCamaraFria
     JOIN empresa e ON e.idEmpresa = cf.fkEmpresa
-
-    JOIN leitura l ON l.idLeitura = (
-    SELECT idLeitura
-    FROM leitura
-    WHERE fkSensor = s.idSensor
-    ORDER BY dataHora DESC
-)
-WHERE cf.idCamaraFria = ${idCamara};`;
+    JOIN leitura l ON l.fkSensor = s.idSensor   
+    WHERE cf.idCamaraFria = ${idCamara}
+ORDER BY l.dataHora DESC;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

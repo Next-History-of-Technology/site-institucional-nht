@@ -102,10 +102,24 @@ function obterDadosLeituras() {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    medidasEvaporador.push(resposta[0].valorPPM)
-                    medidasCompressor.push(resposta[1].valorPPM)
-                    medidasCondensador.push(resposta[2].valorPPM)
-                    medidasValvula.push(resposta[3].valorPPM)
+
+                    resposta.forEach(medida => {
+                        if (medida.nomeLocal === 'evaporador') {
+                            medidasEvaporador.push(medida.valorPPM)
+                        }
+
+                        if (medida.nomeLocal === 'compressor') {
+                            medidasCompressor.push(medida.valorPPM)
+                        }
+
+                        if (medida.nomeLocal == 'condensador') {
+                            medidasCondensador.push(medida.valorPPM)
+                        }
+
+                        if (medida.nomeLocal == 'válvula de expansão') {
+                            medidasValvula.push(medida.valorPPM)
+                        }
+                    });
 
                     chartLine.update()
                 });
